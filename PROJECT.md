@@ -22,6 +22,52 @@ README.md may summarize the project, but PROJECT.md governs implementation decis
 
 ---
 
+# Project Governance
+
+The Cat Approved Experiences™ project is maintained through three dedicated workstreams.
+
+## Canon & Design Council
+
+Responsible for:
+
+* Coupon concepts
+* Naming
+* Lore
+* Relationship humor
+* Character development
+* Future coupon ideas
+* Canon decisions
+
+This workstream defines what becomes part of the Cat Approved Experiences™ universe.
+
+## Implementation & Development
+
+Responsible for:
+
+* Implementation prompts
+* Framework evolution
+* Shared components
+* Translations
+* UX consistency
+* Microsite development
+* PROJECT.md maintenance
+
+This workstream defines how canon decisions are implemented.
+
+## Artwork Studio
+
+Responsible for:
+
+* Artwork generation
+* Artwork refinement
+* Visual consistency
+* Lord Purrcival illustrations
+* Coupon artwork maintenance
+
+This workstream defines how the project is visually represented.
+
+---
+
 # Target Audience
 
 Primary audience: Eszter.
@@ -151,6 +197,48 @@ Future artwork may vary:
 * Coupon-specific certificate or permit materials
 
 Future artwork should read as the same official approving authority appearing in a different department context. The character identity should remain stable even when the coupon theme changes.
+
+---
+
+# Coupon Categories
+
+Coupons may belong to one or more categories.
+
+## Service Coupons
+
+Experiences where one partner performs a service for the other.
+
+Examples:
+
+* Chef Pass
+* Breakfast in Bed Authorization
+
+## Experience Coupons
+
+Experiences intended to be enjoyed together.
+
+Examples:
+
+* Movie Night Authorization
+* Dining Out Authorization
+
+## Comfort Coupons
+
+Experiences focused on affection, relaxation, or emotional support.
+
+Examples:
+
+* Cuddle Authorization
+* Lazy Day
+
+## Emergency Relationship Coupons
+
+Humorous permits intended for exceptional circumstances.
+
+Examples:
+
+* Passenger Princess Permit
+* Unlimited Complaining License
 
 ---
 
@@ -681,6 +769,53 @@ Breakfast in Bed Authorization request rules:
 * Breakfast in Bed must remain distinct from Chef Pass. Chef Pass is a homemade cooking request centered on what Tomi should cook; Breakfast in Bed is a luxury morning delivery authorization centered on wake-up style, beverage handling, comfort, and bedside service.
 * Breakfast in Bed must not include bacon as a selectable option or suggested request item.
 
+---
+
+## Food Experience Framework
+
+The Food Experience Framework standardizes coupons involving food preparation, food delivery, or food-centered relationship experiences.
+
+Applicable coupons include:
+
+* Chef Pass
+* Breakfast in Bed Authorization
+* Future food-related experiences
+
+The framework should support:
+
+* Meal-themed artwork
+* Redemption requests
+* Approval workflow
+* Bilingual support
+* Cat Approved certification
+* Approval Officer component
+
+### Chef Pass
+
+Chef Pass authorizes the recipient to request a home-cooked meal.
+
+Chef Pass intentionally does not require meal type selection.
+
+The experience is centered around recipient choice and flexibility.
+
+### Breakfast in Bed Authorization
+
+Breakfast in Bed Authorization authorizes delivery of breakfast directly to bed.
+
+Breakfast artwork should include breakfast-themed foods such as:
+
+* Eggs
+* Cheese
+* Pastries
+* Fruit
+* Coffee
+
+Breakfast artwork should not contain bacon.
+
+This restriction is intentional and part of project canon.
+
+---
+
 Lazy Day:
 
 * date
@@ -964,6 +1099,10 @@ Department:
 
 Department of Culinary Affairs
 
+Category:
+
+Service Coupon
+
 Status:
 
 Approved
@@ -1015,6 +1154,10 @@ Department of Relaxation
 Hungarian department:
 
 Pihenésügyi Főosztály
+
+Category:
+
+Comfort Coupon
 
 Status:
 
@@ -1076,6 +1219,10 @@ Hungarian department:
 
 Otthoni Szórakoztatási Főosztály
 
+Category:
+
+Experience Coupon
+
 Status:
 
 Approved
@@ -1135,6 +1282,10 @@ Department of Transportation & Companionship
 Hungarian department:
 
 Közlekedési és Kísérési Főosztály
+
+Category:
+
+Emergency Relationship Coupon
 
 Status:
 
@@ -1197,6 +1348,10 @@ Hungarian department:
 
 Kulináris Felfedezési Főosztály
 
+Category:
+
+Experience Coupon
+
 Status:
 
 Approved
@@ -1257,6 +1412,10 @@ Department of Emotional Support
 Hungarian department:
 
 Érzelmi Támogatási Főosztály
+
+Category:
+
+Comfort Coupon
 
 Status:
 
@@ -1319,6 +1478,10 @@ Hungarian department:
 
 Reggeli Ügyek Főosztálya
 
+Category:
+
+Service Coupon
+
 Status:
 
 Approved
@@ -1362,7 +1525,17 @@ Complete
 
 ---
 
-# Future Coupons
+# Future Coupon Registry
+
+Future coupons should receive a CAE identifier before implementation begins.
+
+Planned coupons:
+
+* CAE-008 Unlimited Complaining License
+* Blanket Permit
+* Couch Occupancy Authorization
+
+Pending future concepts without CAE identifiers should receive an identifier before any implementation prompt is written.
 
 Planned coupon folders may be added as new coupon concepts are approved.
 
@@ -1380,11 +1553,6 @@ Potential future actions:
 * Transportation Readiness Inspection
 * Blanket Compliance Inspection
 * Couch Occupancy Permit
-
-Potential future coupons:
-
-* Blanket Permit
-* Couch Occupancy Authorization
 
 ---
 

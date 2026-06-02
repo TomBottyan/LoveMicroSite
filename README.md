@@ -51,6 +51,10 @@ Planned coupon folders may contain only `.gitkeep` until their microsites are ge
 
 All coupons belong to the Cat Approved Experiences™ universe and preserve the same official relationship-bureaucracy tone, including Lord Purrcival / Dorombárd Úr references and Cat Approved certification language.
 
+## Governance
+
+Project decisions are organized across Canon & Design Council, Implementation & Development, and Artwork Studio workstreams. Coupon categories and future coupon identifiers are governed in `PROJECT.md`.
+
 ## History
 
 Project history starts in `CHANGELOG.md` with the v1 foundation baseline.
