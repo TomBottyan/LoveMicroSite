@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="../shared/style.css">
 </head>
-<body data-coupon="chefPass">
+<body data-coupon="chefPass" data-coupon-id="CAE-001">
 
 <div class="floating floating1">🐾</div>
 <div class="floating floating2">📋</div>
@@ -52,120 +52,304 @@
 
     </header>
 
-    <section class="hero" aria-labelledby="coupon-title">
+    <div data-coupon-content>
 
-        <div class="coupon-id">
-            CAE-001
-        </div>
+        <section class="hero permit-hero" aria-labelledby="coupon-title">
 
-        <h1 id="coupon-title" data-i18n="title">
-            Chef Pass
-        </h1>
-
-        <div class="department" data-i18n="department">
-            Department of Culinary Affairs
-        </div>
-
-        <div class="approval-card">
-
-            <div class="approval-label" data-i18n="approvedBy">
-                APPROVED BY
+            <div class="coupon-id">
+                CAE-001
             </div>
 
-            <div class="approver" data-i18n="approver">
-                Lord Purrcival
+            <h1 id="coupon-title" data-i18n="title">
+                Chef Pass
+            </h1>
+
+            <p class="approval-statement" data-i18n="approvedByLord">
+                Approved by Lord Purrcival
+            </p>
+
+            <article class="approval-officer" aria-labelledby="approval-officer-name">
+
+                <div class="approval-officer-media">
+                    <img
+                        class="approval-officer-portrait"
+                        src="../shared/images/lord-purrcival/chef-pass.png"
+                        alt="Lord Purrcival presenting the official Chef Pass approval portrait"
+                        data-i18n-alt="approvalOfficerPortraitAlt"
+                        width="1536"
+                        height="1024"
+                    >
+                </div>
+
+                <div class="approval-officer-details">
+
+                    <div class="approval-label" data-i18n="approvalOfficerLabel">
+                        APPROVAL OFFICER
+                    </div>
+
+                    <h2 id="approval-officer-name" class="approval-officer-name" data-i18n="approver">
+                        Lord Purrcival
+                    </h2>
+
+                    <div class="approval-officer-title" data-i18n="directorTitle">
+                        Director of Relationship Affairs
+                    </div>
+
+                    <div class="approval-officer-certification" data-i18n="certification">
+                        🐾 Certified by Cat Approved Experiences™
+                    </div>
+
+                </div>
+
+            </article>
+
+            <div class="department" data-i18n="department">
+                Department of Culinary Affairs
             </div>
 
-            <div class="title" data-i18n="directorTitle">
-                Director of Relationship Affairs
+        </section>
+
+        <section class="card">
+
+            <h2 data-i18n="applicationStatus">
+                Application Status
+            </h2>
+
+            <div class="status approved" data-i18n="approved">
+                APPROVED ✓
             </div>
 
-        </div>
+            <p data-i18n="applicationText">
+                Following a review of the submitted relationship records, the Department of Culinary Affairs has authorized one (1) homemade dinner.
+            </p>
 
-    </section>
+        </section>
 
-    <section class="card">
+        <section class="card">
 
-        <h2 data-i18n="applicationStatus">
-            Application Status
-        </h2>
+            <h2 data-i18n="benefits">
+                Benefits
+            </h2>
 
-        <div class="status approved" data-i18n="approved">
-            APPROVED ✓
-        </div>
+            <ul class="benefits">
 
-        <p data-i18n="applicationText">
-            Following a review of the submitted relationship records, the Department of Culinary Affairs has authorized one (1) homemade dinner.
-        </p>
+                <li data-i18n="benefit1">🍝 One homemade meal</li>
+                <li data-i18n="benefit2">👨‍🍳 Premium chef attention</li>
+                <li data-i18n="benefit3">🧹 Zero kitchen responsibilities</li>
+                <li data-i18n="benefit4">😋 Unlimited taste-testing rights</li>
+                <li data-i18n="benefit5">❤️ Optional emotional support</li>
 
-    </section>
+            </ul>
 
-    <section class="card">
+        </section>
 
-        <h2 data-i18n="benefits">
-            Benefits
-        </h2>
+        <section class="card action-card">
 
-        <ul class="benefits">
+            <h2 data-i18n="auditTitle">
+                Compliance Audit
+            </h2>
 
-            <li data-i18n="benefit1">🍝 One homemade meal</li>
-            <li data-i18n="benefit2">👨‍🍳 Premium chef attention</li>
-            <li data-i18n="benefit3">🧹 Zero kitchen responsibilities</li>
-            <li data-i18n="benefit4">😋 Unlimited taste-testing rights</li>
-            <li data-i18n="benefit5">❤️ Optional emotional support</li>
+            <p data-i18n="auditDescription">
+                Conduct a mandatory review before culinary operations begin.
+            </p>
 
-        </ul>
+            <button
+                id="auditButton"
+                class="action-button"
+                type="button"
+                data-action="chefPassAudit"
+                data-action-output="#auditOutput"
+                data-i18n="auditButton"
+                aria-controls="auditOutput"
+                aria-busy="false"
+            >
+                Conduct Compliance Audit
+            </button>
 
-    </section>
+            <div id="auditOutput" class="action-output" aria-live="polite"></div>
 
-    <section class="card">
+        </section>
 
-        <h2 data-i18n="auditTitle">
-            Compliance Audit
-        </h2>
+        <section class="card">
 
-        <p data-i18n="auditDescription">
-            Conduct a mandatory review before culinary operations begin.
-        </p>
+            <h2 data-i18n="legalNotice">
+                Legal Notice
+            </h2>
 
-        <button id="auditButton" type="button" data-i18n="auditButton">
-            Conduct Compliance Audit
+            <p data-i18n="legalText1">
+                This permit remains valid until redeemed by Eszter.
+            </p>
+
+            <p data-i18n="legalText2">
+                Cat Approved Experiences™ accepts no responsibility for:
+            </p>
+
+            <ul class="legal-list">
+
+                <li data-i18n="legal1">Excessive happiness</li>
+                <li data-i18n="legal2">Food comas</li>
+                <li data-i18n="legal3">Unexpected dessert</li>
+                <li data-i18n="legal4">Additional cuddling</li>
+
+            </ul>
+
+        </section>
+
+        <button
+            id="redeemButton"
+            class="redeem-button"
+            type="button"
+            data-request="chefPassMeal"
+            data-i18n="redeemButton"
+            aria-busy="false"
+        >
+            Request Meal Authorization
         </button>
 
-        <div id="auditOutput" aria-live="polite"></div>
+    </div>
+
+    <section class="request-transition" data-request-transition aria-live="polite" hidden>
+
+        <div class="request-transition-panel">
+
+            <div class="request-transition-stamp" aria-hidden="true">
+                🐾
+            </div>
+
+            <div class="request-eyebrow" data-i18n="requestTransitionTitle">
+                Processing Request File
+            </div>
+
+            <div class="transition-messages" data-transition-messages></div>
+
+        </div>
 
     </section>
 
-    <section class="card">
+    <section class="request-screen" data-request-screen hidden>
 
-        <h2 data-i18n="legalNotice">
-            Legal Notice
-        </h2>
+        <button class="secondary-button" type="button" data-request-back data-i18n="requestBackButton">
+            Return to Permit
+        </button>
 
-        <p data-i18n="legalText1">
-            This permit remains valid until redeemed by Eszter.
-        </p>
+        <div class="request-panel" data-request-intro>
 
-        <p data-i18n="legalText2">
-            Cat Approved Experiences™ accepts no responsibility for:
-        </p>
+            <div class="request-eyebrow" data-i18n="requestScreenEyebrow">
+                CAE-001 REQUEST FORM
+            </div>
 
-        <ul class="legal-list">
+            <h1 data-i18n="requestScreenTitle">
+                Meal Authorization Request
+            </h1>
 
-            <li data-i18n="legal1">Excessive happiness</li>
-            <li data-i18n="legal2">Food comas</li>
-            <li data-i18n="legal3">Unexpected dessert</li>
-            <li data-i18n="legal4">Additional cuddling</li>
+            <div class="request-greeting">
+                <p data-i18n="requestGreeting">
+                    Dear Eszter,
+                </p>
 
-        </ul>
+                <p data-i18n="requestIntroText">
+                    Lord Purrcival is ready to process your culinary request.
+                </p>
+            </div>
+
+            <form class="request-form" data-request-form novalidate>
+
+                <fieldset>
+
+                    <legend data-i18n="requestTimingTitle">
+                        Requested Service Window
+                    </legend>
+
+                    <div class="form-grid">
+
+                        <label>
+                            <span data-i18n="requestDateLabel">Meal date</span>
+                            <input type="date" name="selectedDate" data-request-date required>
+                        </label>
+
+                        <label>
+                            <span data-i18n="requestTimeLabel">Meal time</span>
+                            <input type="time" name="selectedTime" required>
+                        </label>
+
+                        <label>
+                            <span data-i18n="requestMealTypeLabel">Meal type</span>
+                            <select name="mealType" required>
+                                <option value="" data-i18n="requestMealTypePlaceholder">Select meal type</option>
+                                <option value="breakfast" data-i18n="mealTypeBreakfast">Breakfast</option>
+                                <option value="lunch" data-i18n="mealTypeLunch">Lunch</option>
+                                <option value="dinner" data-i18n="mealTypeDinner">Dinner</option>
+                            </select>
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+
+                    <legend data-i18n="requestMaterialsTitle">
+                        Submitted Culinary Materials
+                    </legend>
+
+                    <label>
+                        <span data-i18n="requestDescriptionLabel">What should Tomi cook?</span>
+                        <textarea
+                            name="mealDescription"
+                            rows="5"
+                            placeholder="Describe the desired meal, craving, mood, or legally relevant sauce requirements."
+                            data-i18n-placeholder="requestDescriptionPlaceholder"
+                        ></textarea>
+                    </label>
+
+                    <label>
+                        <span data-i18n="requestRecipeLabel">Recipe URL (optional)</span>
+                        <input
+                            type="url"
+                            name="recipeUrl"
+                            placeholder="https://example.com/recipe"
+                            data-i18n-placeholder="requestRecipePlaceholder"
+                        >
+                    </label>
+
+                    <p class="form-note" data-i18n="requestEitherNote">
+                        A written request or a recipe URL is sufficient for filing. Both may be submitted if the case is especially delicious.
+                    </p>
+
+                </fieldset>
+
+                <div data-request-output aria-live="polite"></div>
+
+                <button class="redeem-button request-submit-button" type="submit" data-i18n="requestSubmitButton">
+                    Submit Culinary Request
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="request-panel request-confirmation" data-request-confirmation hidden>
+
+            <div class="status approved" data-request-success-title>
+                REQUEST REGISTERED ✓
+            </div>
+
+            <div class="request-confirmation-copy" data-request-success-lines>
+                <p>Dear Eszter,</p>
+                <p>Your culinary request has been officially recorded by Cat Approved Experiences™.</p>
+                <p>Tomi has been assigned to the case.</p>
+                <p>Lord Purrcival recommends relaxing while the responsible boyfriend reviews the submitted materials.</p>
+            </div>
+
+            <h2 data-i18n="requestConfirmationSummaryTitle">
+                Submitted Request Details
+            </h2>
+
+            <dl class="request-summary" data-request-summary></dl>
+
+        </div>
 
     </section>
-
-    <button id="redeemButton" class="redeem-button" type="button" data-i18n="redeemButton">
-        Request Meal Authorization
-    </button>
-
-    <div id="redeemOutput" aria-live="polite"></div>
 
 </main>
 

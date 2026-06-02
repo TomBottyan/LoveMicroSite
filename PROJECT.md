@@ -6,7 +6,7 @@ Cat Approved Experiences™ is a collection of humorous QR-code-powered coupon m
 
 Each physical coupon contains only a short title and a QR code.
 
-Scanning the QR code opens a themed microsite that reveals the full experience through interactive content, fake bureaucracy, legal humor, approvals, permits, audits, and certificates.
+Scanning the QR code opens a themed microsite that reveals the full experience through interactive content, fake bureaucracy, legal humor, approvals, permits, audits, request forms, certificates, and official confirmations.
 
 The microsites should feel like they belong to the same universe.
 
@@ -16,7 +16,7 @@ The microsites should feel like they belong to the same universe.
 
 PROJECT.md is the canonical source of truth for this repository.
 
-When project-wide decisions change, PROJECT.md must be regenerated so future coupons inherit the same canon, structure, translation rules, interaction rules, and design expectations.
+When project-wide decisions change, PROJECT.md must be regenerated so future coupons inherit the same canon, structure, translation rules, interaction rules, design expectations, reusable components, action framework rules, redemption request framework rules, and asset conventions.
 
 README.md may summarize the project, but PROJECT.md governs implementation decisions.
 
@@ -72,6 +72,20 @@ The organization name Cat Approved Experiences™ remains unchanged in all langu
 
 ---
 
+## People And Roles
+
+Recipient:
+
+Eszter
+
+Assigned fulfiller:
+
+Tomi
+
+Redemption request flows should be personal to Eszter and should assign submitted cases to Tomi when fulfillment is required.
+
+---
+
 ## Mascot
 
 ### English
@@ -99,6 +113,7 @@ Lord Purrcival is:
 * Conducts audits and inspections
 * Issues certificates
 * Reviews applications
+* Receives request notices
 * Occasionally accepts snacks as unofficial compensation
 
 The joke is that everyone treats him as a legitimate authority.
@@ -142,6 +157,12 @@ Each coupon page declares its coupon key using:
 <body data-coupon="couponKey">
 ```
 
+Each coupon page declares its official coupon identifier using:
+
+```html
+<body data-coupon-id="CAE-001">
+```
+
 The shared app loads the matching translation set from `shared/translations.js` and applies it to all elements with `data-i18n`.
 
 English is the default language.
@@ -151,6 +172,16 @@ Coupon HTML may include English fallback text for initial rendering, no-JavaScri
 Any user-facing coupon text that changes by language must use `data-i18n` and must have English and Hungarian entries in `shared/translations.js`.
 
 Translatable accessibility labels must use `data-i18n-aria-label`.
+
+Translatable image alt text must use `data-i18n-alt`.
+
+Translatable placeholders must use `data-i18n-placeholder`.
+
+Interactive action titles, status message pools, and final success results must be localized in `shared/translations.js`.
+
+Redemption request screen text, field labels, validation messages, option labels, success confirmations, and submitted-detail labels must be localized in `shared/translations.js`.
+
+Redemption request transition messages must be localized in `shared/translations.js`.
 
 Each coupon translation set should include `pageTitle`; `shared/app.js` uses it to update `document.title` when the active language changes.
 
@@ -234,6 +265,8 @@ Mobile-first
 
 Playful but professional
 
+Permit-like and officially authorized
+
 ---
 
 ## Shared Elements
@@ -248,6 +281,9 @@ All microsites should share:
 * Certification styling
 * Lore references
 * Cat Approved interactive feedback
+* Approval Officer component
+* Interactive Action Framework
+* Redemption Request Framework
 
 ---
 
@@ -261,6 +297,11 @@ Use:
 * Clean typography
 * Subtle animations
 * Small approval-paw details on hover
+* Official permit hierarchy
+* Sequential action status output that feels like an official process
+* Dedicated request forms for redemption flows
+* Clear ceremonial transitions between coupon state and request state
+* Ceremonial submitted-request confirmations that feel rewarding and official
 
 Avoid:
 
@@ -272,6 +313,295 @@ Avoid:
 * Large cursor graphics
 * Distracting cursor animations
 * Custom cursor replacements
+
+---
+
+## Approval Officer Component
+
+The Approval Officer component is a reusable Cat Approved Experiences™ design-system component.
+
+Purpose:
+
+The component presents Lord Purrcival as the official approving authority for a coupon. It is an authorization credential, not decorative artwork.
+
+Required content:
+
+* Official portrait
+* Officer name
+* Officer title
+* Cat Approved certification
+
+Required behavior:
+
+* The portrait must be displayed prominently.
+* The portrait must live inside the Approval Officer component.
+* The portrait must not be used as a hero banner.
+* The portrait must not be used as a background image.
+* The component should read as one cohesive official card.
+* The portrait should be treated like a certificate attachment or official approval portrait.
+* The layout should prioritize showing as much of the portrait artwork as possible.
+* Avoid split image/information panel layouts that crop the artwork or create empty competing panels.
+* The component must be responsive and mobile-first.
+* The component must preserve the shared typography and color palette.
+* The component must support translated officer text and translated alt text.
+
+Preferred page hierarchy for Chef Pass and future permit-like coupons:
+
+```text
+Coupon title
+Approved by Lord Purrcival
+Approval Officer Card
+Application Status
+Benefits
+Remaining content
+```
+
+Future coupons may reuse the component by preserving the same structure and replacing only the portrait path and coupon-specific translation keys where necessary.
+
+---
+
+## Interactive Action Framework
+
+The Interactive Action Framework is a reusable global system for lightweight official coupon interactions.
+
+Purpose:
+
+Interactive actions should feel like funny official reviews, inspections, audits, authorizations, or permit checks conducted by Cat Approved Experiences™.
+
+Interactive actions are not redemption flows. They are small, repeatable, low-commitment interactions that add bureaucracy and humor without collecting structured fulfillment information.
+
+Examples:
+
+* Compliance Audit
+* Movie Night Review
+* Relaxation Authorization
+* Shopping Escort Evaluation
+* Blanket Compliance Inspection
+* Couch Occupancy Permit
+
+Rules:
+
+* Every coupon may contain one or more interactive actions.
+* Each action is declared in coupon HTML using `data-action`.
+* Each action output target is declared using `data-action-output`.
+* Shared execution behavior lives in `shared/app.js`.
+* Localized action content lives in `shared/translations.js`.
+* Each action must define a localized action title or button label.
+* Each action must define a localized status message pool.
+* Each localized status message pool must contain at least ten messages.
+* Each action execution randomly selects at least five status messages from the localized pool.
+* Selected messages appear sequentially with delays.
+* Each action must define a localized final success result.
+* The final success result should feel like an official determination, certification, authorization, or permit outcome.
+* Actions must remain humorous through serious bureaucratic language.
+* Future coupons should add action data to translations and action hooks to HTML without changing core action logic.
+
+Preferred action translation shape:
+
+```text
+actions: {
+    actionKey: {
+        title: "...",
+        messages: [
+            "...",
+            "..."
+        ],
+        success: {
+            title: "...",
+            body: "...",
+            detailLabel: "...",
+            detailValue: "..."
+        }
+    }
+}
+```
+
+Chef Pass action:
+
+`chefPassAudit`
+
+English final result:
+
+COMPLIANT ✓
+
+The proposed culinary operation satisfies all requirements of the Domestic Happiness Act.
+
+Risk Level:
+
+Extremely Delicious.
+
+Hungarian final result:
+
+MEGFELELT ✓
+
+A tervezett kulináris művelet megfelel a Háztartási Boldogság Törvény valamennyi előírásának.
+
+Kockázati besorolás:
+
+Rendkívül Finom.
+
+---
+
+## Redemption Request Framework
+
+The Redemption Request Framework is a reusable global frontend system for deeper post-click coupon redemption flows.
+
+Purpose:
+
+Redemption requests should make Eszter feel like she is officially filing a request under an approved Cat Approved Experiences™ permit. This is more substantial than an interactive action and may collect structured input needed for fulfillment.
+
+Distinction from Interactive Action Framework:
+
+* Interactive actions are lightweight audits, inspections, or checks.
+* Redemption requests are dedicated request screens or internal page states.
+* Interactive actions may be repeated for humor.
+* Redemption requests are intended to create a persisted submitted request.
+* Interactive actions display randomized status messages.
+* Redemption requests collect structured user input and show a reviewable confirmation.
+
+Rules:
+
+* Every completed coupon should have one primary redemption request entry point.
+* Coupon HTML must declare the official coupon id using `data-coupon-id`.
+* Request entry buttons may use `data-request`.
+* The request screen may be rendered on the same page or as a dedicated internal state.
+* Shared request behavior lives in `shared/app.js`.
+* Localized request content lives in `shared/translations.js`.
+* Request screens must support English and Hungarian.
+* Request screens should address Eszter by name.
+* New request flows should show a clear transition state before the form appears.
+* The transition should soften or fade the original coupon content, display a formal processing panel, and then reveal the request screen.
+* Transition messages must appear sequentially.
+* Transition timing should usually complete in about 2.5 to 4 seconds.
+* Transitions must respect reduced-motion preferences where practical.
+* Requests should assign fulfillment to Tomi when the coupon requires Tomi to perform the benefit.
+* Requests may collect structured input specific to each coupon.
+* Requests are stored in `localStorage` until backend integration exists.
+* Submitted requests must be reviewable after page reload.
+* After a request is submitted, the original request entry button should be replaced or relabeled to allow review of the submitted request.
+* No backend integration is required yet.
+* Future coupons should define request fields and localized request copy without changing unrelated coupon behavior.
+* Future coupons should define their own localized transition messages while reusing the shared transition component.
+
+Stored request fields should include at least:
+
+* `couponId`
+* `couponName`
+* `recipientName`
+* `assignedTo`
+* coupon-specific selected values
+* `submittedAt`
+* `language`
+
+Preferred request transition translation shape:
+
+```text
+redemptionRequest: {
+    transitionMessages: [
+        "...",
+        "..."
+    ]
+}
+```
+
+Chef Pass transition messages:
+
+English:
+
+* Opening official request file...
+* Notifying Lord Purrcival...
+* Preparing Eszter's culinary request form...
+* Assigning Tomi as responsible boyfriend...
+* Request desk ready.
+
+Hungarian:
+
+* Hivatalos ügyirat megnyitása...
+* Dorombárd Úr értesítése...
+* Eszter kulináris kérelmének előkészítése...
+* Tomi kijelölése illetékes barátként...
+* Kérelmezői pult készen áll.
+
+Chef Pass request fields:
+
+* Date
+* Time
+* Meal type
+* Meal request text
+* Recipe URL
+
+Chef Pass date/time rules:
+
+* Prevent selecting dates in the past.
+* Allow selection up to 14 days ahead.
+* Prevent same-day times that are already in the past.
+* Written meal request or recipe URL is required.
+* Meal type is required.
+
+Examples of future request fields:
+
+Movie Night:
+
+* date/time
+* movie title
+* snacks
+* couch requirements
+
+Lazy Day:
+
+* date
+* relaxation mode
+* snack preference
+
+Chef Pass success:
+
+REQUEST REGISTERED ✓
+
+Dear Eszter,
+
+Your culinary request has been officially recorded by Cat Approved Experiences™.
+
+Tomi has been assigned to the case.
+
+Lord Purrcival recommends relaxing while the responsible boyfriend reviews the submitted materials.
+
+Hungarian Chef Pass success:
+
+KÉRELEM RÖGZÍTVE ✓
+
+Kedves Eszter,
+
+A kulináris kérelmedet a Cat Approved Experiences™ hivatalosan rögzítette.
+
+Az ügy Tomi részére kiosztásra került.
+
+Dorombárd Úr pihenést javasol, amíg az illetékes barát áttekinti a benyújtott anyagokat.
+
+---
+
+## Asset Convention
+
+Shared images live in:
+
+```text
+shared/images/
+```
+
+Lord Purrcival approval portraits live in:
+
+```text
+shared/images/lord-purrcival/
+```
+
+Coupon-specific Lord Purrcival portraits should use descriptive file names matching the coupon or experience, for example:
+
+```text
+shared/images/lord-purrcival/chef-pass.png
+```
+
+The Chef Pass portrait at `shared/images/lord-purrcival/chef-pass.png` is canon for the Chef Pass experience.
+
+Future coupons can replace the portrait by changing the image source to another file in `shared/images/lord-purrcival/` without changing the Approval Officer component structure.
 
 ---
 
@@ -317,6 +647,10 @@ Good examples:
 
 "Inspection completed."
 
+"Lord Purrcival has been notified."
+
+"Tomi has been assigned to the case."
+
 Avoid:
 
 "lol"
@@ -345,7 +679,9 @@ LoveMicroSite/
 │   ├── app.js
 │   ├── translations.js
 │   ├── images/
-│   │   └── .gitkeep
+│   │   ├── .gitkeep
+│   │   └── lord-purrcival/
+│   │       └── chef-pass.png
 │   └── icons/
 │       └── .gitkeep
 │
@@ -369,6 +705,7 @@ Unless specified otherwise:
 * Shared translation data resides in `shared/translations.js`.
 * Shared icons reside in `shared/icons/`.
 * Shared images reside in `shared/images/`.
+* Lord Purrcival approval portraits reside in `shared/images/lord-purrcival/`.
 * Each completed coupon has its own folder and `index.html`.
 * Planned coupon folders may contain only `.gitkeep` until the coupon is generated.
 * Coupon pages reference shared assets using `../shared/...`.
@@ -388,12 +725,27 @@ Use shared files for:
 * Translation switching
 * Shared translation data
 * Cat Approved interaction feedback
+* Approval Officer component styling
+* Interactive Action Framework execution
+* Interactive action output styling
+* Redemption Request Framework execution
+* Redemption request transition component styling and behavior
+* Redemption request screen styling
+* localStorage request persistence
+* Reusable Lord Purrcival image conventions
 * Future shared images and icons
 
 Use coupon folders for:
 
 * Coupon-specific HTML structure
+* Coupon-specific official id using `data-coupon-id`
+* Coupon-specific action hooks using `data-action`
+* Coupon-specific action output targets using `data-action-output`
+* Coupon-specific request entry hooks using `data-request`
+* Coupon-specific request fields
+* Coupon-specific transition messages in `shared/translations.js`
 * Coupon-specific content hooks using `data-i18n`
+* Coupon-specific portrait source selection
 * Coupon-specific visual sections only when the shared design system cannot reasonably cover them
 
 Avoid duplicating shared behavior inside coupon pages.
@@ -424,6 +776,26 @@ Description:
 
 Authorizes one (1) homemade meal.
 
+Canonical Lord Purrcival portrait:
+
+`shared/images/lord-purrcival/chef-pass.png`
+
+Interactive actions:
+
+* `chefPassAudit`
+
+Redemption request:
+
+Enabled
+
+Recipient:
+
+Eszter
+
+Assigned fulfiller:
+
+Tomi
+
 Implementation:
 
 Complete
@@ -447,6 +819,22 @@ Potential future departments:
 * Confidential Research Division
 
 Additional departments may be added as new coupons are created.
+
+Potential future actions:
+
+* Movie Night Review
+* Relaxation Authorization
+* Shopping Escort Evaluation
+* Blanket Compliance Inspection
+* Couch Occupancy Permit
+
+Potential future coupons:
+
+* Movie Night
+* Lazy Day
+* Escort Duty
+* Blanket Permit
+* Couch Occupancy Authorization
 
 ---
 
@@ -477,12 +865,28 @@ When generating future coupons:
 * Maintain canon consistency
 * Maintain design consistency
 * Reuse shared components where possible
+* Use the Approval Officer component for Lord Purrcival approvals
+* Use the Interactive Action Framework for lightweight reviews, audits, authorizations, inspections, and permit checks
+* Use the Redemption Request Framework for deeper structured redemption flows
+* Define an official coupon identifier with `data-coupon-id`
 * Keep English as the default language
 * Include Hungarian translation support
 * Preserve Lord Purrcival references
 * Preserve Dorombárd Úr references in Hungarian
 * Preserve Cat Approved Experiences™ branding exactly
 * Keep coupon-specific text in `shared/translations.js`
+* Keep action message pools and success results in `shared/translations.js`
+* Keep request screen text, validation text, field labels, options, and confirmation copy in `shared/translations.js`
+* Keep request transition messages in `shared/translations.js`
+* Define at least ten localized status messages per action
+* Display at least five randomly selected status messages per action execution
+* Store submitted redemption requests in localStorage until backend integration exists
+* Store Eszter as `recipientName` where applicable
+* Store Tomi as `assignedTo` where fulfillment is assigned to him
+* Allow submitted requests to be reviewed after reload
+* Use the shared request transition before showing a new request form unless a submitted request already exists
+* Use `data-i18n-alt` for translated image alt text
+* Use `data-i18n-placeholder` for translated form placeholders
 * Load shared styling from `shared/style.css`
 * Load shared behavior from `shared/app.js`
 * Inherit global interactive feedback from the shared design system
