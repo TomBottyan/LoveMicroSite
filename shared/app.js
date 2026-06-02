@@ -22,6 +22,7 @@ const requestSummary = document.querySelector("[data-request-summary]");
 const requestOutput = document.querySelector("[data-request-output]");
 const requestBackButtons = document.querySelectorAll("[data-request-back]");
 const dateInputs = document.querySelectorAll("[data-request-date]");
+const optionDescriptionOutputs = document.querySelectorAll("[data-option-description]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const couponKey = document.body.dataset.coupon;
 const couponId = document.body.dataset.couponId || couponKey;
@@ -92,6 +93,7 @@ function switchLanguage(lang){
         });
 
     updateRequestEntryState();
+    updateOptionDescriptions();
 
     if(requestScreen && !requestScreen.hidden){
         const submittedRequest = getStoredRequest();
@@ -324,53 +326,69 @@ function configureDateInputs(){
         });
 }
 
-function getField(form, name){
-    return form.elements[name];
-}
-
 function normalizeValue(value){
     return value ? value.trim() : "";
+}
+
+function getRequestFieldValues(form){
+    const values = {};
+
+    form.querySelectorAll("[data-request-field]")
+        .forEach(field => {
+            values[field.name] = normalizeValue(field.value);
+        });
+
+    return values;
 }
 
 function validateRequestForm(form){
     const config = getRequestConfig();
     const errors = [];
-    const values = {
-        selectedDate: normalizeValue(getField(form, "selectedDate").value),
-        selectedTime: normalizeValue(getField(form, "selectedTime").value),
-        mealType: normalizeValue(getField(form, "mealType").value),
-        mealDescription: normalizeValue(getField(form, "mealDescription").value),
-        recipeUrl: normalizeValue(getField(form, "recipeUrl").value)
-    };
+    const values = getRequestFieldValues(form);
     const limits = getDateLimits();
+    const dateField = config.dateField;
+    const timeField = config.timeField;
 
-    if(!values.selectedDate || values.selectedDate < limits.min || values.selectedDate > limits.max){
-        errors.push(config.errors.date);
-    }
+    if(dateField){
+        const selectedDate = values[dateField];
 
-    if(!values.selectedTime){
-        errors.push(config.errors.time);
-    }
+        if(!selectedDate || selectedDate < limits.min || selectedDate > limits.max){
+            errors.push(config.errors.date);
+        }
 
-    if(values.selectedDate === limits.min && values.selectedTime){
-        const selectedDateTime = new Date(`${values.selectedDate}T${values.selectedTime}`);
+        if(timeField && selectedDate === limits.min && values[timeField]){
+            const selectedDateTime = new Date(`${selectedDate}T${values[timeField]}`);
 
-        if(selectedDateTime.getTime() < Date.now()){
-            errors.push(config.errors.dateTimePast);
+            if(selectedDateTime.getTime() < Date.now()){
+                errors.push(config.errors.dateTimePast);
+            }
         }
     }
 
-    if(!values.mealType){
-        errors.push(config.errors.mealType);
-    }
+    (config.requiredFields || [])
+        .forEach(fieldName => {
+            if(!values[fieldName] && config.errors[fieldName]){
+                errors.push(config.errors[fieldName]);
+            }
+        });
 
-    if(!values.mealDescription && !values.recipeUrl){
-        errors.push(config.errors.requestDetails);
-    }
+    (config.eitherOrFields || [])
+        .forEach(group => {
+            const hasValue = group.fields.some(fieldName => values[fieldName]);
 
-    if(values.recipeUrl && !getField(form, "recipeUrl").checkValidity()){
-        errors.push(config.errors.recipeUrl);
-    }
+            if(!hasValue && config.errors[group.errorKey]){
+                errors.push(config.errors[group.errorKey]);
+            }
+        });
+
+    (config.urlFields || [])
+        .forEach(fieldName => {
+            const field = form.elements[fieldName];
+
+            if(values[fieldName] && field && !field.checkValidity() && config.errors[fieldName]){
+                errors.push(config.errors[fieldName]);
+            }
+        });
 
     return {
         errors,
@@ -409,22 +427,60 @@ function buildStoredRequest(values){
     return {
         couponId,
         couponName: config.couponName,
-        recipientName: "Eszter",
-        assignedTo: "Tomi",
-        selectedDate: values.selectedDate,
-        selectedTime: values.selectedTime,
-        mealType: values.mealType,
-        mealDescription: values.mealDescription,
-        recipeUrl: values.recipeUrl,
+        recipientName: config.recipientName || "Eszter",
+        assignedTo: config.assignedTo || "Tomi",
+        ...values,
         submittedAt: new Date().toISOString(),
         language: currentLanguage
     };
 }
 
-function getMealTypeLabel(mealType){
+function getOptionLabel(fieldName, value){
     const config = getRequestConfig();
+    const optionLabels = config.optionLabels || {};
 
-    return config.mealTypes[mealType] || mealType;
+    if(optionLabels[fieldName] && optionLabels[fieldName][value]){
+        return optionLabels[fieldName][value];
+    }
+
+    return value;
+}
+
+function getOptionDescription(fieldName, value){
+    const config = getRequestConfig();
+    const optionDescriptions = config.optionDescriptions || {};
+
+    if(optionDescriptions[fieldName] && optionDescriptions[fieldName][value]){
+        return optionDescriptions[fieldName][value];
+    }
+
+    return "";
+}
+
+function updateOptionDescription(output){
+    const fieldName = output.dataset.optionDescription;
+    const placeholderKey = output.dataset.optionDescriptionPlaceholder;
+    const languageSet = getLanguageSet();
+    const field = fieldName && document.querySelector(`[name="${fieldName}"]`);
+    const description = field ? getOptionDescription(fieldName, field.value) : "";
+
+    if(description){
+        output.textContent = description;
+        return;
+    }
+
+    if(placeholderKey && languageSet && languageSet[placeholderKey]){
+        output.textContent = languageSet[placeholderKey];
+    }else{
+        output.textContent = "";
+    }
+}
+
+function updateOptionDescriptions(){
+    optionDescriptionOutputs
+        .forEach(output => {
+            updateOptionDescription(output);
+        });
 }
 
 function createSummaryRow(label, value){
@@ -449,15 +505,22 @@ function showRequestSummary(request){
     }
 
     requestSummary.innerHTML = "";
-    requestSummary.appendChild(createSummaryRow(config.summaryLabels.couponId, request.couponId));
-    requestSummary.appendChild(createSummaryRow(config.summaryLabels.recipientName, request.recipientName));
-    requestSummary.appendChild(createSummaryRow(config.summaryLabels.assignedTo, request.assignedTo));
-    requestSummary.appendChild(createSummaryRow(config.summaryLabels.selectedDate, request.selectedDate));
-    requestSummary.appendChild(createSummaryRow(config.summaryLabels.selectedTime, request.selectedTime));
-    requestSummary.appendChild(createSummaryRow(config.summaryLabels.mealType, getMealTypeLabel(request.mealType)));
-    requestSummary.appendChild(createSummaryRow(config.summaryLabels.mealDescription, request.mealDescription));
-    requestSummary.appendChild(createSummaryRow(config.summaryLabels.recipeUrl, request.recipeUrl));
-    requestSummary.appendChild(createSummaryRow(config.summaryLabels.submittedAt, new Date(request.submittedAt).toLocaleString()));
+
+    (config.summaryFields || [])
+        .forEach(field => {
+            const rawValue = request[field.name];
+            let value = rawValue;
+
+            if(field.type === "option"){
+                value = getOptionLabel(field.name, rawValue);
+            }
+
+            if(field.type === "datetime" && rawValue){
+                value = new Date(rawValue).toLocaleString(currentLanguage === "hu" ? "hu-HU" : "en-US");
+            }
+
+            requestSummary.appendChild(createSummaryRow(field.label, value));
+        });
 }
 
 function showRequestConfirmation(request){
@@ -584,6 +647,11 @@ function updateRequestEntryState(){
 
 requestForms
     .forEach(form => {
+
+        form.querySelectorAll("[data-request-field]")
+            .forEach(field => {
+                field.addEventListener("change", updateOptionDescriptions);
+            });
 
         form.addEventListener("submit", event => {
             event.preventDefault();

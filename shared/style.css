@@ -321,6 +321,10 @@ h1{
     margin-left:20px;
 }
 
+.legal-list{
+    margin-top:1rem;
+}
+
 .benefits li,
 .legal-list li{
     margin-bottom:10px;

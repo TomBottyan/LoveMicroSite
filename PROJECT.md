@@ -122,6 +122,38 @@ The project should never explicitly state whether he is a real cat.
 
 ---
 
+## Lord Purrcival Visual Canon
+
+Canonical visual reference image:
+
+```text
+shared/images/lord-purrcival/reference-chef-pass.png
+```
+
+The character shown in `shared/images/lord-purrcival/reference-chef-pass.png` is the canonical visual reference for Lord Purrcival.
+
+Future Lord Purrcival artwork must preserve:
+
+* Face proportions
+* Eye shape
+* Fur pattern
+* Cheek fluff
+* Expression style
+* Overall character identity
+
+Future artwork may vary:
+
+* Clothing
+* Accessories
+* Props
+* Environment
+* Department theme
+* Coupon-specific certificate or permit materials
+
+Future artwork should read as the same official approving authority appearing in a different department context. The character identity should remain stable even when the coupon theme changes.
+
+---
+
 # Translation Services
 
 ## Default Language
@@ -303,6 +335,12 @@ Use:
 * Clear ceremonial transitions between coupon state and request state
 * Ceremonial submitted-request confirmations that feel rewarding and official
 
+Legal notice cards:
+
+* Legal notice bullet lists must leave one empty row of spacing above the first bullet item.
+* This spacing is a shared design-system rule handled by `.legal-list` in `shared/style.css`.
+* Future coupon legal notice cards should use the shared `.legal-list` class to inherit this spacing.
+
 Avoid:
 
 * Flashy effects
@@ -476,6 +514,11 @@ Rules:
 * Transitions must respect reduced-motion preferences where practical.
 * Requests should assign fulfillment to Tomi when the coupon requires Tomi to perform the benefit.
 * Requests may collect structured input specific to each coupon.
+* Request form fields that should be persisted must use `data-request-field`.
+* Request configuration in `shared/translations.js` should define `dateField`, optional `timeField`, `requiredFields`, `eitherOrFields`, `urlFields`, `optionLabels`, optional `optionDescriptions`, and `summaryFields` as needed.
+* Select fields may display localized dynamic option descriptions using `data-option-description`.
+* Dynamic option descriptions must update instantly when the selected option changes and when the active language changes.
+* Future coupons should be able to add coupon-specific request fields by changing coupon HTML and translation configuration without modifying core request logic.
 * Requests are stored in `localStorage` until backend integration exists.
 * Submitted requests must be reviewable after page reload.
 * After a request is submitted, the original request entry button should be replaced or relabeled to allow review of the submitted request.
@@ -526,7 +569,6 @@ Chef Pass request fields:
 
 * Date
 * Time
-* Meal type
 * Meal request text
 * Recipe URL
 
@@ -536,7 +578,7 @@ Chef Pass date/time rules:
 * Allow selection up to 14 days ahead.
 * Prevent same-day times that are already in the past.
 * Written meal request or recipe URL is required.
-* Meal type is required.
+* Chef Pass should not collect meal type. The request should focus on what Eszter wants Tomi to cook.
 
 Examples of future request fields:
 
@@ -547,11 +589,120 @@ Movie Night:
 * snacks
 * couch requirements
 
+Movie Night request rules:
+
+* Prevent selecting dates in the past.
+* Allow selection up to 14 days ahead.
+* Prevent same-day start times that are already in the past.
+* Movie or series title is required.
+* Snack request is required.
+* Blanket requirement is required.
+* Movie Night is a shared experience authorization, not a service request or recovery permit.
+
+Passenger Princess:
+
+* date/time
+* destination
+* mission type
+* optional coffee stop
+* additional requests
+
+Passenger Princess request rules:
+
+* Prevent selecting dates in the past.
+* Allow selection up to 14 days ahead.
+* Prevent same-day departure times that are already in the past.
+* Destination is required.
+* Mission type is required.
+* Coffee stop and additional requests are optional supporting materials.
+* Passenger Princess is a transportation and companionship permit for shopping centers, errands, coffee trips, and other journeys where Tomi drives and accompanies Eszter.
+
+Dining Out:
+
+* date/time
+* restaurant name
+* cuisine type
+* dessert importance level
+* additional requests
+
+Dining Out request rules:
+
+* Prevent selecting dates in the past.
+* Allow selection up to 14 days ahead.
+* Prevent same-day dining times that are already in the past.
+* Restaurant name is required.
+* Cuisine type is required.
+* Dessert importance level is required.
+* Additional requests are optional supporting materials.
+* Dining Out is a shared restaurant experience authorization and must remain distinct from Chef Pass, which is a homemade-meal service request.
+* The Hungarian cuisine option `A barátnőm nem éhes` is an intentional inside joke and must remain exactly unchanged wherever it appears.
+
+Cuddle Authorization:
+
+* date/time
+* cuddle type
+* desired duration
+* blanket required
+* special requests
+
+Cuddle Authorization request rules:
+
+* Prevent selecting dates in the past.
+* Allow selection up to 14 days ahead.
+* Prevent same-day cuddle times that are already in the past.
+* Cuddle type is required.
+* Desired duration is required.
+* Blanket required status is required.
+* Special requests are optional supporting materials.
+* Cuddle Authorization is an affection-only permit and must remain distinct from Lazy Day, which protects recovery and inactivity, and Movie Night, which plans a shared entertainment activity.
+* Cuddle types must have short localized dynamic permit explanations.
+* The cuddle type strings `Therapy ... :)` and `Terápiás ... :)` are intentional inside jokes and must remain exactly unchanged wherever they appear.
+
+Breakfast in Bed Authorization:
+
+* wake-up method
+* preferred beverage
+* breakfast selection
+* desired delivery date
+* preferred delivery time
+* special requests
+
+Breakfast in Bed Authorization request rules:
+
+* Prevent selecting dates in the past.
+* Allow selection up to 14 days ahead.
+* Prevent same-day delivery times that are already in the past.
+* Wake-up method is required.
+* Preferred beverage is required.
+* Breakfast selection is required.
+* Preferred delivery time is required.
+* Special requests are optional supporting materials.
+* Breakfast in Bed uses a more emotional Morning Preference request pattern rather than a generic form-first structure.
+* Breakfast in Bed must remain distinct from Chef Pass. Chef Pass is a homemade cooking request centered on what Tomi should cook; Breakfast in Bed is a luxury morning delivery authorization centered on wake-up style, beverage handling, comfort, and bedside service.
+* Breakfast in Bed must not include bacon as a selectable option or suggested request item.
+
 Lazy Day:
 
 * date
 * relaxation mode
 * snack preference
+* rest conditions
+* optional special request
+
+Lazy Day request rules:
+
+* Prevent selecting dates in the past.
+* Allow selection up to 14 days ahead.
+* Relaxation mode is required.
+* Snack preference, rest conditions, and special request are optional supporting materials.
+* Lazy Day relaxation modes must avoid movie-specific concepts so the future Movie Night coupon remains distinct.
+* Lazy Day relaxation modes are Couch Mode, Blanket Burrito, Silent Potato, Vampire Mode, and Protected Hibernation.
+* Each Lazy Day relaxation mode must provide a short localized dynamic permit explanation.
+* Couch Mode authorizes sofa occupancy, casual scrolling, and strategic staring into space.
+* Blanket Burrito provides blanket encapsulation, enhanced warmth, and reduced exposure to reality.
+* Silent Potato authorizes stationary existence with minimal movement, communication, or ambition.
+* Vampire Mode means curtains closed, lights off, and no unnecessary human activity permitted.
+* Protected Hibernation means deep uninterrupted rest while Tomi minimizes movement, noise, cupboard exploration, kitchen activity, and general disturbance.
 
 Chef Pass success:
 
@@ -593,15 +744,41 @@ Lord Purrcival approval portraits live in:
 shared/images/lord-purrcival/
 ```
 
+The canonical visual reference for Lord Purrcival lives at:
+
+```text
+shared/images/lord-purrcival/reference-chef-pass.png
+```
+
 Coupon-specific Lord Purrcival portraits should use descriptive file names matching the coupon or experience, for example:
 
 ```text
 shared/images/lord-purrcival/chef-pass.png
+shared/images/lord-purrcival/lazy-day.png
+shared/images/lord-purrcival/movie-night.png
+shared/images/lord-purrcival/passenger-permit.png
+shared/images/lord-purrcival/dinning-out.png
+shared/images/lord-purrcival/cuddle-authorization.png
+shared/images/lord-purrcival/breakfast-in-bed.png
 ```
 
 The Chef Pass portrait at `shared/images/lord-purrcival/chef-pass.png` is canon for the Chef Pass experience.
 
+The Lazy Day portrait at `shared/images/lord-purrcival/lazy-day.png` is canon for the Lazy Day Permit experience.
+
+The Movie Night portrait at `shared/images/lord-purrcival/movie-night.png` is canon for the Movie Night Authorization experience.
+
+The Passenger Princess portrait at `shared/images/lord-purrcival/passenger-permit.png` is canon for the Passenger Princess Permit experience.
+
+The Dining Out portrait at `shared/images/lord-purrcival/dinning-out.png` is canon for the Dining Out Authorization experience.
+
+The Cuddle Authorization portrait at `shared/images/lord-purrcival/cuddle-authorization.png` is canon for the Cuddle Authorization experience.
+
+The Breakfast in Bed portrait at `shared/images/lord-purrcival/breakfast-in-bed.png` is canon for the Breakfast in Bed Authorization experience.
+
 Future coupons can replace the portrait by changing the image source to another file in `shared/images/lord-purrcival/` without changing the Approval Officer component structure.
+
+Future coupon portraits must preserve the Lord Purrcival visual canon while changing only clothing, accessories, props, environment, and department theme.
 
 ---
 
@@ -681,7 +858,14 @@ LoveMicroSite/
 │   ├── images/
 │   │   ├── .gitkeep
 │   │   └── lord-purrcival/
-│   │       └── chef-pass.png
+│   │       ├── reference-chef-pass.png
+│   │       ├── chef-pass.png
+│   │       ├── lazy-day.png
+│   │       ├── movie-night.png
+│   │       ├── passenger-permit.png
+│   │       ├── dinning-out.png
+│   │       ├── cuddle-authorization.png
+│   │       └── breakfast-in-bed.png
 │   └── icons/
 │       └── .gitkeep
 │
@@ -689,10 +873,22 @@ LoveMicroSite/
 │   └── index.html
 │
 ├── movie-night/
-│   └── .gitkeep
+│   └── index.html
 │
 ├── lazy-day/
-│   └── .gitkeep
+│   └── index.html
+│
+├── passenger-princess/
+│   └── index.html
+│
+├── dining-out/
+│   └── index.html
+│
+├── cuddle-authorization/
+│   └── index.html
+│
+├── breakfast-in-bed/
+│   └── index.html
 │
 └── docs/
     └── .gitkeep
@@ -802,20 +998,377 @@ Complete
 
 ---
 
+## CAE-002
+
+Name:
+
+Lazy Day Permit
+
+Folder:
+
+`lazy-day/`
+
+Department:
+
+Department of Relaxation
+
+Hungarian department:
+
+Pihenésügyi Főosztály
+
+Status:
+
+Approved
+
+Description:
+
+Authorizes one (1) day of doing absolutely nothing.
+
+Canonical Lord Purrcival portrait:
+
+`shared/images/lord-purrcival/lazy-day.png`
+
+Interactive actions:
+
+* `lazyDayInspection`
+
+Redemption request:
+
+Enabled
+
+Request fields:
+
+* Date
+* Relaxation mode
+* Snack preference
+* Rest conditions
+* Optional special request
+
+Recipient:
+
+Eszter
+
+Assigned fulfiller:
+
+Tomi
+
+Implementation:
+
+Complete
+
+---
+
+## CAE-003
+
+Name:
+
+Movie Night Authorization
+
+Folder:
+
+`movie-night/`
+
+Department:
+
+Department of Domestic Entertainment
+
+Hungarian department:
+
+Otthoni Szórakoztatási Főosztály
+
+Status:
+
+Approved
+
+Description:
+
+Authorizes one (1) officially recognized Movie Night as a shared experience with movies, snacks, blankets, and quality time.
+
+Canonical Lord Purrcival portrait:
+
+`shared/images/lord-purrcival/movie-night.png`
+
+Interactive actions:
+
+* `movieNightReview`
+
+Redemption request:
+
+Enabled
+
+Request fields:
+
+* Date
+* Start time
+* Movie or series title
+* Snack request
+* Blanket requirement
+
+Recipient:
+
+Eszter
+
+Assigned fulfiller:
+
+Tomi
+
+Implementation:
+
+Complete
+
+---
+
+## CAE-004
+
+Name:
+
+Passenger Princess Permit
+
+Folder:
+
+`passenger-princess/`
+
+Department:
+
+Department of Transportation & Companionship
+
+Hungarian department:
+
+Közlekedési és Kísérési Főosztály
+
+Status:
+
+Approved
+
+Description:
+
+Authorizes one (1) officially recognized Passenger Princess Journey in which Eszter occupies the front passenger position while Tomi provides transportation, companionship, navigation assistance, emotional support, and parking-related bravery.
+
+Canonical Lord Purrcival portrait:
+
+`shared/images/lord-purrcival/passenger-permit.png`
+
+Interactive actions:
+
+* `passengerPrincessInspection`
+
+Redemption request:
+
+Enabled
+
+Request fields:
+
+* Date
+* Departure time
+* Destination
+* Mission type
+* Optional coffee stop
+* Additional requests
+
+Recipient:
+
+Eszter
+
+Assigned fulfiller:
+
+Tomi
+
+Implementation:
+
+Complete
+
+---
+
+## CAE-005
+
+Name:
+
+Dining Out Authorization
+
+Folder:
+
+`dining-out/`
+
+Department:
+
+Department of Culinary Exploration
+
+Hungarian department:
+
+Kulináris Felfedezési Főosztály
+
+Status:
+
+Approved
+
+Description:
+
+Authorizes one (1) officially recognized dining out experience where Tomi and Eszter enjoy a restaurant meal together with no cooking, no dishes, and no kitchen duty.
+
+Canonical Lord Purrcival portrait:
+
+`shared/images/lord-purrcival/dinning-out.png`
+
+Interactive actions:
+
+* `diningOutReview`
+
+Redemption request:
+
+Enabled
+
+Request fields:
+
+* Date
+* Time
+* Restaurant name
+* Cuisine type
+* Dessert importance level
+* Additional requests
+
+Recipient:
+
+Eszter
+
+Assigned fulfiller:
+
+Tomi
+
+Implementation:
+
+Complete
+
+---
+
+## CAE-006
+
+Name:
+
+Cuddle Authorization
+
+Folder:
+
+`cuddle-authorization/`
+
+Department:
+
+Department of Emotional Support
+
+Hungarian department:
+
+Érzelmi Támogatási Főosztály
+
+Status:
+
+Approved
+
+Description:
+
+Authorizes one (1) officially recognized cuddle session focused only on comfort, affection, emotional recharge, and quality time. No movie, dining, errand, or other activity is required.
+
+Canonical Lord Purrcival portrait:
+
+`shared/images/lord-purrcival/cuddle-authorization.png`
+
+Interactive actions:
+
+* `cuddleAuthorizationReview`
+
+Redemption request:
+
+Enabled
+
+Request fields:
+
+* Date
+* Time
+* Cuddle type
+* Desired duration
+* Blanket required
+* Special requests
+
+Recipient:
+
+Eszter
+
+Assigned fulfiller:
+
+Tomi
+
+Implementation:
+
+Complete
+
+---
+
+## CAE-007
+
+Name:
+
+Breakfast in Bed Authorization
+
+Folder:
+
+`breakfast-in-bed/`
+
+Department:
+
+Department of Morning Affairs
+
+Hungarian department:
+
+Reggeli Ügyek Főosztálya
+
+Status:
+
+Approved
+
+Description:
+
+Authorizes one (1) officially recognized breakfast-in-bed delivery prepared and delivered by Tomi. The experience should feel like luxury hotel morning service mixed with Cat Approved Experiences™ bureaucracy.
+
+Canonical Lord Purrcival portrait:
+
+`shared/images/lord-purrcival/breakfast-in-bed.png`
+
+Interactive actions:
+
+* `breakfastInBedReview`
+
+Redemption request:
+
+Enabled
+
+Request fields:
+
+* Wake-up method
+* Preferred beverage
+* Breakfast selection
+* Desired delivery date
+* Preferred delivery time
+* Special requests
+
+Recipient:
+
+Eszter
+
+Assigned fulfiller:
+
+Tomi
+
+Implementation:
+
+Complete
+
+---
+
 # Future Coupons
 
-Planned coupon folders:
-
-* `movie-night/`
-* `lazy-day/`
-
-These are placeholder folders until their coupon pages are generated.
+Planned coupon folders may be added as new coupon concepts are approved.
 
 Potential future departments:
 
 * Entertainment Bureau
-* Public Accompaniment Office
-* Department of Relaxation
 * Confidential Research Division
 
 Additional departments may be added as new coupons are created.
@@ -823,16 +1376,13 @@ Additional departments may be added as new coupons are created.
 Potential future actions:
 
 * Movie Night Review
-* Relaxation Authorization
 * Shopping Escort Evaluation
+* Transportation Readiness Inspection
 * Blanket Compliance Inspection
 * Couch Occupancy Permit
 
 Potential future coupons:
 
-* Movie Night
-* Lazy Day
-* Escort Duty
 * Blanket Permit
 * Couch Occupancy Authorization
 
@@ -878,6 +1428,8 @@ When generating future coupons:
 * Keep action message pools and success results in `shared/translations.js`
 * Keep request screen text, validation text, field labels, options, and confirmation copy in `shared/translations.js`
 * Keep request transition messages in `shared/translations.js`
+* Mark persisted request form fields with `data-request-field`
+* Define request validation, option labels, and submitted-detail summaries in each coupon's `redemptionRequest` configuration
 * Define at least ten localized status messages per action
 * Display at least five randomly selected status messages per action execution
 * Store submitted redemption requests in localStorage until backend integration exists
@@ -885,6 +1437,7 @@ When generating future coupons:
 * Store Tomi as `assignedTo` where fulfillment is assigned to him
 * Allow submitted requests to be reviewed after reload
 * Use the shared request transition before showing a new request form unless a submitted request already exists
+* Preserve exact inside-joke option strings documented in coupon-specific request rules
 * Use `data-i18n-alt` for translated image alt text
 * Use `data-i18n-placeholder` for translated form placeholders
 * Load shared styling from `shared/style.css`
