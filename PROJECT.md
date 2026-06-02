@@ -16,6 +16,14 @@ The microsites should feel like they belong to the same universe.
 
 PROJECT.md is the canonical source of truth for this repository.
 
+PROJECT.md is the single source of truth for the project.
+
+When conversation history conflicts with PROJECT.md, PROJECT.md wins.
+
+New canon decisions should be documented in PROJECT.md before implementation begins.
+
+Reusable implementation decisions should be documented in PROJECT.md before being reused elsewhere.
+
 When project-wide decisions change, PROJECT.md must be regenerated so future coupons inherit the same canon, structure, translation rules, interaction rules, design expectations, reusable components, action framework rules, redemption request framework rules, and asset conventions.
 
 README.md may summarize the project, but PROJECT.md governs implementation decisions.
@@ -198,11 +206,34 @@ Future artwork may vary:
 
 Future artwork should read as the same official approving authority appearing in a different department context. The character identity should remain stable even when the coupon theme changes.
 
+## Canon Safety Rules
+
+The following content is considered protected canon and should not be modified unless explicitly requested.
+
+English:
+
+* `Therapy ... :)`
+
+Hungarian:
+
+* `Terápiás ... :)`
+* `A barátnőm nem éhes`
+
+These strings may be referenced by implementations, translations, artwork, and future coupons.
+
+Preserve them exactly as written.
+
 ---
 
 # Coupon Categories
 
 Coupons may belong to one or more categories.
+
+Categories are organizational only.
+
+A coupon may belong to multiple categories.
+
+Categories must not affect URLs, CAE numbering, implementation structure, routing, or folder layout.
 
 ## Service Coupons
 
@@ -784,11 +815,18 @@ Applicable coupons include:
 The framework should support:
 
 * Meal-themed artwork
-* Redemption requests
 * Approval workflow
 * Bilingual support
+* Language switcher
+* Lord Purrcival approval section
 * Cat Approved certification
 * Approval Officer component
+* Responsive mobile-first layout
+* Redemption request capability where applicable
+
+Individual food coupons may still have unique interactions, request fields, artwork direction, or approval details.
+
+The framework exists to ensure consistency, not uniformity.
 
 ### Chef Pass
 
@@ -1080,6 +1118,19 @@ Use coupon folders for:
 * Coupon-specific visual sections only when the shared design system cannot reasonably cover them
 
 Avoid duplicating shared behavior inside coupon pages.
+
+---
+
+## Framework First Principle
+
+Before introducing a coupon-specific implementation:
+
+1. Check whether an existing framework already solves the problem.
+2. Extend an existing framework where reasonable.
+3. Create a new framework only when the behavior is expected to be reused.
+4. Avoid one-off solutions that duplicate existing patterns.
+
+The goal is long-term maintainability and consistency across all Cat Approved Experiences™ coupons.
 
 ---
 
@@ -1529,9 +1580,29 @@ Complete
 
 Future coupons should receive a CAE identifier before implementation begins.
 
-Planned coupons:
+Planned coupons with assigned identifiers:
 
-* CAE-008 Unlimited Complaining License
+## CAE-008
+
+Name:
+
+Unlimited Complaining License
+
+Status:
+
+Planned
+
+Category:
+
+* Comfort Coupon
+* Emergency Relationship Coupon
+
+Description:
+
+A humorous permit authorizing temporary unrestricted complaining privileges without immediate problem-solving intervention.
+
+Additional planned concepts awaiting CAE identifiers:
+
 * Blanket Permit
 * Couch Occupancy Authorization
 
