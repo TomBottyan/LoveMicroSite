@@ -1,0 +1,443 @@
+:root{
+    --paper:#f8f5ef;
+    --surface:#ffffff;
+    --ink:#222222;
+    --muted:#706b63;
+    --line:rgba(34,34,34,.12);
+    --shadow:0 14px 34px rgba(52,45,34,.09);
+    --gold:#e9b949;
+    --gold-dark:#6f5312;
+    --approved:#e7f8e7;
+    --approved-ink:#1e642d;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    min-height:100vh;
+    line-height:1.55;
+}
+
+button{
+    font:inherit;
+}
+
+.container{
+    width:min(760px,92%);
+    margin:auto;
+    padding:48px 0 88px;
+}
+
+.site-header{
+    padding-top:10px;
+}
+
+.brand{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.brand-title{
+    font-size:0.9rem;
+    letter-spacing:3px;
+    font-weight:700;
+}
+
+.certification{
+    margin-top:10px;
+    color:var(--muted);
+}
+
+.translator{
+    position:fixed;
+    top:18px;
+    right:18px;
+    z-index:20;
+    width:190px;
+    padding:8px;
+    border:1px solid rgba(255,255,255,.82);
+    border-radius:16px;
+    background:rgba(255,255,255,.78);
+    box-shadow:0 10px 28px rgba(52,45,34,.12);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    transform:translateY(0);
+    opacity:1;
+    transition:opacity .24s ease, transform .24s ease, visibility .24s ease;
+}
+
+.translator.is-hidden{
+    visibility:hidden;
+    opacity:0;
+    transform:translateY(-10px);
+}
+
+.language-switcher{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+}
+
+.language-divider{
+    color:rgba(34,34,34,.28);
+    font-size:.72rem;
+    line-height:1;
+}
+
+.lang{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    min-height:28px;
+    padding:5px 8px;
+    border:1px solid transparent;
+    border-radius:999px;
+    background:transparent;
+    color:var(--muted);
+    font-size:.76rem;
+    font-weight:650;
+    cursor:pointer;
+    transition:background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.lang:hover{
+    color:var(--ink);
+    background:rgba(34,34,34,.05);
+}
+
+.lang.active{
+    background:var(--ink);
+    color:white;
+    box-shadow:0 7px 16px rgba(34,34,34,.18);
+}
+
+.translator-note{
+    margin-top:6px;
+    color:var(--muted);
+    font-size:.62rem;
+    line-height:1.25;
+    text-align:center;
+}
+
+.hero{
+    text-align:center;
+    margin-top:50px;
+}
+
+.coupon-id{
+    color:var(--muted);
+    margin-bottom:10px;
+    font-size:.88rem;
+    font-weight:700;
+    letter-spacing:1.4px;
+}
+
+h1{
+    font-size:clamp(2.45rem,3.9rem,3.9rem);
+    line-height:1.05;
+}
+
+.department{
+    margin-top:12px;
+    color:var(--muted);
+}
+
+.approval-card{
+    background:var(--surface);
+    margin-top:25px;
+    border:1px solid rgba(255,255,255,.68);
+    border-radius:24px;
+    padding:25px;
+    box-shadow:var(--shadow);
+}
+
+.approval-label{
+    font-size:0.8rem;
+    letter-spacing:2px;
+    color:var(--muted);
+}
+
+.approver{
+    margin-top:10px;
+    font-size:1.4rem;
+    font-weight:700;
+}
+
+.title{
+    margin-top:5px;
+    color:var(--muted);
+}
+
+.card{
+    margin-top:24px;
+    background:var(--surface);
+    padding:28px;
+    border:1px solid rgba(255,255,255,.68);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+}
+
+.card h2{
+    margin-bottom:18px;
+    font-size:1.35rem;
+    line-height:1.2;
+}
+
+.status{
+    display:inline-block;
+    padding:10px 16px;
+    border-radius:12px;
+    margin-bottom:15px;
+    font-size:.82rem;
+    font-weight:800;
+    letter-spacing:.7px;
+}
+
+.approved{
+    background:var(--approved);
+    color:var(--approved-ink);
+}
+
+.benefits,
+.legal-list{
+    margin-left:20px;
+}
+
+.benefits li,
+.legal-list li{
+    margin-bottom:10px;
+}
+
+#auditButton,
+.redeem-button{
+    position:relative;
+    border:none;
+    cursor:pointer;
+    isolation:isolate;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+#auditButton:hover,
+.redeem-button:hover{
+    transform:translateY(-1px);
+}
+
+#auditButton{
+    margin-top:20px;
+    padding:14px 20px;
+    border-radius:14px;
+    background:var(--ink);
+    color:white;
+    font-weight:700;
+    box-shadow:0 10px 20px rgba(34,34,34,.13);
+}
+
+.redeem-button{
+    width:100%;
+    margin-top:30px;
+    padding:20px;
+    font-size:1.1rem;
+    border-radius:18px;
+    background:var(--gold);
+    color:var(--gold-dark);
+    font-weight:800;
+    box-shadow:0 12px 24px rgba(125,92,12,.18);
+}
+
+#auditOutput,
+#redeemOutput{
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.floating{
+    position:fixed;
+    opacity:.08;
+    font-size:2rem;
+    pointer-events:none;
+}
+
+.floating1{top:15%;left:10%;}
+.floating2{top:25%;right:10%;}
+.floating3{bottom:20%;left:15%;}
+.floating4{bottom:15%;right:15%;}
+
+@media (hover:hover) and (pointer:fine){
+    a,
+    button,
+    [role="button"],
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"]{
+        cursor:pointer;
+    }
+
+    #auditButton::after,
+    .redeem-button::after,
+    .lang::after{
+        position:absolute;
+        z-index:2;
+        content:"🐾";
+        display:grid;
+        place-items:center;
+        width:22px;
+        height:22px;
+        border:1px solid rgba(34,34,34,.08);
+        border-radius:50%;
+        background:rgba(255,255,255,.86);
+        box-shadow:0 8px 18px rgba(52,45,34,.12);
+        color:var(--gold-dark);
+        font-size:.72rem;
+        line-height:1;
+        pointer-events:none;
+        opacity:0;
+        transform:translate3d(4px,4px,0) scale(.86) rotate(-8deg);
+        transition:opacity .2s ease, transform .2s ease;
+    }
+
+    #auditButton::after,
+    .redeem-button::after{
+        top:-9px;
+        right:-8px;
+    }
+
+    .lang{
+        position:relative;
+        overflow:visible;
+    }
+
+    .lang::after{
+        top:-11px;
+        right:-9px;
+        width:18px;
+        height:18px;
+        font-size:.56rem;
+    }
+
+    #auditButton:hover::after,
+    #auditButton:focus-visible::after,
+    .redeem-button:hover::after,
+    .redeem-button:focus-visible::after,
+    .lang:hover::after,
+    .lang:focus-visible::after{
+        opacity:1;
+        transform:translate3d(0,0,0) scale(1) rotate(-8deg);
+    }
+
+    #auditButton:hover,
+    #auditButton:focus-visible{
+        box-shadow:0 14px 24px rgba(34,34,34,.17);
+    }
+
+    .redeem-button:hover,
+    .redeem-button:focus-visible{
+        box-shadow:0 16px 28px rgba(125,92,12,.22);
+    }
+
+    .lang:hover,
+    .lang:focus-visible{
+        transform:translateY(-1px);
+    }
+}
+
+@media (max-width:720px){
+    .container{
+        width:min(440px,90%);
+        padding:30px 0 104px;
+    }
+
+    .site-header{
+        padding-top:0;
+    }
+
+    .brand{
+        margin-bottom:26px;
+    }
+
+    .brand-title{
+        font-size:.72rem;
+        letter-spacing:2px;
+    }
+
+    .certification{
+        font-size:.86rem;
+    }
+
+    .translator{
+        top:auto;
+        right:50%;
+        bottom:18px;
+        width:auto;
+        max-width:calc(100vw - 28px);
+        padding:7px 9px;
+        border-radius:999px;
+        transform:translateX(50%) translateY(0);
+    }
+
+    .translator.is-hidden{
+        transform:translateX(50%) translateY(14px);
+    }
+
+    .translator-note{
+        display:none;
+    }
+
+    .language-switcher{
+        gap:5px;
+        white-space:nowrap;
+    }
+
+    .language-divider{
+        font-size:.82rem;
+    }
+
+    .lang{
+        min-height:34px;
+        padding:7px 10px;
+        font-size:.84rem;
+    }
+
+    .hero{
+        margin-top:38px;
+    }
+
+    h1{
+        font-size:2.75rem;
+    }
+
+    .approval-card,
+    .card{
+        border-radius:20px;
+    }
+
+    .card{
+        padding:24px;
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        transition-duration:.01ms !important;
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+    }
+}
