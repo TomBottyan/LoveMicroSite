@@ -9,7 +9,7 @@ const CATALOGUE_NAVIGATION_REDUCED_DELAY = 240;
 const REQUEST_STORAGE_PREFIX = "cae-request";
 const DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
 const MANUAL_REDEMPTION_NOTICE_RECIPIENT = window.CAE_MANUAL_NOTICE_EMAIL_RECIPIENT || "";
-const OFFICIAL_CATALOGUE_URL = "https://approvedbyacat.com/";
+const OFFICIAL_CATALOGUE_URL = "/";
 
 const translator = document.querySelector(".translator");
 const languageButtons = document.querySelectorAll(".lang");
@@ -53,6 +53,7 @@ let isNarrativeTransitionRunning = false;
 let isCatalogueNavigationRunning = false;
 const easterTapCounts = new WeakMap();
 let catalogueReturnLink = null;
+let scrollTopButton = null;
 
 function getInitialLanguage(){
     const urlLanguage = new URLSearchParams(window.location.search).get("lang");
@@ -127,6 +128,7 @@ function switchLanguage(lang){
 
     updateLanguageAwareLinks();
     updateCatalogueReturnNavigation();
+    updateScrollTopControl();
     updateRequestEntryState();
     updateOptionDescriptions();
 
@@ -140,14 +142,22 @@ function switchLanguage(lang){
 }
 
 function updateTranslatorVisibility(){
-    if(!translator){
-        return;
-    }
-
     const isAtTop = window.scrollY <= 8;
 
-    translator.classList.toggle("is-visible", isAtTop);
-    translator.classList.toggle("is-hidden", !isAtTop);
+    if(translator){
+        translator.classList.toggle("is-visible", isAtTop);
+        translator.classList.toggle("is-hidden", !isAtTop);
+    }
+
+    if(catalogueReturnLink){
+        catalogueReturnLink.classList.toggle("is-visible", isAtTop);
+        catalogueReturnLink.classList.toggle("is-hidden", !isAtTop);
+    }
+
+    if(scrollTopButton){
+        scrollTopButton.classList.toggle("is-visible", !isAtTop);
+        scrollTopButton.classList.toggle("is-hidden", isAtTop);
+    }
 }
 
 function getLanguageSet(){
@@ -183,18 +193,55 @@ function updateCatalogueReturnNavigation(){
     catalogueReturnLink.setAttribute("aria-label", label);
 }
 
+function updateScrollTopControl(){
+    if(!scrollTopButton){
+        return;
+    }
+
+    const navigationSet = getCatalogueNavigationSet();
+    const label = navigationSet && navigationSet.scrollTopLabel ?
+        navigationSet.scrollTopLabel :
+        "Scroll to top";
+
+    scrollTopButton.setAttribute("aria-label", label);
+    scrollTopButton.setAttribute("title", label);
+}
+
 function createCatalogueReturnNavigation(){
     if(couponKey === "mainIndex" || catalogueReturnLink){
         return;
     }
 
     catalogueReturnLink = document.createElement("a");
-    catalogueReturnLink.className = "catalogue-return-nav";
+    catalogueReturnLink.className = "catalogue-return-nav is-visible";
 
     document.body.appendChild(catalogueReturnLink);
     document.body.classList.add("has-catalogue-return-nav");
 
     updateCatalogueReturnNavigation();
+}
+
+function createScrollTopControl(){
+    if(couponKey === "mainIndex" || scrollTopButton){
+        return;
+    }
+
+    scrollTopButton = document.createElement("button");
+    scrollTopButton.className = "scroll-top-control is-hidden";
+    scrollTopButton.type = "button";
+    scrollTopButton.textContent = "↑";
+
+    scrollTopButton.addEventListener("click", () => {
+        window.scrollTo({
+            top:0,
+            behavior:prefersReducedMotion.matches ? "auto" : "smooth"
+        });
+    });
+
+    document.body.appendChild(scrollTopButton);
+    document.body.classList.add("has-scroll-top-control");
+
+    updateScrollTopControl();
 }
 
 function getRandomItem(items){
@@ -1274,6 +1321,7 @@ window.addEventListener("resize", updateTranslatorVisibility);
 
 configureDateInputs();
 createCatalogueReturnNavigation();
+createScrollTopControl();
 switchLanguage(currentLanguage);
 updateTranslatorVisibility();
 updateRequestEntryState();

@@ -903,13 +903,13 @@ Destination rules:
 English:
 
 ```text
-https://approvedbyacat.com/
+/
 ```
 
 Hungarian:
 
 ```text
-https://approvedbyacat.com/?lang=hu
+/?lang=hu
 ```
 
 Display text:
@@ -928,10 +928,24 @@ Vissza a Hivatalos Katalógushoz
 
 Layout:
 
-* The component should be a small floating mobile-friendly navigation button.
+* The component should appear near the top-left of coupon pages as a compact utility navigation button.
+* The component should be available to both mobile and desktop users.
+* The component must not bottom-float on desktop or mobile.
 * The component must not interfere with the language switcher.
 * The component must not interfere with redemption actions, request confirmations, or narrative proceedings.
+* The component must share visibility behavior with the language switcher.
+* At the top of the page, the language switcher and catalogue navigation are visible.
+* When the user scrolls down, the language switcher and catalogue navigation hide together.
 * Mobile positioning should account for safe-area insets.
+
+Scroll-to-top control:
+
+* Coupon microsites should provide a small mobile-only scroll-to-top control.
+* The scroll-to-top control appears when the user has scrolled down.
+* The scroll-to-top control disappears when the user returns to the top.
+* This behavior is the opposite of the language switcher and catalogue navigation.
+* The control should use smooth scrolling unless the user prefers reduced motion.
+* The control must not overlap the language switcher, redemption actions, request confirmations, or mobile browser UI.
 
 ---
 

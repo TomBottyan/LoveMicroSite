@@ -1,10 +1,12 @@
 window.CAE_SHARED_TRANSLATIONS = {
     catalogueNavigation: {
         en: {
-            returnLabel: "Return to Official Catalogue"
+            returnLabel: "Return to Official Catalogue",
+            scrollTopLabel: "Scroll to top"
         },
         hu: {
-            returnLabel: "Vissza a Hivatalos Katalógushoz"
+            returnLabel: "Vissza a Hivatalos Katalógushoz",
+            scrollTopLabel: "Vissza az oldal tetejére"
         }
     },
     manualRedemptionNotice: {
