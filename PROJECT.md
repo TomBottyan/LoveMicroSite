@@ -106,6 +106,42 @@ Future physical cards must follow:
 * same typography hierarchy
 * same QR placeholder placement
 
+Design language rule:
+
+Physical cards are collectible government-style documents issued by the Cat Approved Experiences administration.
+
+Cards should feel like:
+
+* Permits
+* Licenses
+* Authorizations
+* Certificates
+* Official government documents
+
+Cards should not resemble:
+
+* Loyalty cards
+* Membership cards
+* Hotel keycards
+* Event tickets
+* Generic gift vouchers
+
+The collection should maintain a consistent bureaucratic identity while allowing thematic variation between departments.
+
+Department seal rule:
+
+Each card should include a thematic department seal that reflects the purpose of the experience while preserving the shared Cat Approved Experiences visual identity.
+
+Examples:
+
+* Chef Pass → Culinary seal
+* Lazy Day Permit → Relaxation seal
+* Movie Night Permit → Entertainment seal
+
+Thematic seals should provide visual variety while maintaining collection consistency.
+
+Department seals are supporting design elements and must not replace the shared Cat Approved Experiences approval identity or approval authority.
+
 Physical card format:
 
 * A6 portrait
@@ -206,7 +242,73 @@ The physical card wording must preserve the meaning of the corresponding digital
 
 Physical card generation must not introduce new meaning, reinterpret existing meaning, or accidentally reverse the intended relationship dynamic.
 
-When uncertainty exists, the microsite canon takes precedence.
+When uncertainty exists, the conflict resolution rules below determine the authoritative source.
+
+### Physical Card Content Extraction Sources
+
+When creating physical cards, content must be extracted from project sources using the following priority order:
+
+1. PROJECT.md
+2. Main Catalogue Card
+3. Microsite Content
+4. Translations
+5. Supporting Assets
+
+#### Source Responsibilities
+
+PROJECT.md provides:
+
+* Canon
+* Emotional purpose
+* Relationship context
+* Collection rules
+* Production workflow
+
+Main Catalogue Card provides:
+
+* Official title
+* Department name
+* Public-facing card identity
+
+Microsite provides:
+
+* Actual meaning of the coupon
+* Descriptive wording
+* Benefits and privileges
+* Supporting emotional messaging
+
+Translations provide:
+
+* Approved localized wording
+* Language-specific adjustments
+
+Supporting Assets provide:
+
+* Visual references
+* Department symbolism
+* Thematic inspiration
+
+### Conflict Resolution Rules
+
+If multiple sources contain different information, use the following precedence:
+
+Title and Department:
+
+Main Catalogue Card
+
+Meaning and Benefits:
+
+Microsite
+
+Canon and Emotional Intent:
+
+PROJECT.md
+
+Localized Wording:
+
+Translations
+
+Physical card drafts must not invent alternative interpretations when an authoritative source already exists.
 
 ### Example
 
@@ -220,16 +322,19 @@ The wording must not imply that the holder is authorized or expected to cook.
 
 ### Approved Workflow
 
-1. Extract content from PROJECT.md, translations, and the existing microsite.
+1. Extract content from approved sources.
 2. Review the coupon's emotional purpose.
 3. Confirm the intended relationship dynamic.
-4. Draft English front wording.
-5. Draft Hungarian back wording.
-6. Review meaning and emotional direction.
-7. Approve the card content.
-8. Generate physical card artwork using the approved content.
-9. Review visual output.
-10. Freeze the card only after both content and layout are correct.
+4. Verify title and department against the main catalogue card.
+5. Verify meaning and benefits against the microsite.
+6. Draft English front wording.
+7. Draft Hungarian back wording.
+8. Review meaning, emotional direction, and localized wording.
+9. Approve the card content.
+10. Generate physical card artwork using the approved content.
+11. Review artwork separately from content.
+12. Review typography, translations, department naming, approval authority titles, and QR placeholder placement.
+13. Freeze the card only after both content and layout are correct.
 
 ### Content Approval Rule
 
@@ -262,15 +367,16 @@ The project does not use batch card generation.
 
 Each card must pass the following stages:
 
-1. Generate English front.
-2. Generate Hungarian back.
-3. Review typography.
-4. Review translations.
-5. Review department naming.
-6. Review approval authority titles.
-7. Review QR placeholder placement.
-8. Approve.
-9. Freeze.
+1. Complete and approve the Physical Card Content Workflow.
+2. Generate English front.
+3. Generate Hungarian back.
+4. Review typography.
+5. Review translations.
+6. Review department naming.
+7. Review approval authority titles.
+8. Review QR placeholder placement.
+9. Approve.
+10. Freeze.
 
 Once approved, a card becomes FINAL and should not be regenerated unless a genuine defect is discovered.
 
