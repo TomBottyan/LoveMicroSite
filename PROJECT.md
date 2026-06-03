@@ -808,6 +808,8 @@ Redemption request screen text, field labels, validation messages, option labels
 
 Redemption request transition messages must be localized in `shared/translations.js`.
 
+Manual redemption notice labels, explanations, generated-message wording, copy confirmations, email subject prefixes, and screenshot reminders must be localized in `shared/translations.js`.
+
 Each coupon translation set should include `pageTitle`; `shared/app.js` uses it to update `document.title` when the active language changes.
 
 Existing Lord Purrcival / Dorombárd Úr behavior must remain intact:
@@ -1121,6 +1123,13 @@ Rules:
 * No backend integration is required yet.
 * Future coupons should define request fields and localized request copy without changing unrelated coupon behavior.
 * Future coupons should define their own localized transition messages while reusing the shared transition component.
+* Submitted request confirmations should render a reusable manual redemption notice when a request has been recorded.
+* Manual redemption notices must not imply that Tomi has been automatically notified.
+* Manual redemption notices should prepare a localized plain text message that Eszter can copy for Viber or Messenger, or send through a standard `mailto:` link.
+* Manual redemption notices must include the coupon title, available redemption details, the current date and time, the current page URL with language where possible, and short official Cat Approved Experiences™ wording.
+* Manual redemption notice recipient email must be centrally configurable and may be empty.
+* Manual redemption notices must not implement a backend, store additional submissions, or attempt automatic Messenger or Viber sending.
+* Manual redemption notice text and controls must be reusable through the shared redemption framework.
 
 Stored request fields should include at least:
 
@@ -1767,6 +1776,7 @@ Use shared files for:
 * Redemption Request Framework execution
 * Redemption request transition component styling and behavior
 * Redemption request screen styling
+* Manual redemption notice rendering and styling
 * localStorage request persistence
 * Reusable Lord Purrcival image conventions
 * Relationship legislation proceeding transitions
@@ -2784,6 +2794,7 @@ When generating future coupons:
 * Keep action message pools and success results in `shared/translations.js`
 * Keep request screen text, validation text, field labels, options, and confirmation copy in `shared/translations.js`
 * Keep request transition messages in `shared/translations.js`
+* Keep manual redemption notice text and controls in `shared/translations.js`
 * Mark persisted request form fields with `data-request-field`
 * Define request validation, option labels, and submitted-detail summaries in each coupon's `redemptionRequest` configuration
 * Define at least ten localized status messages per action

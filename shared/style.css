@@ -1620,6 +1620,58 @@ button.approval-officer-media{
     color:var(--ink);
 }
 
+.manual-redemption-notice{
+    display:grid;
+    gap:14px;
+    margin-top:26px;
+    padding:20px;
+    border:1px solid rgba(26,54,93,.14);
+    border-radius:18px;
+    background:rgba(248,245,239,.7);
+}
+
+.manual-redemption-notice h2{
+    margin:0;
+    font-size:1.2rem;
+}
+
+.manual-redemption-notice-explanation,
+.manual-redemption-notice-reminder,
+.manual-redemption-notice-status{
+    margin:0;
+    color:var(--muted);
+    font-size:.92rem;
+}
+
+.manual-redemption-notice-message{
+    width:100%;
+    min-height:220px;
+    padding:14px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:rgba(255,255,255,.9);
+    color:var(--ink);
+    font:inherit;
+    line-height:1.55;
+    resize:vertical;
+}
+
+.manual-redemption-notice-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.manual-redemption-notice-status{
+    min-height:1.35em;
+    color:var(--approved-ink);
+    font-weight:750;
+}
+
+.manual-redemption-notice-status.is-error{
+    color:#7d2d22;
+}
+
 .floating{
     position:fixed;
     opacity:.08;

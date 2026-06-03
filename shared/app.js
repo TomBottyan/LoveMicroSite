@@ -8,6 +8,7 @@ const CATALOGUE_NAVIGATION_DELAY = 1200;
 const CATALOGUE_NAVIGATION_REDUCED_DELAY = 240;
 const REQUEST_STORAGE_PREFIX = "cae-request";
 const DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
+const MANUAL_REDEMPTION_NOTICE_RECIPIENT = window.CAE_MANUAL_NOTICE_EMAIL_RECIPIENT || "";
 
 const translator = document.querySelector(".translator");
 const languageButtons = document.querySelectorAll(".lang");
@@ -42,6 +43,7 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 const couponKey = document.body.dataset.coupon;
 const couponId = document.body.dataset.couponId || couponKey;
 const translations = window.CAE_TRANSLATIONS && window.CAE_TRANSLATIONS[couponKey];
+const sharedTranslations = window.CAE_SHARED_TRANSLATIONS || {};
 
 let currentLanguage = getInitialLanguage();
 let isRequestTransitionRunning = false;
@@ -230,6 +232,11 @@ function getRequestConfig(){
     const languageSet = getLanguageSet();
 
     return languageSet && languageSet.redemptionRequest;
+}
+
+function getManualRedemptionNoticeConfig(){
+    return sharedTranslations.manualRedemptionNotice &&
+        sharedTranslations.manualRedemptionNotice[currentLanguage];
 }
 
 function getLegislationConfig(){
@@ -606,6 +613,226 @@ function createSummaryRow(label, value){
     return row;
 }
 
+function formatNoticeDate(date){
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+
+    return `${year}-${month}-${day} ${hours}:${minutes}`;
+}
+
+function getCurrentLanguageUrl(){
+    const url = new URL(window.location.href);
+
+    url.searchParams.set("lang", currentLanguage);
+
+    return url.toString();
+}
+
+function getNoticeDetailRows(request){
+    const config = getRequestConfig();
+    const excludedFields = new Set(["couponId", "couponName", "recipientName", "assignedTo", "submittedAt", "language"]);
+
+    if(!config){
+        return [];
+    }
+
+    return (config.summaryFields || [])
+        .filter(field => !excludedFields.has(field.name))
+        .map(field => {
+            const rawValue = request[field.name];
+            let value = rawValue;
+
+            if(!rawValue){
+                return null;
+            }
+
+            if(field.type === "option"){
+                value = getOptionLabel(field.name, rawValue);
+            }
+
+            if(field.type === "datetime"){
+                value = new Date(rawValue).toLocaleString(currentLanguage === "hu" ? "hu-HU" : "en-US");
+            }
+
+            return {
+                label: field.label,
+                value
+            };
+        })
+        .filter(Boolean);
+}
+
+function createManualNoticeMessage(request){
+    const noticeConfig = getManualRedemptionNoticeConfig();
+
+    if(!noticeConfig){
+        return "";
+    }
+
+    const detailRows = getNoticeDetailRows(request);
+    const lines = [
+        noticeConfig.reportIntro,
+        "",
+        request.couponName || couponId,
+        ""
+    ];
+
+    if(detailRows.length){
+        lines.push(noticeConfig.detailsHeading);
+
+        detailRows.forEach(row => {
+            lines.push(`${row.label}:`);
+            lines.push(row.value);
+            lines.push("");
+        });
+    }
+
+    lines.push(noticeConfig.dateLabel);
+    lines.push(formatNoticeDate(new Date()));
+    lines.push("");
+    lines.push(noticeConfig.recordsLabel);
+    lines.push(getCurrentLanguageUrl());
+    lines.push("");
+    lines.push(noticeConfig.closing);
+
+    return lines.join("\n").trim();
+}
+
+function setNoticeStatus(notice, message, isError = false){
+    const status = notice.querySelector("[data-manual-notice-status]");
+
+    if(!status){
+        return;
+    }
+
+    status.textContent = message;
+    status.classList.toggle("is-error", isError);
+}
+
+function openNoticeEmail(request, message){
+    const noticeConfig = getManualRedemptionNoticeConfig();
+
+    if(!noticeConfig){
+        return;
+    }
+
+    const subject = `${noticeConfig.emailSubjectPrefix} ${request.couponName || couponId}`;
+    const mailto = new URL(`mailto:${MANUAL_REDEMPTION_NOTICE_RECIPIENT}`);
+
+    mailto.searchParams.set("subject", subject);
+    mailto.searchParams.set("body", message);
+
+    window.location.href = mailto.toString();
+}
+
+async function copyManualNoticeMessage(notice, message){
+    const noticeConfig = getManualRedemptionNoticeConfig();
+    const messageField = notice.querySelector("[data-manual-notice-message]");
+
+    if(!noticeConfig || !messageField){
+        return;
+    }
+
+    try{
+        if(navigator.clipboard && navigator.clipboard.writeText){
+            await navigator.clipboard.writeText(message);
+        }else{
+            messageField.focus();
+            messageField.select();
+
+            if(!document.execCommand("copy")){
+                throw new Error("Copy command failed.");
+            }
+        }
+
+        setNoticeStatus(notice, noticeConfig.copySuccess);
+    }catch(error){
+        messageField.focus();
+        messageField.select();
+        setNoticeStatus(notice, noticeConfig.copyFallback, true);
+    }
+}
+
+function createManualRedemptionNotice(request){
+    const noticeConfig = getManualRedemptionNoticeConfig();
+
+    if(!noticeConfig){
+        return null;
+    }
+
+    const message = createManualNoticeMessage(request);
+    const notice = document.createElement("section");
+    const title = document.createElement("h2");
+    const explanation = document.createElement("p");
+    const messageField = document.createElement("textarea");
+    const actions = document.createElement("div");
+    const copyButton = document.createElement("button");
+    const emailButton = document.createElement("button");
+    const status = document.createElement("p");
+    const reminder = document.createElement("p");
+
+    notice.className = "manual-redemption-notice";
+    title.textContent = noticeConfig.title;
+    explanation.className = "manual-redemption-notice-explanation";
+    explanation.textContent = noticeConfig.explanation;
+    messageField.className = "manual-redemption-notice-message";
+    messageField.value = message;
+    messageField.readOnly = true;
+    messageField.rows = 11;
+    messageField.dataset.manualNoticeMessage = "";
+    actions.className = "manual-redemption-notice-actions";
+    copyButton.className = "secondary-button";
+    copyButton.type = "button";
+    copyButton.textContent = noticeConfig.copyButton;
+    emailButton.className = "secondary-button";
+    emailButton.type = "button";
+    emailButton.textContent = noticeConfig.emailButton;
+    status.className = "manual-redemption-notice-status";
+    status.dataset.manualNoticeStatus = "";
+    status.setAttribute("aria-live", "polite");
+    reminder.className = "manual-redemption-notice-reminder";
+    reminder.textContent = noticeConfig.screenshotReminder;
+
+    copyButton.addEventListener("click", () => {
+        copyManualNoticeMessage(notice, message);
+    });
+
+    emailButton.addEventListener("click", () => {
+        openNoticeEmail(request, message);
+    });
+
+    actions.appendChild(copyButton);
+    actions.appendChild(emailButton);
+    notice.appendChild(title);
+    notice.appendChild(explanation);
+    notice.appendChild(messageField);
+    notice.appendChild(actions);
+    notice.appendChild(status);
+    notice.appendChild(reminder);
+
+    return notice;
+}
+
+function renderManualRedemptionNotice(request){
+    if(!requestConfirmation){
+        return;
+    }
+
+    const existingNotice = requestConfirmation.querySelector(".manual-redemption-notice");
+    const notice = createManualRedemptionNotice(request);
+
+    if(existingNotice){
+        existingNotice.remove();
+    }
+
+    if(notice){
+        requestConfirmation.appendChild(notice);
+    }
+}
+
 function showRequestSummary(request){
     const config = getRequestConfig();
 
@@ -655,6 +882,7 @@ function showRequestConfirmation(request){
     });
 
     showRequestSummary(request);
+    renderManualRedemptionNotice(request);
 }
 
 function openRequestScreen(){

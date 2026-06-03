@@ -1,3 +1,38 @@
+window.CAE_SHARED_TRANSLATIONS = {
+    manualRedemptionNotice: {
+        en: {
+            title: "Send Redemption Notice",
+            explanation: "Lord Purrcival's office has prepared the official notice. Since the department currently operates without a backend, please send it to Tomi manually.",
+            copyButton: "Copy for Viber / Messenger",
+            emailButton: "Send by Email",
+            screenshotReminder: "For official records, a screenshot is still highly recommended.",
+            copySuccess: "Copied. Please paste it into Viber or Messenger.",
+            copyFallback: "Copy could not be completed automatically. Please select the message and copy it manually.",
+            emailSubjectPrefix: "CAE Redemption Notice:",
+            reportIntro: "Lord Purrcival reports that Eszter has redeemed:",
+            detailsHeading: "Redemption details:",
+            dateLabel: "Date:",
+            recordsLabel: "Official records:",
+            closing: "Please begin processing."
+        },
+        hu: {
+            title: "Beváltási értesítő küldése",
+            explanation: "Dorombárd Úr hivatala előkészítette a hivatalos értesítőt. Mivel az osztály jelenleg háttérrendszer nélkül működik, kérjük, küldd el Tominak kézzel.",
+            copyButton: "Másolás Viberhez / Messengerhez",
+            emailButton: "Küldés e-mailben",
+            screenshotReminder: "A hivatalos nyilvántartás érdekében továbbra is erősen ajánlott képernyőképet készíteni.",
+            copySuccess: "Másolva. Kérjük, illeszd be Viberbe vagy Messengerbe.",
+            copyFallback: "Az automatikus másolás nem sikerült. Kérjük, jelöld ki az üzenetet, és másold kézzel.",
+            emailSubjectPrefix: "CAE beváltási értesítő:",
+            reportIntro: "Dorombárd Úr jelentése szerint Eszter beváltotta az alábbi kupont:",
+            detailsHeading: "Beváltási részletek:",
+            dateLabel: "Dátum:",
+            recordsLabel: "Hivatalos nyilvántartás:",
+            closing: "Kérjük a feldolgozás megkezdését."
+        }
+    }
+};
+
 window.CAE_TRANSLATIONS = {
     chefPass: {
         en: {
