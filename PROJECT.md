@@ -176,6 +176,82 @@ Production environment:
 * Artwork Studio generates card designs.
 * Implementation & Development prepares print-ready assets.
 
+## Physical Card Content Workflow
+
+Physical cards are derived artifacts.
+
+The corresponding digital coupon and its approved canon remain the primary source of truth.
+
+Before generating any physical card artwork, the card content must be extracted, reviewed, and approved.
+
+Physical card generation must not begin from a generic coupon concept alone.
+
+For each card, define and review the following before artwork generation:
+
+* CAE number
+* English title
+* Hungarian title
+* English department
+* Hungarian department
+* Emotional purpose
+* Actual meaning of the coupon
+* English front wording
+* Hungarian back wording
+* Feature list / privilege list
+* Approval authority title
+* QR placeholder label
+* URL path
+
+The physical card wording must preserve the meaning of the corresponding digital microsite.
+
+Physical card generation must not introduce new meaning, reinterpret existing meaning, or accidentally reverse the intended relationship dynamic.
+
+When uncertainty exists, the microsite canon takes precedence.
+
+### Example
+
+Chef Pass is not a license for Eszter to cook.
+
+Chef Pass is a service coupon where Tomi cooks for Eszter.
+
+Therefore the physical card wording must communicate that the holder may request or receive a meal prepared by Tomi.
+
+The wording must not imply that the holder is authorized or expected to cook.
+
+### Approved Workflow
+
+1. Extract content from PROJECT.md, translations, and the existing microsite.
+2. Review the coupon's emotional purpose.
+3. Confirm the intended relationship dynamic.
+4. Draft English front wording.
+5. Draft Hungarian back wording.
+6. Review meaning and emotional direction.
+7. Approve the card content.
+8. Generate physical card artwork using the approved content.
+9. Review visual output.
+10. Freeze the card only after both content and layout are correct.
+
+### Content Approval Rule
+
+If content is not approved, do not generate the card.
+
+Artwork review cannot substitute for content review.
+
+This rule exists to prevent visual generation from accidentally changing the meaning of the original coupon.
+
+### Source of Truth Rule
+
+When differences exist between:
+
+* coupon concept discussions
+* artwork discussions
+* physical card drafts
+* microsite implementation
+
+the approved digital coupon canon is authoritative.
+
+## Physical cards must faithfully represent the approved coupon rather than reinterpret it.
+
 ## Production Workflow & Print Validation
 
 ### Card Approval Process
