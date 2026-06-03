@@ -348,6 +348,21 @@ English is the default language.
 
 Coupon HTML may include English fallback text for initial rendering, no-JavaScript readability, and easier authoring. The canonical translated copy still lives in `shared/translations.js`.
 
+All coupon pages support URL-based initial language selection through the shared app.
+
+Supported parameter:
+
+```text
+?lang=en
+?lang=hu
+```
+
+When `lang=en` or `lang=hu` is present, the page must load directly in the requested language and update the language switcher state to match.
+
+When `lang` is missing or unsupported, the page must use the default language.
+
+Manual language switching must remain available after URL-based initialization.
+
 Any user-facing coupon text that changes by language must use `data-i18n` and must have English and Hungarian entries in `shared/translations.js`.
 
 Translatable accessibility labels must use `data-i18n-aria-label`.

@@ -38,11 +38,21 @@ const couponKey = document.body.dataset.coupon;
 const couponId = document.body.dataset.couponId || couponKey;
 const translations = window.CAE_TRANSLATIONS && window.CAE_TRANSLATIONS[couponKey];
 
-let currentLanguage = DEFAULT_LANGUAGE;
+let currentLanguage = getInitialLanguage();
 let isRequestTransitionRunning = false;
 let isCourtTransitionRunning = false;
 let isNarrativeTransitionRunning = false;
 const easterTapCounts = new WeakMap();
+
+function getInitialLanguage(){
+    const urlLanguage = new URLSearchParams(window.location.search).get("lang");
+
+    if(urlLanguage === "en" || urlLanguage === "hu"){
+        return urlLanguage;
+    }
+
+    return DEFAULT_LANGUAGE;
+}
 
 function switchLanguage(lang){
 
