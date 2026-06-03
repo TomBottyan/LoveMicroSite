@@ -81,8 +81,8 @@
                     src="../shared/images/lord-purrcival/girlfriend-priority-access-pass.png"
                     alt="Lord Purrcival approving the Girlfriend Priority Access Pass"
                     data-i18n-alt="approvalOfficerPortraitAlt"
-                    width="1536"
-                    height="1024"
+                    width="1402"
+                    height="1122"
                 >
             </button>
 
@@ -130,7 +130,41 @@
 
     </section>
 
-    <section class="card credential-intro" aria-labelledby="verification-title">
+    <section class="card credential-intro" aria-labelledby="why-pass-title">
+
+        <h2 id="why-pass-title" data-i18n="whyPassTitle">
+            Why This Pass Exists
+        </h2>
+
+        <div class="credential-lead credential-reveal-copy">
+            <p data-i18n="whyPassLine1">
+                Some places require invitations.
+            </p>
+
+            <p data-i18n="whyPassLine2">
+                Some places require approval.
+            </p>
+
+            <p data-i18n="whyPassLine3">
+                Some places make you prove that you belong.
+            </p>
+
+            <p data-i18n="whyPassLine4">
+                This is not one of those places.
+            </p>
+
+            <p data-i18n="whyPassLine5">
+                This pass exists because certain people never needed permission to be here in the first place.
+            </p>
+        </div>
+
+        <a class="secondary-button continue-link" href="#priority-verification" data-i18n="continueButton">
+            Continue
+        </a>
+
+    </section>
+
+    <section id="priority-verification" class="card credential-intro" aria-labelledby="verification-title">
 
         <h2 id="verification-title" data-i18n="verificationTitle">
             Priority Access Verification
@@ -180,11 +214,11 @@
 
             <ul class="credential-checks">
 
+                <li data-i18n="checkKnown">✔ Already Known To Management</li>
+                <li data-i18n="checkWelcomed">✔ Previously Welcomed</li>
+                <li data-i18n="checkArrival">✔ Expected Arrival Confirmed</li>
+                <li data-i18n="checkReservation">✔ Permanent Reservation Located</li>
                 <li data-i18n="checkCatApproved">✔ Cat Approved</li>
-                <li data-i18n="checkImportant">✔ Exceptionally Important</li>
-                <li data-i18n="checkVerified">✔ Previously Verified</li>
-                <li data-i18n="checkWelcome">✔ Permanently Welcome</li>
-                <li data-i18n="checkExpected">✔ Expected By Management</li>
 
             </ul>
 
@@ -213,7 +247,7 @@
             </p>
 
             <p data-i18n="determinationMessage2">
-                The holder qualifies for permanent Priority Access standing.
+                The holder's permanent welcome has been located and confirmed.
             </p>
 
         </section>
@@ -244,22 +278,22 @@
 
                     <div>
                         <dt data-i18n="statusLabel">Status</dt>
-                        <dd data-i18n="statusValue">Pre-Approved</dd>
+                        <dd data-i18n="statusValue">Expected</dd>
                     </div>
 
                     <div>
-                        <dt data-i18n="priorityLevelLabel">Priority Level</dt>
-                        <dd data-i18n="priorityLevelValue">Maximum</dd>
+                        <dt data-i18n="reservationLabel">Reservation</dt>
+                        <dd data-i18n="reservationValue">Permanent</dd>
+                    </div>
+
+                    <div>
+                        <dt data-i18n="standingLabel">Standing</dt>
+                        <dd data-i18n="standingValue">Always Welcome</dd>
                     </div>
 
                     <div>
                         <dt data-i18n="expirationLabel">Expiration</dt>
                         <dd data-i18n="expirationValue">Never</dd>
-                    </div>
-
-                    <div>
-                        <dt data-i18n="membershipLabel">Membership Standing</dt>
-                        <dd data-i18n="membershipValue">Permanent</dd>
                     </div>
 
                 </dl>
@@ -305,21 +339,21 @@
                         </div>
                         <div>
                             <dt data-i18n="registryStatusLabel">Status</dt>
-                            <dd data-i18n="registryStatusValue">PRE-APPROVED</dd>
+                            <dd data-i18n="registryStatusValue">EXPECTED</dd>
                         </div>
                     </dl>
                 </article>
 
                 <article class="monitor-card">
-                    <h3 data-i18n="queueTitle">Queue Information</h3>
+                    <h3 data-i18n="reservedPlaceTitle">Reserved Place</h3>
                     <dl>
                         <div>
-                            <dt data-i18n="generalPublicLabel">General Public</dt>
-                            <dd data-i18n="generalPublicValue">Several Weeks</dd>
+                            <dt data-i18n="reservedPlaceLabel">Reserved Place</dt>
+                            <dd data-i18n="reservedPlaceValue">Confirmed</dd>
                         </div>
                         <div>
-                            <dt data-i18n="priorityHoldersLabel">Priority Holders</dt>
-                            <dd data-i18n="priorityHoldersValue">Immediate</dd>
+                            <dt data-i18n="waitingListLabel">Waiting List</dt>
+                            <dd data-i18n="waitingListValue">Not Applicable</dd>
                         </div>
                     </dl>
                 </article>
@@ -328,8 +362,8 @@
                     <h3 data-i18n="relationshipStatusTitle">Relationship Status</h3>
                     <dl>
                         <div>
-                            <dt data-i18n="priorityLevelLabel">Priority Level</dt>
-                            <dd data-i18n="priorityLevelValue">Maximum</dd>
+                            <dt data-i18n="placeLabel">Place</dt>
+                            <dd data-i18n="placeValue">Already Reserved</dd>
                         </div>
                         <div>
                             <dt data-i18n="approvalReasonLabel">Reason For Approval</dt>
@@ -353,18 +387,22 @@
             </h2>
 
             <p data-i18n="emotionalLine1">
-                You don't need to earn your place here.
+                The pass was never about getting in faster.
             </p>
 
             <p data-i18n="emotionalLine2">
-                You don't need to qualify again.
+                It was never about special treatment.
             </p>
 
             <p data-i18n="emotionalLine3">
-                You don't need permission to belong.
+                It was simply a formal way of saying that your place was already reserved.
             </p>
 
             <p data-i18n="emotionalLine4">
+                You don't need permission to belong.
+            </p>
+
+            <p data-i18n="emotionalLine5">
                 You already do.
             </p>
 
