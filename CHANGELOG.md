@@ -32,8 +32,8 @@ Implemented coupons:
 * `CAE-009` Immediate Boyfriend Deployment Order
 * `CAE-010` The Missing Hoodie Act
 * `CAE-011` Personal Recharging Permit
-* `CAE-012` Girlfriend Priority Access Pass
-* `CAE-013` Anti Dick Light Warrant
+* `CAE-012` Anti Dick Light Warrant
+* `CAE-013` Girlfriend Priority Access Pass
 
 Shared systems maintained or introduced:
 

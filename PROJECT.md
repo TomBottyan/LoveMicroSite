@@ -964,7 +964,7 @@ Existing users:
 
 * CAE-008 Unlimited Complaining License
 * CAE-010 The Missing Hoodie Act
-* CAE-013 Anti Dick Light Warrant
+* CAE-012 Anti Dick Light Warrant
 
 The framework exists to keep legal parody consistent while allowing different coupon structures, including licenses, court rulings, acts, orders, and future relationship precedents.
 
@@ -1040,7 +1040,7 @@ Potential future users:
 
 Existing users:
 
-* CAE-012 Girlfriend Priority Access Pass
+* CAE-013 Girlfriend Priority Access Pass
 
 The framework exists to keep relationship credentials warm and consistent while allowing each coupon to define its own verification checks, credential fields, registry panels, and emotional message.
 
@@ -1230,6 +1230,7 @@ CAE/
 ├── README.md
 ├── CHANGELOG.md
 ├── .gitignore
+├── index.html
 │
 ├── shared/
 │   ├── style.css
@@ -1239,6 +1240,7 @@ CAE/
 │   │   ├── .gitkeep
 │   │   └── lord-purrcival/
 │   │       ├── reference-chef-pass.png
+│   │       ├── welcome.png
 │   │       ├── chef-pass.png
 │   │       ├── lazy-day.png
 │   │       ├── movie-night.png
@@ -1253,7 +1255,8 @@ CAE/
 │   │       ├── girlfriend-priority-access-pass.png
 │   │       └── anti-dick-light-warrant.png
 │   └── icons/
-│       └── .gitkeep
+│       ├── .gitkeep
+│       └── favicon.svg
 │
 ├── chef-pass/
 │   └── index.html
@@ -1295,15 +1298,17 @@ CAE/
 │   └── index.html
 │
 └── docs/
-    └── .gitkeep
+    └── deployment.md
 ```
 
 Unless specified otherwise:
 
+* The root `index.html` is the official Cat Approved Experiences™ entry point and experience catalogue.
 * Shared CSS resides in `shared/style.css`.
 * Shared JavaScript behavior resides in `shared/app.js`.
 * Shared translation data resides in `shared/translations.js`.
 * Shared icons reside in `shared/icons/`.
+* The shared favicon is `shared/icons/favicon.svg` and uses the double cat paw mark.
 * Shared images reside in `shared/images/`.
 * Lord Purrcival approval portraits reside in `shared/images/lord-purrcival/`.
 * Each completed coupon has its own folder and `index.html`.
@@ -1370,6 +1375,40 @@ Before introducing a coupon-specific implementation:
 4. Avoid one-off solutions that duplicate existing patterns.
 
 The goal is long-term maintainability and consistency across all Cat Approved Experiences™ coupons.
+
+---
+
+# Main Index / Landing Page
+
+The root `index.html` is the official entry point to Cat Approved Experiences™.
+
+Purpose:
+
+* Welcome Eszter into the Cat Approved Experiences™ universe.
+* Explain how the gift and QR card concept work.
+* Explain that the platform currently operates in joke mode without backend notifications.
+* Provide access to all available experiences.
+* Establish Lord Purrcival / Dorombárd Úr as the warm, absurd, official greeting authority.
+
+The page should feel warm, personal, and slightly absurd.
+
+The page should not feel like technical documentation.
+
+The greeting should be delivered by Lord Purrcival in English and Dorombárd Úr in Hungarian.
+
+The main index uses:
+
+* Translation Framework
+* Language Switcher Framework
+* URL-based language selection
+* Shared catalogue card styling
+* Shared Lord Purrcival artwork convention
+
+Canonical welcome portrait:
+
+`shared/images/lord-purrcival/welcome.png`
+
+Catalogue links should preserve the active language using `?lang=en` or `?lang=hu`.
 
 ---
 
@@ -2094,73 +2133,6 @@ Complete
 
 Name:
 
-Girlfriend Priority Access Pass
-
-Folder:
-
-`girlfriend-priority-access-pass/`
-
-Department:
-
-Priority Relationship Services Authority
-
-Hungarian department:
-
-Kiemelt Kapcsolati Szolgáltatások Hatósága
-
-Classification:
-
-* Relationship Credential
-* Comfort Coupon
-* Permanent Access Credential
-
-Status:
-
-Approved
-
-Description:
-
-Permanent relationship credential recognizing that Eszter already belongs and will always have a special place in the relationship.
-
-Canonical Lord Purrcival portrait:
-
-`shared/images/lord-purrcival/girlfriend-priority-access-pass.png`
-
-Interactive actions:
-
-None
-
-Redemption request:
-
-Not applicable
-
-Relationship credential proceeding:
-
-Enabled
-
-Narrative stages:
-
-* Priority Access Verification
-* Eligibility Review
-* Access Determination
-* Credential Issuance
-* Access Registry
-* Final Emotional Message
-
-Hidden interaction:
-
-Tap Lord Purrcival five times to reveal Chief Access Officer Confirmation.
-
-Implementation:
-
-Complete
-
----
-
-## CAE-013
-
-Name:
-
 Anti Dick Light Warrant
 
 Folder:
@@ -2224,6 +2196,73 @@ Hidden interactions:
 
 * Tap Dick Light Status five times to reveal Advanced Diagnostics.
 * Tap Recommended Treatment five times to reveal Independent Review Board Findings.
+
+Implementation:
+
+Complete
+
+---
+
+## CAE-013
+
+Name:
+
+Girlfriend Priority Access Pass
+
+Folder:
+
+`girlfriend-priority-access-pass/`
+
+Department:
+
+Priority Relationship Services Authority
+
+Hungarian department:
+
+Kiemelt Kapcsolati Szolgáltatások Hatósága
+
+Classification:
+
+* Relationship Credential
+* Comfort Coupon
+* Permanent Access Credential
+
+Status:
+
+Approved
+
+Description:
+
+Permanent relationship credential recognizing that Eszter already belongs and will always have a special place in the relationship.
+
+Canonical Lord Purrcival portrait:
+
+`shared/images/lord-purrcival/girlfriend-priority-access-pass.png`
+
+Interactive actions:
+
+None
+
+Redemption request:
+
+Not applicable
+
+Relationship credential proceeding:
+
+Enabled
+
+Narrative stages:
+
+* Priority Access Verification
+* Eligibility Review
+* Access Determination
+* Credential Issuance
+* Access Registry
+* Final Emotional Message
+
+Hidden interaction:
+
+Tap Lord Purrcival five times to reveal Chief Access Officer Confirmation.
 
 Implementation:
 

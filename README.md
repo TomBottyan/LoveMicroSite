@@ -25,6 +25,7 @@ CAE/
 ├── PROJECT.md
 ├── README.md
 ├── CHANGELOG.md
+├── index.html
 ├── docs/
 │   └── deployment.md
 ├── shared/
@@ -49,7 +50,9 @@ CAE/
 └── anti-dick-light-warrant/
 ```
 
-Each implemented coupon folder contains an `index.html` file.
+The root `index.html` is the official entry point and experience catalogue.
+
+Each implemented coupon folder contains its own `index.html` file.
 
 ## Implemented Coupons
 
@@ -64,8 +67,8 @@ Each implemented coupon folder contains an `index.html` file.
 * `CAE-009` Immediate Boyfriend Deployment Order: `immediate-boyfriend-deployment/index.html`
 * `CAE-010` The Missing Hoodie Act: `missing-hoodie-act/index.html`
 * `CAE-011` Personal Recharging Permit: `personal-recharging-permit/index.html`
-* `CAE-012` Girlfriend Priority Access Pass: `girlfriend-priority-access-pass/index.html`
-* `CAE-013` Anti Dick Light Warrant: `anti-dick-light-warrant/index.html`
+* `CAE-012` Anti Dick Light Warrant: `anti-dick-light-warrant/index.html`
+* `CAE-013` Girlfriend Priority Access Pass: `girlfriend-priority-access-pass/index.html`
 
 ## Shared Assets
 
@@ -75,7 +78,7 @@ Shared files are stored in `shared/`.
 * `shared/app.js`: language switching, interactive actions, request flows, transitions, narrative flows, and hidden interactions
 * `shared/translations.js`: English and Hungarian translation data
 * `shared/images/lord-purrcival/`: coupon-specific Lord Purrcival artwork
-* `shared/icons/`: shared icon assets
+* `shared/icons/`: shared icon assets, including the double paw favicon
 
 ## Coupon URLs
 

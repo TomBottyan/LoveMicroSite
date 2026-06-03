@@ -9,6 +9,7 @@ const DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
 
 const translator = document.querySelector(".translator");
 const languageButtons = document.querySelectorAll(".lang");
+const languageAwareLinks = document.querySelectorAll("[data-language-link]");
 const actionButtons = document.querySelectorAll("[data-action]");
 const requestButtons = document.querySelectorAll("[data-request]");
 const requestForms = document.querySelectorAll("[data-request-form]");
@@ -115,6 +116,7 @@ function switchLanguage(lang){
             button.setAttribute("aria-pressed", String(isActive));
         });
 
+    updateLanguageAwareLinks();
     updateRequestEntryState();
     updateOptionDescriptions();
 
@@ -140,6 +142,21 @@ function updateTranslatorVisibility(){
 
 function getLanguageSet(){
     return translations && translations[currentLanguage];
+}
+
+function updateLanguageAwareLinks(){
+    languageAwareLinks
+        .forEach(link => {
+            const baseUrl = link.dataset.languageLink || link.getAttribute("href");
+
+            if(!baseUrl){
+                return;
+            }
+
+            const separator = baseUrl.includes("?") ? "&" : "?";
+
+            link.setAttribute("href", `${baseUrl}${separator}lang=${currentLanguage}`);
+        });
 }
 
 function getActionConfig(actionKey){
