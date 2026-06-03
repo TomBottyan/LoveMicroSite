@@ -1210,7 +1210,7 @@ The humor should come from taking absurd relationship activities completely seri
 Current project root:
 
 ```text
-LoveMicroSite/
+CAE/
 ├── PROJECT.md
 ├── README.md
 ├── CHANGELOG.md

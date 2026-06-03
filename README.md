@@ -1,78 +1,97 @@
 # Cat Approved Experiences™
 
-Cat Approved Experiences™ is a collection of playful, premium QR-code-powered coupon microsites created as gifts for Eszter.
+Cat Approved Experiences™ is a static collection of premium QR-code-powered coupon microsites created as gifts for Eszter.
 
-Each physical coupon contains a short title and a QR code. Scanning the code opens a themed microsite with fake approvals, permits, compliance reviews, certificates, request forms, and relationship bureaucracy.
+Each physical coupon points to a folder-based microsite with bilingual English/Hungarian copy, Lord Purrcival approval, relationship bureaucracy, legal parody, request flows, certificates, and Cat Approved Experiences™ certification.
 
-## Source of Truth
+## Source Of Truth
 
-`PROJECT.md` is the canonical source of truth for the project. It defines the canon, tone, repository structure, translation rules, language switcher behavior, shared lore, frameworks, and design-system decisions.
+`PROJECT.md` is the canonical source of truth for project canon, coupon registry, folder structure, shared frameworks, translation rules, design-system decisions, artwork conventions, and implementation guidance.
 
-When project-wide decisions change, regenerate `PROJECT.md` so future coupons inherit the same rules.
+When README.md and PROJECT.md differ, `PROJECT.md` wins.
 
-## Structure
+## Hosting Model
 
-Coupons live in their own folders:
+This repository is designed for static hosting.
 
-* `chef-pass/`
-* `lazy-day/`
-* `movie-night/`
-* `passenger-princess/`
-* `dining-out/`
-* `cuddle-authorization/`
-* `breakfast-in-bed/`
-* `unlimited-complaining/`
-* `immediate-boyfriend-deployment/`
-* `missing-hoodie-act/`
-* `personal-recharging-permit/`
-* `girlfriend-priority-access-pass/`
-* `anti-dick-light-warrant/`
+There is no build step, backend, package install, database, or server-side rendering requirement. Coupon pages are plain HTML files that load shared CSS, JavaScript, translations, and image assets from the repository.
 
-Shared assets live in `shared/`:
+Deploy by uploading the repository contents to the web root of `approvedbyacat.com`, preserving the folder structure.
 
-* `shared/style.css` for the global design system
-* `shared/app.js` for shared behavior
-* `shared/translations.js` for English and Hungarian copy
-* `shared/images/` and `shared/icons/` for shared assets
+## Folder Structure
 
-Planned coupon folders may contain only `.gitkeep` until their microsites are generated.
+```text
+CAE/
+├── PROJECT.md
+├── README.md
+├── CHANGELOG.md
+├── docs/
+│   └── deployment.md
+├── shared/
+│   ├── style.css
+│   ├── app.js
+│   ├── translations.js
+│   ├── images/
+│   │   └── lord-purrcival/
+│   └── icons/
+├── chef-pass/
+├── lazy-day/
+├── movie-night/
+├── passenger-princess/
+├── dining-out/
+├── cuddle-authorization/
+├── breakfast-in-bed/
+├── unlimited-complaining/
+├── immediate-boyfriend-deployment/
+├── missing-hoodie-act/
+├── personal-recharging-permit/
+├── girlfriend-priority-access-pass/
+└── anti-dick-light-warrant/
+```
 
-## Current Coupons
+Each implemented coupon folder contains an `index.html` file.
 
-`CAE-001` Chef Pass is implemented in `chef-pass/index.html`.
+## Implemented Coupons
 
-`CAE-002` Lazy Day Permit is implemented in `lazy-day/index.html`.
+* `CAE-001` Chef Pass: `chef-pass/index.html`
+* `CAE-002` Lazy Day Permit: `lazy-day/index.html`
+* `CAE-003` Movie Night Authorization: `movie-night/index.html`
+* `CAE-004` Passenger Princess Permit: `passenger-princess/index.html`
+* `CAE-005` Dining Out Authorization: `dining-out/index.html`
+* `CAE-006` Cuddle Authorization: `cuddle-authorization/index.html`
+* `CAE-007` Breakfast in Bed Authorization: `breakfast-in-bed/index.html`
+* `CAE-008` Unlimited Complaining License: `unlimited-complaining/index.html`
+* `CAE-009` Immediate Boyfriend Deployment Order: `immediate-boyfriend-deployment/index.html`
+* `CAE-010` The Missing Hoodie Act: `missing-hoodie-act/index.html`
+* `CAE-011` Personal Recharging Permit: `personal-recharging-permit/index.html`
+* `CAE-012` Girlfriend Priority Access Pass: `girlfriend-priority-access-pass/index.html`
+* `CAE-013` Anti Dick Light Warrant: `anti-dick-light-warrant/index.html`
 
-`CAE-003` Movie Night Authorization is implemented in `movie-night/index.html`.
+## Shared Assets
 
-`CAE-004` Passenger Princess Permit is implemented in `passenger-princess/index.html`.
+Shared files are stored in `shared/`.
 
-`CAE-005` Dining Out Authorization is implemented in `dining-out/index.html`.
+* `shared/style.css`: global styling and reusable component styles
+* `shared/app.js`: language switching, interactive actions, request flows, transitions, narrative flows, and hidden interactions
+* `shared/translations.js`: English and Hungarian translation data
+* `shared/images/lord-purrcival/`: coupon-specific Lord Purrcival artwork
+* `shared/icons/`: shared icon assets
 
-`CAE-006` Cuddle Authorization is implemented in `cuddle-authorization/index.html`.
+## Coupon URLs
 
-`CAE-007` Breakfast in Bed Authorization is implemented in `breakfast-in-bed/index.html`.
+Coupon URLs are folder-based and should remain stable.
 
-`CAE-008` Unlimited Complaining License is implemented in `unlimited-complaining/index.html`.
+Examples:
 
-`CAE-009` Immediate Boyfriend Deployment Order is implemented in `immediate-boyfriend-deployment/index.html`.
+* `/chef-pass/`
+* `/lazy-day/`
+* `/unlimited-complaining/`
+* `/anti-dick-light-warrant/`
 
-`CAE-010` The Missing Hoodie Act is implemented in `missing-hoodie-act/index.html`.
+Do not introduce a `/coupons/` parent folder during deployment.
 
-`CAE-011` Personal Recharging Permit is implemented in `personal-recharging-permit/index.html`.
+## Deployment
 
-`CAE-012` Girlfriend Priority Access Pass is implemented in `girlfriend-priority-access-pass/index.html`.
+Upload all repository contents to the web root of `approvedbyacat.com`, preserving the current folder structure.
 
-`CAE-013` Anti Dick Light Warrant is implemented in `anti-dick-light-warrant/index.html`.
-
-## Lore
-
-All coupons belong to the Cat Approved Experiences™ universe and preserve the same official relationship-bureaucracy tone, including Lord Purrcival / Dorombárd Úr references and Cat Approved certification language.
-
-## Governance
-
-Project decisions are organized across Canon & Design Council, Implementation & Development, and Artwork Studio workstreams. Coupon categories and future coupon identifiers are governed in `PROJECT.md`.
-
-## History
-
-Project history starts in `CHANGELOG.md` with the v1 foundation baseline.
+After upload, test the implemented coupon URLs, language switching, image loading, mobile layout, interactive actions, narrative flows, and localStorage-based request review flows where applicable.
