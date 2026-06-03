@@ -933,6 +933,7 @@ shared/images/lord-purrcival/passenger-permit.png
 shared/images/lord-purrcival/dinning-out.png
 shared/images/lord-purrcival/cuddle-authorization.png
 shared/images/lord-purrcival/breakfast-in-bed.png
+shared/images/lord-purrcival/boyfriend-deployment.png
 ```
 
 The Chef Pass portrait at `shared/images/lord-purrcival/chef-pass.png` is canon for the Chef Pass experience.
@@ -948,6 +949,8 @@ The Dining Out portrait at `shared/images/lord-purrcival/dinning-out.png` is can
 The Cuddle Authorization portrait at `shared/images/lord-purrcival/cuddle-authorization.png` is canon for the Cuddle Authorization experience.
 
 The Breakfast in Bed portrait at `shared/images/lord-purrcival/breakfast-in-bed.png` is canon for the Breakfast in Bed Authorization experience.
+
+The Immediate Boyfriend Deployment portrait at `shared/images/lord-purrcival/boyfriend-deployment.png` is canon for the Immediate Boyfriend Deployment Order experience.
 
 Future coupons can replace the portrait by changing the image source to another file in `shared/images/lord-purrcival/` without changing the Approval Officer component structure.
 
@@ -1038,7 +1041,8 @@ LoveMicroSite/
 │   │       ├── passenger-permit.png
 │   │       ├── dinning-out.png
 │   │       ├── cuddle-authorization.png
-│   │       └── breakfast-in-bed.png
+│   │       ├── breakfast-in-bed.png
+│   │       └── boyfriend-deployment.png
 │   └── icons/
 │       └── .gitkeep
 │
@@ -1061,6 +1065,9 @@ LoveMicroSite/
 │   └── index.html
 │
 ├── breakfast-in-bed/
+│   └── index.html
+│
+├── immediate-boyfriend-deployment/
 │   └── index.html
 │
 └── docs/
@@ -1561,6 +1568,71 @@ Request fields:
 * Desired delivery date
 * Preferred delivery time
 * Special requests
+
+Recipient:
+
+Eszter
+
+Assigned fulfiller:
+
+Tomi
+
+Implementation:
+
+Complete
+
+---
+
+## CAE-009
+
+Name:
+
+Immediate Boyfriend Deployment Order
+
+Folder:
+
+`immediate-boyfriend-deployment/`
+
+Department:
+
+Relationship Emergency Response Division
+
+Hungarian department:
+
+Kapcsolati Vészhelyzeti Reagálási Osztály
+
+Category:
+
+* Comfort Coupon
+* Emergency Relationship Coupon
+
+Status:
+
+Approved
+
+Description:
+
+Authorizes the immediate deployment of one (1) boyfriend asset in response to a relationship-related emergency requiring emotional support, physical presence, cuddles, reassurance, snacks, or other reasonable boyfriend services. Eszter's assessment of emergency status is final.
+
+Canonical Lord Purrcival portrait:
+
+`shared/images/lord-purrcival/boyfriend-deployment.png`
+
+Interactive actions:
+
+* `boyfriendDeploymentReview`
+
+Redemption request:
+
+Enabled
+
+Request fields:
+
+* Emergency type
+* Requested response
+* Report location
+* Support needed
+* Additional notes
 
 Recipient:
 

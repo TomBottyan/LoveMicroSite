@@ -2160,5 +2160,341 @@ window.CAE_TRANSLATIONS = {
                 ]
             }
         }
+    },
+    immediateBoyfriendDeployment: {
+        en: {
+            pageTitle: "Immediate Boyfriend Deployment Order | Cat Approved Experiences™",
+            translatorAriaLabel: "Cat Approved Experiences translation services",
+            languageSwitcherAriaLabel: "Language switcher",
+            title: "Immediate Boyfriend Deployment Order",
+            certification: "🐾 Certified by Cat Approved Experiences™",
+            translatorNote: "Translation services provided by Lord Purrcival in exchange for snacks.",
+            department: "Relationship Emergency Response Division",
+            approvedByLord: "Approved by Lord Purrcival",
+            approvalOfficerLabel: "APPROVAL OFFICER",
+            approvalOfficerPortraitAlt: "Lord Purrcival serving as official approval officer for the Immediate Boyfriend Deployment Order",
+            approver: "Lord Purrcival",
+            directorTitle: "Director of Relationship Affairs",
+            applicationStatus: "Application Status",
+            approved: "APPROVED ✓",
+            applicationText: "This order authorizes the immediate deployment of one (1) boyfriend asset in response to a relationship-related emergency requiring emotional support, physical presence, cuddles, reassurance, snacks, or other reasonable boyfriend services.",
+            conditions: "Deployment Conditions",
+            conditionsIntro: "This order may be activated when Eszter determines that circumstances require immediate boyfriend assistance.",
+            condition1: "🌧️ Bad day",
+            condition2: "💔 Sad day",
+            condition3: "📚 Stressful day",
+            condition4: "🧠 Overthinking incident",
+            condition5: "😢 Unexpected crying event",
+            condition6: "🤗 Need for hugs",
+            condition7: "🛋️ Need for company",
+            condition8: "🚨 General girlfriend emergency",
+            conditionsFinal: "The recipient's assessment of emergency status shall be considered final.",
+            reviewTitle: "Deployment Readiness Review",
+            reviewDescription: "Conduct a rapid readiness review before boyfriend resources are dispatched.",
+            reviewButton: "Conduct Deployment Readiness Review",
+            legalNotice: "Legal Notice",
+            legalText1: "Upon activation, reasonable efforts shall be made to dispatch boyfriend resources as quickly as practical.",
+            legalText2: "Cat Approved Experiences™ accepts no responsibility for:",
+            legal1: "Emergency cuddle escalation",
+            legal2: "Snack-related logistical delays",
+            legal3: "Immediate reassurance dependency",
+            legal4: "Excessive post-deployment comfort",
+            legalText3: "All deployment requests carry full Cat Approved™ authority.",
+            redeemButton: "Activate Deployment Order",
+            requestTransitionTitle: "Processing Emergency Deployment File",
+            requestScreenEyebrow: "CAE-009 EMERGENCY DEPLOYMENT FILE",
+            requestScreenTitle: "Boyfriend Deployment Request",
+            requestGreeting: "Dear Eszter,",
+            requestIntroText: "Lord Purrcival is ready to process your emergency relationship response request.",
+            requestEmergencyTitle: "Emergency Classification",
+            requestEmergencyLabel: "Emergency type",
+            requestEmergencyPlaceholder: "Select emergency type",
+            emergencyBadDay: "Bad day",
+            emergencySadDay: "Sad day",
+            emergencyStressfulDay: "Stressful day",
+            emergencyOverthinking: "Overthinking incident",
+            emergencyCrying: "Unexpected crying event",
+            emergencyHugs: "Need for hugs",
+            emergencyCompany: "Need for company",
+            emergencyGeneral: "General girlfriend emergency",
+            requestResponseLabel: "Requested response",
+            requestResponsePlaceholder: "Select requested response",
+            responsePresence: "Immediate physical presence",
+            responseCuddles: "Cuddle deployment",
+            responseReassurance: "Reassurance protocol",
+            responseSnacks: "Snack support",
+            responseCompany: "Quiet company",
+            requestDeploymentTitle: "Deployment Instructions",
+            requestLocationLabel: "Where should Tomi report?",
+            requestLocationPlaceholder: "Sofa, bed, phone call, outside, or other official response location.",
+            requestSupportLabel: "What kind of support is needed?",
+            requestSupportPlaceholder: "Hugs, reassurance, snacks, company, problem-solving delay, or other reasonable boyfriend services.",
+            requestNotesLabel: "Additional notes",
+            requestNotesPlaceholder: "Optional context, urgency details, comfort instructions, or snack intelligence.",
+            requestDeploymentNote: "Eszter's assessment of emergency status is final. Tomi will be assigned to the case immediately.",
+            requestSubmitButton: "Submit Deployment Request",
+            requestBackButton: "Return to Order",
+            requestConfirmationSummaryTitle: "Submitted Deployment Details",
+            actions: {
+                boyfriendDeploymentReview: {
+                    title: "Deployment Readiness Review",
+                    messages: [
+                        "Opening emergency response file...",
+                        "Checking boyfriend asset availability...",
+                        "Reviewing hug deployment capacity...",
+                        "Confirming reassurance readiness...",
+                        "Inspecting snack support reserves...",
+                        "Consulting Lord Purrcival...",
+                        "Assessing overthinking containment protocols...",
+                        "Calculating response urgency coefficient...",
+                        "Verifying emotional support mobility...",
+                        "Finalizing boyfriend deployment authorization..."
+                    ],
+                    success: {
+                        title: "DEPLOYMENT AUTHORIZED ✓",
+                        body: "Boyfriend resources may be dispatched.",
+                        lines: [
+                            "Emergency Status:",
+                            "Recipient Determined.",
+                            "Response Priority:",
+                            "As Quickly As Practical."
+                        ]
+                    }
+                }
+            },
+            redemptionRequest: {
+                couponName: "Immediate Boyfriend Deployment Order",
+                recipientName: "Eszter",
+                assignedTo: "Tomi",
+                reviewButton: "Review Submitted Deployment Request",
+                transitionMessages: [
+                    "Opening emergency deployment file...",
+                    "Notifying Lord Purrcival...",
+                    "Confirming Eszter's final emergency authority...",
+                    "Assigning Tomi as responding boyfriend asset...",
+                    "Deployment desk ready."
+                ],
+                requiredFields: [
+                    "emergencyType",
+                    "requestedResponse",
+                    "deploymentLocation",
+                    "supportNeeded"
+                ],
+                eitherOrFields: [],
+                urlFields: [],
+                optionLabels: {
+                    emergencyType: {
+                        badDay: "Bad day",
+                        sadDay: "Sad day",
+                        stressfulDay: "Stressful day",
+                        overthinking: "Overthinking incident",
+                        crying: "Unexpected crying event",
+                        hugs: "Need for hugs",
+                        company: "Need for company",
+                        general: "General girlfriend emergency"
+                    },
+                    requestedResponse: {
+                        presence: "Immediate physical presence",
+                        cuddles: "Cuddle deployment",
+                        reassurance: "Reassurance protocol",
+                        snacks: "Snack support",
+                        company: "Quiet company"
+                    }
+                },
+                errors: {
+                    emergencyType: "Please select an emergency type.",
+                    requestedResponse: "Please select a requested response.",
+                    deploymentLocation: "Please specify where Tomi should report.",
+                    supportNeeded: "Please describe the support needed."
+                },
+                success: {
+                    title: "DEPLOYMENT ORDER ACTIVATED ✓",
+                    lines: [
+                        "Dear Eszter,",
+                        "Your emergency boyfriend deployment request has been officially recorded by Cat Approved Experiences™.",
+                        "Tomi has been assigned as the responding boyfriend asset.",
+                        "Lord Purrcival recognizes your assessment of emergency status as final."
+                    ]
+                },
+                summaryFields: [
+                    { name: "couponId", label: "Coupon ID" },
+                    { name: "recipientName", label: "Recipient" },
+                    { name: "assignedTo", label: "Assigned to" },
+                    { name: "emergencyType", label: "Emergency type", type: "option" },
+                    { name: "requestedResponse", label: "Requested response", type: "option" },
+                    { name: "deploymentLocation", label: "Report location" },
+                    { name: "supportNeeded", label: "Support needed" },
+                    { name: "additionalNotes", label: "Additional notes" },
+                    { name: "submittedAt", label: "Submitted", type: "datetime" }
+                ]
+            }
+        },
+        hu: {
+            pageTitle: "Azonnali Barát Bevetési Parancs | Cat Approved Experiences™",
+            translatorAriaLabel: "Cat Approved Experiences fordítási szolgáltatások",
+            languageSwitcherAriaLabel: "Nyelvváltó",
+            title: "Azonnali Barát Bevetési Parancs",
+            certification: "🐾 A Cat Approved Experiences™ által hitelesítve",
+            translatorNote: "A fordítást Dorombárd Úr biztosítja némi nasi ellenében.",
+            department: "Kapcsolati Vészhelyzeti Reagálási Osztály",
+            approvedByLord: "Dorombárd Úr által jóváhagyva",
+            approvalOfficerLabel: "JÓVÁHAGYÓ TISZTVISELŐ",
+            approvalOfficerPortraitAlt: "Dorombárd Úr hivatalos jóváhagyó tisztviselőként az Azonnali Barát Bevetési Parancshoz",
+            approver: "Dorombárd Úr",
+            directorTitle: "Kapcsolatügyi Főigazgató",
+            applicationStatus: "Kérelem Státusza",
+            approved: "JÓVÁHAGYVA ✓",
+            applicationText: "Ez a parancs egy (1) barát-erőforrás azonnali bevetését engedélyezi olyan kapcsolati vészhelyzet esetén, amely érzelmi támogatást, fizikai jelenlétet, összebújást, megnyugtatást, nasit vagy egyéb észszerű baráti szolgáltatást igényel.",
+            conditions: "Bevetési Feltételek",
+            conditionsIntro: "Ez a parancs akkor aktiválható, amikor Eszter megállapítja, hogy a körülmények azonnali baráti segítséget igényelnek.",
+            condition1: "🌧️ Rossz nap",
+            condition2: "💔 Szomorú nap",
+            condition3: "📚 Stresszes nap",
+            condition4: "🧠 Túlgondolási incidens",
+            condition5: "😢 Váratlan sírási esemény",
+            condition6: "🤗 Ölelés szükséges",
+            condition7: "🛋️ Társaság szükséges",
+            condition8: "🚨 Általános barátnői vészhelyzet",
+            conditionsFinal: "A kedvezményezett vészhelyzeti minősítése véglegesnek tekintendő.",
+            reviewTitle: "Bevetési Készenléti Vizsgálat",
+            reviewDescription: "Gyors készenléti vizsgálat a barát-erőforrások kiküldése előtt.",
+            reviewButton: "Bevetési Készenléti Vizsgálat Indítása",
+            legalNotice: "Jogi Tájékoztató",
+            legalText1: "Aktiválás esetén észszerű erőfeszítések történnek a barát-erőforrások lehető leggyorsabb kiküldésére.",
+            legalText2: "A Cat Approved Experiences™ nem vállal felelősséget az alábbiakért:",
+            legal1: "Vészhelyzeti összebújás-eszkaláció",
+            legal2: "Nasival kapcsolatos logisztikai késedelmek",
+            legal3: "Azonnali megnyugtatási függőség",
+            legal4: "Túlzott bevetés utáni komfort",
+            legalText3: "Minden bevetési kérelem teljes Cat Approved™ felhatalmazással rendelkezik.",
+            redeemButton: "Bevetési Parancs Aktiválása",
+            requestTransitionTitle: "Vészhelyzeti Bevetési Ügyirat Feldolgozása",
+            requestScreenEyebrow: "CAE-009 VÉSZHELYZETI BEVETÉSI AKTA",
+            requestScreenTitle: "Barát Bevetési Kérelem",
+            requestGreeting: "Kedves Eszter,",
+            requestIntroText: "Dorombárd Úr készen áll a kapcsolati vészhelyzeti reagálási kérelmed feldolgozására.",
+            requestEmergencyTitle: "Vészhelyzeti Besorolás",
+            requestEmergencyLabel: "Vészhelyzet típusa",
+            requestEmergencyPlaceholder: "Válassz vészhelyzettípust",
+            emergencyBadDay: "Rossz nap",
+            emergencySadDay: "Szomorú nap",
+            emergencyStressfulDay: "Stresszes nap",
+            emergencyOverthinking: "Túlgondolási incidens",
+            emergencyCrying: "Váratlan sírási esemény",
+            emergencyHugs: "Ölelés szükséges",
+            emergencyCompany: "Társaság szükséges",
+            emergencyGeneral: "Általános barátnői vészhelyzet",
+            requestResponseLabel: "Kért reagálás",
+            requestResponsePlaceholder: "Válassz kért reagálást",
+            responsePresence: "Azonnali fizikai jelenlét",
+            responseCuddles: "Összebújási bevetés",
+            responseReassurance: "Megnyugtatási protokoll",
+            responseSnacks: "Nasi támogatás",
+            responseCompany: "Csendes társaság",
+            requestDeploymentTitle: "Bevetési Utasítások",
+            requestLocationLabel: "Hova jelentkezzen Tomi?",
+            requestLocationPlaceholder: "Kanapé, ágy, telefonhívás, kint vagy más hivatalos reagálási helyszín.",
+            requestSupportLabel: "Milyen támogatás szükséges?",
+            requestSupportPlaceholder: "Ölelés, megnyugtatás, nasi, társaság, problémamegoldás elhalasztása vagy egyéb észszerű baráti szolgáltatás.",
+            requestNotesLabel: "További megjegyzések",
+            requestNotesPlaceholder: "Opcionális kontextus, sürgősségi részletek, komfortutasítások vagy nasi-információk.",
+            requestDeploymentNote: "Eszter vészhelyzeti minősítése végleges. Tomi azonnal kijelölésre kerül az ügyre.",
+            requestSubmitButton: "Bevetési Kérelem Beküldése",
+            requestBackButton: "Vissza a Parancshoz",
+            requestConfirmationSummaryTitle: "Benyújtott Bevetési Részletek",
+            actions: {
+                boyfriendDeploymentReview: {
+                    title: "Bevetési Készenléti Vizsgálat",
+                    messages: [
+                        "Vészhelyzeti reagálási akta megnyitása...",
+                        "Barát-erőforrás rendelkezésre állásának ellenőrzése...",
+                        "Ölelési bevetési kapacitás felülvizsgálata...",
+                        "Megnyugtatási készenlét megerősítése...",
+                        "Nasi támogatási tartalékok vizsgálata...",
+                        "Dorombárd Úr megkérdezése...",
+                        "Túlgondolás-kezelési protokollok elemzése...",
+                        "Reagálási sürgősségi együttható kiszámítása...",
+                        "Érzelmi támogatási mobilitás ellenőrzése...",
+                        "Barátbevetési engedély véglegesítése..."
+                    ],
+                    success: {
+                        title: "BEVETÉS ENGEDÉLYEZVE ✓",
+                        body: "A barát-erőforrások kiküldhetők.",
+                        lines: [
+                            "Vészhelyzeti Státusz:",
+                            "Kedvezményezett által megállapítva.",
+                            "Reagálási Prioritás:",
+                            "Amint észszerűen lehetséges."
+                        ]
+                    }
+                }
+            },
+            redemptionRequest: {
+                couponName: "Azonnali Barát Bevetési Parancs",
+                recipientName: "Eszter",
+                assignedTo: "Tomi",
+                reviewButton: "Benyújtott Bevetési Kérelem Megtekintése",
+                transitionMessages: [
+                    "Vészhelyzeti bevetési akta megnyitása...",
+                    "Dorombárd Úr értesítése...",
+                    "Eszter végleges vészhelyzeti felhatalmazásának megerősítése...",
+                    "Tomi kijelölése reagáló barát-erőforrásként...",
+                    "Bevetési pult készen áll."
+                ],
+                requiredFields: [
+                    "emergencyType",
+                    "requestedResponse",
+                    "deploymentLocation",
+                    "supportNeeded"
+                ],
+                eitherOrFields: [],
+                urlFields: [],
+                optionLabels: {
+                    emergencyType: {
+                        badDay: "Rossz nap",
+                        sadDay: "Szomorú nap",
+                        stressfulDay: "Stresszes nap",
+                        overthinking: "Túlgondolási incidens",
+                        crying: "Váratlan sírási esemény",
+                        hugs: "Ölelés szükséges",
+                        company: "Társaság szükséges",
+                        general: "Általános barátnői vészhelyzet"
+                    },
+                    requestedResponse: {
+                        presence: "Azonnali fizikai jelenlét",
+                        cuddles: "Összebújási bevetés",
+                        reassurance: "Megnyugtatási protokoll",
+                        snacks: "Nasi támogatás",
+                        company: "Csendes társaság"
+                    }
+                },
+                errors: {
+                    emergencyType: "Kérjük, válassz vészhelyzettípust.",
+                    requestedResponse: "Kérjük, válassz kért reagálást.",
+                    deploymentLocation: "Kérjük, add meg, hova jelentkezzen Tomi.",
+                    supportNeeded: "Kérjük, írd le a szükséges támogatást."
+                },
+                success: {
+                    title: "BEVETÉSI PARANCS AKTIVÁLVA ✓",
+                    lines: [
+                        "Kedves Eszter,",
+                        "A vészhelyzeti barátbevetési kérelmedet a Cat Approved Experiences™ hivatalosan rögzítette.",
+                        "Tomi reagáló barát-erőforrásként kijelölésre került.",
+                        "Dorombárd Úr véglegesnek ismeri el a vészhelyzeti minősítésedet."
+                    ]
+                },
+                summaryFields: [
+                    { name: "couponId", label: "Kuponazonosító" },
+                    { name: "recipientName", label: "Kedvezményezett" },
+                    { name: "assignedTo", label: "Kiosztva" },
+                    { name: "emergencyType", label: "Vészhelyzet típusa", type: "option" },
+                    { name: "requestedResponse", label: "Kért reagálás", type: "option" },
+                    { name: "deploymentLocation", label: "Jelentkezési hely" },
+                    { name: "supportNeeded", label: "Szükséges támogatás" },
+                    { name: "additionalNotes", label: "További megjegyzések" },
+                    { name: "submittedAt", label: "Benyújtva", type: "datetime" }
+                ]
+            }
+        }
     }
 };
