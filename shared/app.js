@@ -12,6 +12,8 @@ const languageButtons = document.querySelectorAll(".lang");
 const actionButtons = document.querySelectorAll("[data-action]");
 const requestButtons = document.querySelectorAll("[data-request]");
 const requestForms = document.querySelectorAll("[data-request-form]");
+const legislationStartButtons = document.querySelectorAll("[data-legislation-start]");
+const narrativeStartButtons = document.querySelectorAll("[data-narrative-start]");
 const couponContent = document.querySelector("[data-coupon-content]");
 const requestTransition = document.querySelector("[data-request-transition]");
 const transitionMessages = document.querySelector("[data-transition-messages]");
@@ -23,6 +25,14 @@ const requestOutput = document.querySelector("[data-request-output]");
 const requestBackButtons = document.querySelectorAll("[data-request-back]");
 const dateInputs = document.querySelectorAll("[data-request-date]");
 const optionDescriptionOutputs = document.querySelectorAll("[data-option-description]");
+const courtTransition = document.querySelector("[data-court-transition]");
+const courtTransitionMessages = document.querySelector("[data-court-transition-messages]");
+const courtStages = document.querySelector("[data-court-stages]");
+const narrativeTransition = document.querySelector("[data-narrative-transition]") || courtTransition;
+const narrativeTransitionMessages = document.querySelector("[data-narrative-transition-messages]") || courtTransitionMessages;
+const narrativeStages = document.querySelector("[data-narrative-stages]") || courtStages;
+const easterTriggers = document.querySelectorAll("[data-easter-trigger]");
+const easterOutputs = document.querySelectorAll("[data-easter-output]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const couponKey = document.body.dataset.coupon;
 const couponId = document.body.dataset.couponId || couponKey;
@@ -30,6 +40,9 @@ const translations = window.CAE_TRANSLATIONS && window.CAE_TRANSLATIONS[couponKe
 
 let currentLanguage = DEFAULT_LANGUAGE;
 let isRequestTransitionRunning = false;
+let isCourtTransitionRunning = false;
+let isNarrativeTransitionRunning = false;
+const easterTapCounts = new WeakMap();
 
 function switchLanguage(lang){
 
@@ -133,6 +146,18 @@ function getRequestConfig(){
     const languageSet = getLanguageSet();
 
     return languageSet && languageSet.redemptionRequest;
+}
+
+function getLegislationConfig(){
+    const languageSet = getLanguageSet();
+
+    return languageSet && languageSet.legislation;
+}
+
+function getNarrativeConfig(){
+    const languageSet = getLanguageSet();
+
+    return languageSet && (languageSet.narrative || languageSet.legislation);
 }
 
 function getRequestStorageKey(){
@@ -606,6 +631,114 @@ async function runRequestTransition(button){
     openRequestScreen();
 }
 
+async function runCourtTransition(button){
+    const config = getLegislationConfig();
+
+    if(!courtTransition || !courtTransitionMessages || !courtStages || !config){
+        if(courtStages){
+            courtStages.hidden = false;
+            courtStages.scrollIntoView({ behavior:prefersReducedMotion.matches ? "auto" : "smooth", block:"start" });
+        }
+
+        return;
+    }
+
+    isCourtTransitionRunning = true;
+    button.disabled = true;
+    button.setAttribute("aria-busy", "true");
+    courtTransition.hidden = false;
+    courtTransitionMessages.innerHTML = "";
+    courtTransition.scrollIntoView({ behavior:prefersReducedMotion.matches ? "auto" : "smooth", block:"center" });
+
+    const messages = Array.isArray(config.transitionMessages) ? config.transitionMessages : [];
+    const delay = prefersReducedMotion.matches ? REQUEST_TRANSITION_REDUCED_DELAY : REQUEST_TRANSITION_DELAY;
+
+    for(const message of messages){
+        courtTransitionMessages.appendChild(createTransitionLine(message));
+        await wait(delay);
+    }
+
+    await wait(prefersReducedMotion.matches ? REQUEST_TRANSITION_REDUCED_DELAY : 280);
+
+    courtTransition.classList.add("is-complete");
+    await wait(prefersReducedMotion.matches ? REQUEST_TRANSITION_REDUCED_DELAY : 260);
+
+    courtTransition.hidden = true;
+    courtTransition.classList.remove("is-complete");
+    courtStages.hidden = false;
+    button.disabled = false;
+    button.setAttribute("aria-busy", "false");
+    isCourtTransitionRunning = false;
+    courtStages.scrollIntoView({ behavior:prefersReducedMotion.matches ? "auto" : "smooth", block:"start" });
+}
+
+async function runNarrativeTransition(button){
+    const config = getNarrativeConfig();
+
+    if(!narrativeTransition || !narrativeTransitionMessages || !narrativeStages || !config){
+        if(narrativeStages){
+            narrativeStages.hidden = false;
+            narrativeStages.scrollIntoView({ behavior:prefersReducedMotion.matches ? "auto" : "smooth", block:"start" });
+        }
+
+        return;
+    }
+
+    isNarrativeTransitionRunning = true;
+    button.disabled = true;
+    button.setAttribute("aria-busy", "true");
+    narrativeTransition.hidden = false;
+    narrativeTransitionMessages.innerHTML = "";
+    narrativeTransition.scrollIntoView({ behavior:prefersReducedMotion.matches ? "auto" : "smooth", block:"center" });
+
+    const messages = Array.isArray(config.transitionMessages) ? config.transitionMessages : [];
+    const delay = prefersReducedMotion.matches ? REQUEST_TRANSITION_REDUCED_DELAY : REQUEST_TRANSITION_DELAY;
+
+    for(const message of messages){
+        narrativeTransitionMessages.appendChild(createTransitionLine(message));
+        await wait(delay);
+    }
+
+    await wait(prefersReducedMotion.matches ? REQUEST_TRANSITION_REDUCED_DELAY : 280);
+
+    narrativeTransition.classList.add("is-complete");
+    await wait(prefersReducedMotion.matches ? REQUEST_TRANSITION_REDUCED_DELAY : 260);
+
+    narrativeTransition.hidden = true;
+    narrativeTransition.classList.remove("is-complete");
+    narrativeStages.hidden = false;
+    button.disabled = false;
+    button.setAttribute("aria-busy", "false");
+    isNarrativeTransitionRunning = false;
+    narrativeStages.scrollIntoView({ behavior:prefersReducedMotion.matches ? "auto" : "smooth", block:"start" });
+}
+
+function startLegislationProceeding(button){
+    if(isCourtTransitionRunning){
+        return;
+    }
+
+    if(courtStages && !courtStages.hidden){
+        courtStages.scrollIntoView({ behavior:prefersReducedMotion.matches ? "auto" : "smooth", block:"start" });
+        return;
+    }
+
+    runCourtTransition(button);
+}
+
+function startNarrativeProceeding(button){
+    if(isNarrativeTransitionRunning){
+        return;
+    }
+
+    if(narrativeStages && !narrativeStages.hidden){
+        narrativeStages.scrollIntoView({ behavior:prefersReducedMotion.matches ? "auto" : "smooth", block:"start" });
+        return;
+    }
+
+    runNarrativeTransition(button);
+}
+
 function showRequestForm(button){
     if(isRequestTransitionRunning){
         return;
@@ -617,6 +750,17 @@ function showRequestForm(button){
     }
 
     runRequestTransition(button);
+}
+
+function showEasterNotice(trigger){
+    const targetSelector = trigger.dataset.easterOutput;
+    const output = targetSelector && document.querySelector(targetSelector);
+
+    if(output){
+        output.hidden = false;
+        output.classList.add("is-visible");
+        output.scrollIntoView({ behavior:prefersReducedMotion.matches ? "auto" : "smooth", block:"nearest" });
+    }
 }
 
 function returnToCoupon(){
@@ -691,11 +835,45 @@ actionButtons
 
     });
 
+legislationStartButtons
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+            startLegislationProceeding(button);
+        });
+
+    });
+
+narrativeStartButtons
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+            startNarrativeProceeding(button);
+        });
+
+    });
+
 requestButtons
     .forEach(button => {
 
         button.addEventListener("click", () => {
             showRequestForm(button);
+        });
+
+    });
+
+easterTriggers
+    .forEach(trigger => {
+
+        trigger.addEventListener("click", () => {
+            const currentCount = easterTapCounts.get(trigger) || 0;
+            const nextCount = currentCount + 1;
+
+            easterTapCounts.set(trigger, nextCount);
+
+            if(nextCount >= 5){
+                showEasterNotice(trigger);
+            }
         });
 
     });

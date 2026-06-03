@@ -261,6 +261,34 @@ Examples:
 
 * Cuddle Authorization
 * Lazy Day
+* The Missing Hoodie Act
+* Personal Recharging Permit
+* Girlfriend Priority Access Pass
+
+## Relationship Credential Coupons
+
+Experiences framed as permanent relationship credentials, memberships, accreditations, or formal recognition of existing belonging.
+
+Examples:
+
+* Girlfriend Priority Access Pass
+
+## Wellness Authorization Coupons
+
+Experiences focused on self-care, personal energy, healthy space, and restorative permission.
+
+Examples:
+
+* Personal Recharging Permit
+
+## Relationship Legislation Coupons
+
+Experiences framed as rulings, acts, judgments, or legal precedents within the Cat Approved Experiences™ universe.
+
+Examples:
+
+* Unlimited Complaining License
+* The Missing Hoodie Act
 
 ## Emergency Relationship Coupons
 
@@ -435,6 +463,9 @@ All microsites should share:
 * Approval Officer component
 * Interactive Action Framework
 * Redemption Request Framework
+* Relationship Legislation Framework
+* Wellness Authorization Framework
+* Relationship Credentials Framework
 
 ---
 
@@ -888,6 +919,117 @@ The framework exists to keep emotional-support coupons warm, validating, and con
 
 ---
 
+## Relationship Legislation Framework
+
+The Relationship Legislation Framework standardizes coupons presented as laws, licenses, court rulings, doctrines, judgments, or legal precedents.
+
+Purpose:
+
+Relationship legislation coupons should feel like affectionate legal parody. They use official proceedings, records, rulings, certificates, statistics, and legal doctrine to make a relationship truth feel formally recognized.
+
+Characteristics:
+
+* Bilingual support
+* Language switcher
+* Approval Officer component
+* Lord Purrcival or Dorombárd Úr as legal authority
+* Cat Approved certification
+* Responsive mobile-first layout
+* Formal legal/bureaucratic tone
+* Optional ceremonial transition into proceedings
+* Optional narrative stages instead of forms
+* Optional hidden interactions or easter eggs
+* Emotional payoff that remains warmer and more important than the legal parody
+
+Relationship legislation coupons may use the Interactive Action Framework when a lightweight review or inspection is useful.
+
+Relationship legislation coupons may use the Redemption Request Framework only when the coupon needs structured input or fulfillment. Not every legislation coupon should have a redemption flow.
+
+Existing users:
+
+* CAE-008 Unlimited Complaining License
+* CAE-010 The Missing Hoodie Act
+
+The framework exists to keep legal parody consistent while allowing different coupon structures, including licenses, court rulings, acts, orders, and future relationship precedents.
+
+---
+
+## Wellness Authorization Framework
+
+The Wellness Authorization Framework standardizes calm, restorative coupons that formally grant permission for self-care, alone time, quiet recovery, or personal energy management.
+
+Purpose:
+
+Wellness authorization coupons should feel safe, warm, validating, and slow. The permit framing may be humorous, but the emotional experience should remain gentle and reassuring.
+
+Characteristics:
+
+* Bilingual support
+* Language switcher
+* Approval Officer component
+* Lord Purrcival or Dorombárd Úr as approving authority
+* Cat Approved certification
+* Responsive mobile-first layout
+* Gentle transition into narrative stages
+* Minimal interaction
+* No urgency
+* No service dispatch
+* No redemption workflow unless a future coupon genuinely needs structured input
+* Emotional payoff that validates healthy space within the relationship
+
+Wellness authorization coupons should avoid emergency, courtroom, dispatch, or government-overload aesthetics unless explicitly required by canon.
+
+Potential future users:
+
+* Reading Day Authorization
+* Blanket Fort Leave Authorization
+* Quiet Evening Permit
+* Social Battery Recovery Pass
+
+Existing users:
+
+* CAE-011 Personal Recharging Permit
+
+The framework exists to keep restorative coupons calm and consistent while allowing each coupon to define its own approved activities, findings, monitors, and emotional message.
+
+---
+
+## Relationship Credentials Framework
+
+The Relationship Credentials Framework standardizes coupons that formally recognize an existing relationship status, standing, membership, or belonging.
+
+Purpose:
+
+Relationship credential coupons should feel like receiving a permanent invitation or official pass into a place where the recipient already belongs. The credential framing may be playful, but the emotional message should avoid superiority, status competition, elitism, or exclusivity.
+
+Characteristics:
+
+* Bilingual support
+* Language switcher
+* Approval Officer component
+* Lord Purrcival or Dorombárd Úr as credential authority
+* Cat Approved certification
+* Responsive mobile-first layout
+* Gentle narrative transition into verification or issuance stages
+* Official credential, pass, membership, or accreditation display
+* Registry or status panels where useful
+* No redemption workflow unless a future credential genuinely requires structured input
+* Emotional payoff centered on belonging, permanence, and welcome
+
+Potential future users:
+
+* Lifetime Membership Certificate
+* Favorite Human Accreditation
+* Future relationship credentials
+
+Existing users:
+
+* CAE-012 Girlfriend Priority Access Pass
+
+The framework exists to keep relationship credentials warm and consistent while allowing each coupon to define its own verification checks, credential fields, registry panels, and emotional message.
+
+---
+
 Lazy Day:
 
 * date
@@ -969,6 +1111,9 @@ shared/images/lord-purrcival/cuddle-authorization.png
 shared/images/lord-purrcival/breakfast-in-bed.png
 shared/images/lord-purrcival/unlimited-complaining.png
 shared/images/lord-purrcival/boyfriend-deployment.png
+shared/images/lord-purrcival/missing-hoodie-act.png
+shared/images/lord-purrcival/personal-recharge-permit.png
+shared/images/lord-purrcival/girlfriend-priority-access-pass.png
 ```
 
 The Chef Pass portrait at `shared/images/lord-purrcival/chef-pass.png` is canon for the Chef Pass experience.
@@ -988,6 +1133,12 @@ The Breakfast in Bed portrait at `shared/images/lord-purrcival/breakfast-in-bed.
 The Unlimited Complaining portrait at `shared/images/lord-purrcival/unlimited-complaining.png` is canon for the Unlimited Complaining License experience.
 
 The Immediate Boyfriend Deployment portrait at `shared/images/lord-purrcival/boyfriend-deployment.png` is canon for the Immediate Boyfriend Deployment Order experience.
+
+The Missing Hoodie Act portrait at `shared/images/lord-purrcival/missing-hoodie-act.png` is canon for The Missing Hoodie Act experience.
+
+The Personal Recharging Permit portrait at `shared/images/lord-purrcival/personal-recharge-permit.png` is canon for the Personal Recharging Permit experience.
+
+The Girlfriend Priority Access Pass portrait at `shared/images/lord-purrcival/girlfriend-priority-access-pass.png` is canon for the Girlfriend Priority Access Pass experience.
 
 Future coupons can replace the portrait by changing the image source to another file in `shared/images/lord-purrcival/` without changing the Approval Officer component structure.
 
@@ -1080,7 +1231,10 @@ LoveMicroSite/
 │   │       ├── cuddle-authorization.png
 │   │       ├── breakfast-in-bed.png
 │   │       ├── unlimited-complaining.png
-│   │       └── boyfriend-deployment.png
+│   │       ├── boyfriend-deployment.png
+│   │       ├── missing-hoodie-act.png
+│   │       ├── personal-recharge-permit.png
+│   │       └── girlfriend-priority-access-pass.png
 │   └── icons/
 │       └── .gitkeep
 │
@@ -1109,6 +1263,15 @@ LoveMicroSite/
 │   └── index.html
 │
 ├── immediate-boyfriend-deployment/
+│   └── index.html
+│
+├── missing-hoodie-act/
+│   └── index.html
+│
+├── personal-recharging-permit/
+│   └── index.html
+│
+├── girlfriend-priority-access-pass/
 │   └── index.html
 │
 └── docs/
@@ -1150,6 +1313,11 @@ Use shared files for:
 * Redemption request screen styling
 * localStorage request persistence
 * Reusable Lord Purrcival image conventions
+* Relationship legislation proceeding transitions
+* Relationship legislation narrative-stage behavior
+* Wellness authorization narrative transitions
+* Relationship credential narrative transitions
+* Reusable hidden legal-notice interactions
 * Future shared images and icons
 
 Use coupon folders for:
@@ -1161,6 +1329,9 @@ Use coupon folders for:
 * Coupon-specific request entry hooks using `data-request`
 * Coupon-specific request fields
 * Coupon-specific transition messages in `shared/translations.js`
+* Coupon-specific relationship legislation stages
+* Coupon-specific wellness authorization stages
+* Coupon-specific relationship credential stages
 * Coupon-specific content hooks using `data-i18n`
 * Coupon-specific portrait source selection
 * Coupon-specific visual sections only when the shared design system cannot reasonably cover them
@@ -1746,6 +1917,219 @@ Eszter
 Assigned fulfiller:
 
 Tomi
+
+Implementation:
+
+Complete
+
+---
+
+## CAE-010
+
+Name:
+
+The Missing Hoodie Act
+
+Folder:
+
+`missing-hoodie-act/`
+
+Department:
+
+Supreme Court of Relationship Affairs
+
+Hungarian department:
+
+Kapcsolatügyi Legfelsőbb Bíróság
+
+Classification:
+
+* Relationship Legislation
+* Supreme Court Ruling
+* Comfort Coupon
+
+Status:
+
+Approved
+
+Description:
+
+Landmark ruling recognizing that clothing transferred from boyfriend to girlfriend is no longer considered theft, loss, or unauthorized acquisition. The transfer is treated as a natural and inevitable relationship process.
+
+Canonical Lord Purrcival portrait:
+
+`shared/images/lord-purrcival/missing-hoodie-act.png`
+
+Interactive actions:
+
+None
+
+Redemption request:
+
+Not applicable
+
+Relationship legislation proceeding:
+
+Enabled
+
+Narrative stages:
+
+* Court Introduction
+* Evidence Review
+* Historical Case Law
+* Legal Doctrine
+* Final Verdict
+* Ownership Certificate
+* Clothing Recovery Statistics
+* Court Database
+* Final Emotional Message
+
+Hidden interaction:
+
+Tap Lord Purrcival five times to reveal the Emergency Court Notice.
+
+Implementation:
+
+Complete
+
+---
+
+## CAE-011
+
+Name:
+
+Personal Recharging Permit
+
+Folder:
+
+`personal-recharging-permit/`
+
+Department:
+
+Department of Personal Energy Management
+
+Internal division:
+
+Office of Social Battery Preservation
+
+Hungarian department:
+
+Személyes Energiagazdálkodási Hivatal
+
+Hungarian internal division:
+
+Társas Akkumulátor Megőrzési Iroda
+
+Classification:
+
+* Wellness Authorization
+* Comfort Coupon
+* Relationship Self-Care Authorization
+
+Status:
+
+Approved
+
+Description:
+
+Formally grants Eszter permission to take personal time without guilt. The coupon validates that alone time and social battery recovery do not threaten the relationship.
+
+Canonical Lord Purrcival portrait:
+
+`shared/images/lord-purrcival/personal-recharge-permit.png`
+
+Interactive actions:
+
+None
+
+Redemption request:
+
+Not applicable
+
+Wellness authorization proceeding:
+
+Enabled
+
+Narrative stages:
+
+* Permit Introduction
+* Official Findings
+* Permit Conditions
+* Official Authorization
+* Legal Wording
+* Permit Monitors
+* Final Emotional Message
+
+Hidden interaction:
+
+Tap Lord Purrcival five times to reveal Emergency Nap Authorization.
+
+Implementation:
+
+Complete
+
+---
+
+## CAE-012
+
+Name:
+
+Girlfriend Priority Access Pass
+
+Folder:
+
+`girlfriend-priority-access-pass/`
+
+Department:
+
+Priority Relationship Services Authority
+
+Hungarian department:
+
+Kiemelt Kapcsolati Szolgáltatások Hatósága
+
+Classification:
+
+* Relationship Credential
+* Comfort Coupon
+* Permanent Access Credential
+
+Status:
+
+Approved
+
+Description:
+
+Permanent relationship credential recognizing that Eszter already belongs and will always have a special place in the relationship.
+
+Canonical Lord Purrcival portrait:
+
+`shared/images/lord-purrcival/girlfriend-priority-access-pass.png`
+
+Interactive actions:
+
+None
+
+Redemption request:
+
+Not applicable
+
+Relationship credential proceeding:
+
+Enabled
+
+Narrative stages:
+
+* Priority Access Verification
+* Eligibility Review
+* Access Determination
+* Credential Issuance
+* Access Registry
+* Final Emotional Message
+
+Hidden interaction:
+
+Tap Lord Purrcival five times to reveal Chief Access Officer Confirmation.
 
 Implementation:
 

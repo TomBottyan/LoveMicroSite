@@ -23,6 +23,9 @@ Coupons live in their own folders:
 * `breakfast-in-bed/`
 * `unlimited-complaining/`
 * `immediate-boyfriend-deployment/`
+* `missing-hoodie-act/`
+* `personal-recharging-permit/`
+* `girlfriend-priority-access-pass/`
 
 Shared assets live in `shared/`:
 
@@ -52,6 +55,12 @@ Planned coupon folders may contain only `.gitkeep` until their microsites are ge
 `CAE-008` Unlimited Complaining License is implemented in `unlimited-complaining/index.html`.
 
 `CAE-009` Immediate Boyfriend Deployment Order is implemented in `immediate-boyfriend-deployment/index.html`.
+
+`CAE-010` The Missing Hoodie Act is implemented in `missing-hoodie-act/index.html`.
+
+`CAE-011` Personal Recharging Permit is implemented in `personal-recharging-permit/index.html`.
+
+`CAE-012` Girlfriend Priority Access Pass is implemented in `girlfriend-priority-access-pass/index.html`.
 
 ## Lore
 
