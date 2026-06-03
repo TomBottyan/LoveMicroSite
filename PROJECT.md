@@ -76,6 +76,108 @@ This workstream defines how the project is visually represented.
 
 ---
 
+# Physical Card Collection Canon
+
+Physical cards and microsite artwork are separate visual systems.
+
+Microsite artwork remains story-driven and immersive.
+
+Physical cards act as collectible permits, licenses, authorizations, passes, warrants and official Cat Approved Experiences™ artifacts.
+
+Physical cards are not miniature versions of the microsite artwork.
+
+Physical card production status:
+
+Approved reference templates:
+
+```text
+shared/images/cards/ref-1.png
+shared/images/cards/ref-2.png
+```
+
+These files define the canonical physical card visual language.
+
+Future physical cards must follow:
+
+* same visual hierarchy
+* same border treatment
+* same seal treatment
+* same front/back structure
+* same typography hierarchy
+* same QR placeholder placement
+
+Physical card format:
+
+* A6 portrait
+* 105mm × 148mm
+* double-sided printing
+* English front
+* Hungarian back
+* 4 cards per A4 sheet
+
+Approved palette:
+
+* Navy
+* Gold
+* Cream
+
+Physical card structure:
+
+Front:
+
+* Cat Approved Experiences™ header
+* CAE identifier
+* Coupon title
+* Department
+* Department seal
+* Short description
+* Approval block
+* QR placeholder
+
+Back:
+
+* Hungarian equivalent
+* Matching structure
+* QR placeholder
+* Approval block
+
+Canonical approval titles:
+
+English:
+
+Lord Purrcival
+
+Director of Relationship Affairs
+
+Hungarian:
+
+Dorombárd Úr
+
+Kapcsolatügyi Főigazgató
+
+These titles must remain consistent across all physical cards.
+
+QR Code Policy:
+
+* Physical card artwork contains QR placeholders only.
+* Production QR codes are inserted manually during final assembly.
+* Generated QR codes must not be relied upon for production use.
+
+Production workflow:
+
+1. Generate card artwork.
+2. Import into Figma.
+3. Insert real QR code.
+4. Export print-ready version.
+
+Production environment:
+
+* Figma is the canonical environment for final card assembly.
+* Artwork Studio generates card designs.
+* Implementation & Development prepares print-ready assets.
+
+---
+
 # Target Audience
 
 Primary audience: Eszter.
