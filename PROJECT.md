@@ -176,6 +176,153 @@ Production environment:
 * Artwork Studio generates card designs.
 * Implementation & Development prepares print-ready assets.
 
+## Production Workflow & Print Validation
+
+### Card Approval Process
+
+Physical cards are produced individually.
+
+The project does not use batch card generation.
+
+Each card must pass the following stages:
+
+1. Generate English front.
+2. Generate Hungarian back.
+3. Review typography.
+4. Review translations.
+5. Review department naming.
+6. Review approval authority titles.
+7. Review QR placeholder placement.
+8. Approve.
+9. Freeze.
+
+Once approved, a card becomes FINAL and should not be regenerated unless a genuine defect is discovered.
+
+---
+
+### Card Design Rule
+
+All physical cards must be created directly in the canonical physical card ratio.
+
+Do not create cards and later crop them to fit print dimensions.
+
+This decision was made after discovering that post-generation cropping can remove important text and visual elements.
+
+The physical card should be designed for its final dimensions from the beginning.
+
+---
+
+### Canonical Physical Size
+
+Approved card size:
+
+A6 Portrait
+
+105mm × 148mm
+
+This size was selected because:
+
+* readable text
+* collectible feel
+* suitable for home printing
+* suitable for professional printing
+* supports double-sided English/Hungarian layouts
+
+Smaller formats are not recommended.
+
+---
+
+### Print Preparation Strategy
+
+Card creation and print sheet assembly are separate phases.
+
+Phase 1:
+
+Create and approve individual cards.
+
+Phase 2:
+
+Freeze approved cards.
+
+Phase 3:
+
+Assemble approved cards into print sheets.
+
+This separation prevents print constraints from affecting card design decisions.
+
+---
+
+### Print Validation Process
+
+Do not wait until the entire collection is complete.
+
+A print validation exercise should occur after the first four approved cards.
+
+Initial validation should use ordinary office paper.
+
+Goals:
+
+* verify readability
+* verify margins
+* verify duplex alignment
+* verify cutting layout
+* verify overall card feel
+
+Only after successful validation should premium cardstock be used.
+
+---
+
+### Recommended Print Material
+
+Preferred material:
+
+300gsm matte cardstock
+
+Reasoning:
+
+* matches the permit and certificate aesthetic
+* feels more authentic to the Cat Approved Experiences™ universe
+* avoids postcard-style gloss finishes
+
+---
+
+### Final Sheet Generation
+
+Sheet generation should occur only after:
+
+* card approval
+* card freezing
+* print validation
+
+Future print sheets may be generated as:
+
+sheet-01-front
+
+sheet-01-back
+
+sheet-02-front
+
+sheet-02-back
+
+The exact front/back arrangement should be validated using a real printer test before final production.
+
+This avoids duplex alignment issues across different printer types.
+
+---
+
+### Physical Prototype Review
+
+When testing printed cards, capture:
+
+* full A4 sheet
+* cut card
+* front and back together
+* card held in hand
+
+These photos should be used to evaluate scale, readability, collectability, and overall presentation quality before final production.
+
+This workflow is considered the canonical production process for the Cat Approved Experiences™ physical card collection.
+
 ---
 
 # Target Audience
