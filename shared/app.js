@@ -9,7 +9,7 @@ const CATALOGUE_NAVIGATION_REDUCED_DELAY = 240;
 const REQUEST_STORAGE_PREFIX = "cae-request";
 const DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
 const MANUAL_REDEMPTION_NOTICE_RECIPIENT = window.CAE_MANUAL_NOTICE_EMAIL_RECIPIENT || "";
-const OFFICIAL_CATALOGUE_URL = "/";
+const OFFICIAL_CATALOGUE_URL = "/#catalogue";
 
 const translator = document.querySelector(".translator");
 const languageButtons = document.querySelectorAll(".lang");
@@ -172,7 +172,7 @@ function getCatalogueNavigationSet(){
 
 function getOfficialCatalogueUrl(){
     if(currentLanguage === "hu"){
-        return `${OFFICIAL_CATALOGUE_URL}?lang=hu`;
+        return "/?lang=hu#catalogue";
     }
 
     return OFFICIAL_CATALOGUE_URL;
@@ -229,7 +229,7 @@ function createScrollTopControl(){
     scrollTopButton = document.createElement("button");
     scrollTopButton.className = "scroll-top-control is-hidden";
     scrollTopButton.type = "button";
-    scrollTopButton.textContent = "↑";
+    scrollTopButton.textContent = "⌃";
 
     scrollTopButton.addEventListener("click", () => {
         window.scrollTo({

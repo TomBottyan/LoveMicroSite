@@ -903,13 +903,13 @@ Destination rules:
 English:
 
 ```text
-/
+/#catalogue
 ```
 
 Hungarian:
 
 ```text
-/?lang=hu
+/?lang=hu#catalogue
 ```
 
 Display text:
@@ -930,6 +930,7 @@ Layout:
 
 * The component should appear near the top-left of coupon pages as a compact utility navigation button.
 * The component should be available to both mobile and desktop users.
+* The component should target the stable main catalogue section anchor.
 * The component must not bottom-float on desktop or mobile.
 * The component must not interfere with the language switcher.
 * The component must not interfere with redemption actions, request confirmations, or narrative proceedings.
@@ -945,6 +946,7 @@ Scroll-to-top control:
 * The scroll-to-top control disappears when the user returns to the top.
 * This behavior is the opposite of the language switcher and catalogue navigation.
 * The control should use smooth scrolling unless the user prefers reduced motion.
+* The control should appear as a compact rounded square with an upward chevron.
 * The control must not overlap the language switcher, redemption actions, request confirmations, or mobile browser UI.
 
 ---
