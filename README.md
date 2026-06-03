@@ -21,6 +21,7 @@ Coupons live in their own folders:
 * `dining-out/`
 * `cuddle-authorization/`
 * `breakfast-in-bed/`
+* `unlimited-complaining/`
 * `immediate-boyfriend-deployment/`
 
 Shared assets live in `shared/`:
@@ -47,6 +48,8 @@ Planned coupon folders may contain only `.gitkeep` until their microsites are ge
 `CAE-006` Cuddle Authorization is implemented in `cuddle-authorization/index.html`.
 
 `CAE-007` Breakfast in Bed Authorization is implemented in `breakfast-in-bed/index.html`.
+
+`CAE-008` Unlimited Complaining License is implemented in `unlimited-complaining/index.html`.
 
 `CAE-009` Immediate Boyfriend Deployment Order is implemented in `immediate-boyfriend-deployment/index.html`.
 

@@ -2496,5 +2496,345 @@ window.CAE_TRANSLATIONS = {
                 ]
             }
         }
+    },
+    unlimitedComplaining: {
+        en: {
+            pageTitle: "Unlimited Complaining License | Cat Approved Experiences™",
+            translatorAriaLabel: "Cat Approved Experiences translation services",
+            languageSwitcherAriaLabel: "Language switcher",
+            title: "Unlimited Complaining License",
+            certification: "🐾 Certified by Cat Approved Experiences™",
+            translatorNote: "Translation services provided by Lord Purrcival in exchange for snacks.",
+            department: "Department of Listening Services",
+            approvedByLord: "Approved by Lord Purrcival",
+            approvalOfficerLabel: "APPROVAL OFFICER",
+            approvalOfficerPortraitAlt: "Lord Purrcival serving as official approval officer for the Unlimited Complaining License",
+            approver: "Lord Purrcival",
+            directorTitle: "Director of Relationship Affairs",
+            applicationStatus: "Application Status",
+            approved: "APPROVED ✓",
+            applicationText: "This license authorizes temporary unrestricted complaining privileges without immediate problem-solving intervention.",
+            legalAuthorityTitle: "Legal Authority",
+            legalAuthorityText1: "The Department of Listening Services recognizes that certain frustrations cannot be resolved immediately and some cannot be resolved at all.",
+            legalAuthorityText2: "Accordingly, this license authorizes unrestricted discussion of annoying, frustrating, inconvenient, disappointing, confusing, irritating, or otherwise bothersome matters.",
+            legalAuthorityText3: "During the validity period of this license, immediate solution proposals are temporarily suspended unless specifically requested by the license holder.",
+            statistics: "Complaint Statistics",
+            statProcessed: "☑ Complaints Processed Today: 1",
+            statRemaining: "∞ Complaints Remaining: ∞",
+            responseModes: "Official Response Modes",
+            modeListening: "☑ Listening",
+            modeProblemSolving: "☐ Problem Solving",
+            modeSpreadsheet: "☐ Spreadsheet Creation",
+            modePresentation: "☐ PowerPoint Presentation",
+            processing: "Complaint Intake Processing",
+            processingDescription: "Conduct a validation-oriented review before official listening services begin.",
+            beginComplaint: "Begin Complaint",
+            compliance: "Relationship Compliance Notice",
+            complianceText: "This license remains valid regardless of complaint volume.",
+            requestListening: "Request Listening Session",
+            requestTransitionTitle: "Processing Listening Services File",
+            requestScreenEyebrow: "CAE-008 LISTENING SERVICES FILE",
+            requestScreenTitle: "Listening Session Request",
+            requestGreeting: "Dear Eszter,",
+            requestIntroText: "Lord Purrcival is ready to validate the complaint docket without immediately fixing it.",
+            requestComplaintTitle: "Complaint Classification",
+            category: "Complaint category",
+            requestCategoryPlaceholder: "Select complaint category",
+            categoryAnnoying: "Annoying matter",
+            categoryFrustrating: "Frustrating matter",
+            categoryInconvenient: "Inconvenient matter",
+            categoryDisappointing: "Disappointing matter",
+            categoryConfusing: "Confusing matter",
+            categoryIrritating: "Irritating matter",
+            categoryEmergencyDeployment: "Emergency boyfriend deployment",
+            responseType: "Response type",
+            requestResponsePlaceholder: "Select response type",
+            responseListening: "Listening only",
+            responseValidation: "Validation and agreement",
+            responseHugs: "Listening with hugs",
+            responseSnacks: "Listening with snacks",
+            requestCategoryDescriptionPlaceholder: "Select a complaint category to view any related Cat Approved notice.",
+            requestDetailsTitle: "Complaint Materials",
+            requestComplaintLabel: "What needs to be heard?",
+            requestComplaintPlaceholder: "Describe the annoying, frustrating, confusing, irritating, or otherwise bothersome matter.",
+            requestSolutionLabel: "Are solutions allowed?",
+            requestSolutionPlaceholder: "Select solution permission",
+            solutionNo: "No, listening only",
+            solutionAskFirst: "Only if I ask first",
+            solutionLater: "Maybe later",
+            requestListeningNote: "The default response mode is listening. Problem solving remains suspended unless Eszter specifically requests it.",
+            requestSubmitButton: "Submit Listening Request",
+            requestBackButton: "Return to License",
+            requestConfirmationSummaryTitle: "Submitted Listening Details",
+            actions: {
+                complaintIntakeReview: {
+                    title: "Complaint Intake Processing",
+                    messages: [
+                        "Opening listening services file...",
+                        "Suspending premature solution proposals...",
+                        "Confirming complaint volume tolerance...",
+                        "Reviewing validation requirements...",
+                        "Checking emotional acknowledgement capacity...",
+                        "Consulting Lord Purrcival...",
+                        "Verifying spreadsheet creation is not required...",
+                        "Measuring active listening readiness...",
+                        "Confirming PowerPoint avoidance protocol...",
+                        "Finalizing complaint license approval..."
+                    ],
+                    success: {
+                        title: "LISTENING APPROVED ✓",
+                        body: "Complaint intake may proceed without immediate problem solving.",
+                        lines: [
+                            "Official Response:",
+                            "I hear you.",
+                            "Problem Solving:",
+                            "Suspended unless requested."
+                        ]
+                    }
+                }
+            },
+            redemptionRequest: {
+                couponName: "Unlimited Complaining License",
+                recipientName: "Eszter",
+                assignedTo: "Tomi",
+                reviewButton: "Review Submitted Listening Request",
+                transitionMessages: [
+                    "Opening listening services file...",
+                    "Notifying Lord Purrcival...",
+                    "Suspending automatic problem-solving reflexes...",
+                    "Assigning Tomi to validation duty...",
+                    "Listening desk ready."
+                ],
+                requiredFields: [
+                    "complaintCategory",
+                    "responseType",
+                    "complaintText",
+                    "solutionsAllowed"
+                ],
+                eitherOrFields: [],
+                urlFields: [],
+                optionLabels: {
+                    complaintCategory: {
+                        annoying: "Annoying matter",
+                        frustrating: "Frustrating matter",
+                        inconvenient: "Inconvenient matter",
+                        disappointing: "Disappointing matter",
+                        confusing: "Confusing matter",
+                        irritating: "Irritating matter",
+                        emergencyDeployment: "Emergency boyfriend deployment"
+                    },
+                    responseType: {
+                        listening: "Listening only",
+                        validation: "Validation and agreement",
+                        hugs: "Listening with hugs",
+                        snacks: "Listening with snacks"
+                    },
+                    solutionsAllowed: {
+                        no: "No, listening only",
+                        askFirst: "Only if I ask first",
+                        later: "Maybe later"
+                    }
+                },
+                optionDescriptions: {
+                    complaintCategory: {
+                        emergencyDeployment: "Additional deployment resources may be requested under CAE-009 Immediate Boyfriend Deployment Order."
+                    }
+                },
+                errors: {
+                    complaintCategory: "Please select a complaint category.",
+                    responseType: "Please select a response type.",
+                    complaintText: "Please describe what needs to be heard.",
+                    solutionsAllowed: "Please select whether solutions are allowed."
+                },
+                success: {
+                    title: "LISTENING REQUEST APPROVED ✓",
+                    lines: [
+                        "Dear Eszter,",
+                        "Your complaint has been officially admitted into the Listening Services docket.",
+                        "Tomi has been assigned to listen, validate, and avoid premature problem solving.",
+                        "Lord Purrcival confirms: I hear you."
+                    ]
+                },
+                summaryFields: [
+                    { name: "couponId", label: "Coupon ID" },
+                    { name: "recipientName", label: "License holder" },
+                    { name: "assignedTo", label: "Assigned listener" },
+                    { name: "complaintCategory", label: "Complaint category", type: "option" },
+                    { name: "responseType", label: "Response type", type: "option" },
+                    { name: "complaintText", label: "Complaint material" },
+                    { name: "solutionsAllowed", label: "Solutions allowed", type: "option" },
+                    { name: "submittedAt", label: "Submitted", type: "datetime" }
+                ]
+            }
+        },
+        hu: {
+            pageTitle: "Korlátlan Panaszkodási Engedély | Cat Approved Experiences™",
+            translatorAriaLabel: "Cat Approved Experiences fordítási szolgáltatások",
+            languageSwitcherAriaLabel: "Nyelvváltó",
+            title: "Korlátlan Panaszkodási Engedély",
+            certification: "🐾 A Cat Approved Experiences™ által hitelesítve",
+            translatorNote: "A fordítást Dorombárd Úr biztosítja némi nasi ellenében.",
+            department: "Hallgatási Szolgáltatások Főosztálya",
+            approvedByLord: "Dorombárd Úr által jóváhagyva",
+            approvalOfficerLabel: "JÓVÁHAGYÓ TISZTVISELŐ",
+            approvalOfficerPortraitAlt: "Dorombárd Úr hivatalos jóváhagyó tisztviselőként a Korlátlan Panaszkodási Engedélyhez",
+            approver: "Dorombárd Úr",
+            directorTitle: "Kapcsolatügyi Főigazgató",
+            applicationStatus: "Kérelem Státusza",
+            approved: "JÓVÁHAGYVA ✓",
+            applicationText: "Ez az engedély ideiglenes korlátlan panaszkodási jogosultságot biztosít azonnali problémamegoldási beavatkozás nélkül.",
+            legalAuthorityTitle: "Jogi Felhatalmazás",
+            legalAuthorityText1: "A Hallgatási Szolgáltatások Főosztálya elismeri, hogy egyes bosszúságok nem oldhatók meg azonnal, mások pedig egyáltalán nem.",
+            legalAuthorityText2: "Ennek megfelelően az engedély felhatalmazást biztosít bosszantó, kellemetlen, csalódást okozó, zavaró vagy egyéb módon idegesítő ügyek korlátlan megvitatására.",
+            legalAuthorityText3: "Az engedély érvényességi ideje alatt az azonnali megoldási javaslatok felfüggesztésre kerülnek, kivéve, ha azokat a jogosult kifejezetten kéri.",
+            statistics: "Panasz Statisztika",
+            statProcessed: "☑ Ma Feldolgozott Panaszok: 1",
+            statRemaining: "∞ Hátralévő Panaszok: ∞",
+            responseModes: "Hivatalos Reagálási Módok",
+            modeListening: "☑ Hallgatás",
+            modeProblemSolving: "☐ Problémamegoldás",
+            modeSpreadsheet: "☐ Táblázatkészítés",
+            modePresentation: "☐ PowerPoint Prezentáció",
+            processing: "Panaszbefogadási Feldolgozás",
+            processingDescription: "Validáció-központú vizsgálat a hivatalos hallgatási szolgáltatások megkezdése előtt.",
+            beginComplaint: "Panasz Megkezdése",
+            compliance: "Kapcsolati Megfelelőségi Tájékoztató",
+            complianceText: "Ez az engedély a panaszok mennyiségétől függetlenül érvényes marad.",
+            requestListening: "Hallgatási Munkamenet Kérése",
+            requestTransitionTitle: "Hallgatási Szolgáltatási Ügyirat Feldolgozása",
+            requestScreenEyebrow: "CAE-008 HALLGATÁSI SZOLGÁLTATÁSI AKTA",
+            requestScreenTitle: "Hallgatási Munkamenet Kérelem",
+            requestGreeting: "Kedves Eszter,",
+            requestIntroText: "Dorombárd Úr készen áll a panaszanyag validálására anélkül, hogy azonnal megjavítaná.",
+            requestComplaintTitle: "Panasz Besorolása",
+            category: "Panasz kategória",
+            requestCategoryPlaceholder: "Válassz panasz kategóriát",
+            categoryAnnoying: "Bosszantó ügy",
+            categoryFrustrating: "Frusztráló ügy",
+            categoryInconvenient: "Kellemetlen ügy",
+            categoryDisappointing: "Csalódást okozó ügy",
+            categoryConfusing: "Zavaró ügy",
+            categoryIrritating: "Idegesítő ügy",
+            categoryEmergencyDeployment: "Vészhelyzeti barátbevetés",
+            responseType: "Reagálás típusa",
+            requestResponsePlaceholder: "Válassz reagálási típust",
+            responseListening: "Csak hallgatás",
+            responseValidation: "Validálás és egyetértés",
+            responseHugs: "Hallgatás öleléssel",
+            responseSnacks: "Hallgatás nasival",
+            requestCategoryDescriptionPlaceholder: "Válassz panasz kategóriát az esetleges Cat Approved tájékoztató megtekintéséhez.",
+            requestDetailsTitle: "Panaszanyagok",
+            requestComplaintLabel: "Mit kell meghallgatni?",
+            requestComplaintPlaceholder: "Írd le a bosszantó, frusztráló, zavaró, idegesítő vagy egyéb módon kellemetlen ügyet.",
+            requestSolutionLabel: "Engedélyezettek a megoldások?",
+            requestSolutionPlaceholder: "Válassz megoldási engedélyt",
+            solutionNo: "Nem, csak hallgatás",
+            solutionAskFirst: "Csak ha előbb kérem",
+            solutionLater: "Talán később",
+            requestListeningNote: "Az alapértelmezett reagálási mód a hallgatás. A problémamegoldás felfüggesztve marad, kivéve, ha Eszter kifejezetten kéri.",
+            requestSubmitButton: "Hallgatási Kérelem Beküldése",
+            requestBackButton: "Vissza az Engedélyhez",
+            requestConfirmationSummaryTitle: "Benyújtott Hallgatási Részletek",
+            actions: {
+                complaintIntakeReview: {
+                    title: "Panaszbefogadási Feldolgozás",
+                    messages: [
+                        "Hallgatási szolgáltatási akta megnyitása...",
+                        "Korai megoldási javaslatok felfüggesztése...",
+                        "Panaszmennyiség-tűrés megerősítése...",
+                        "Validációs követelmények áttekintése...",
+                        "Érzelmi elismerési kapacitás ellenőrzése...",
+                        "Dorombárd Úr megkérdezése...",
+                        "Táblázatkészítési kötelezettség kizárása...",
+                        "Aktív hallgatási készenlét mérése...",
+                        "PowerPoint-elkerülési protokoll megerősítése...",
+                        "Panaszengedély jóváhagyásának véglegesítése..."
+                    ],
+                    success: {
+                        title: "HALLGATÁS JÓVÁHAGYVA ✓",
+                        body: "A panaszbefogadás azonnali problémamegoldás nélkül megkezdhető.",
+                        lines: [
+                            "Hivatalos Reagálás:",
+                            "Hallak.",
+                            "Problémamegoldás:",
+                            "Felfüggesztve, kivéve kérésre."
+                        ]
+                    }
+                }
+            },
+            redemptionRequest: {
+                couponName: "Korlátlan Panaszkodási Engedély",
+                recipientName: "Eszter",
+                assignedTo: "Tomi",
+                reviewButton: "Benyújtott Hallgatási Kérelem Megtekintése",
+                transitionMessages: [
+                    "Hallgatási szolgáltatási akta megnyitása...",
+                    "Dorombárd Úr értesítése...",
+                    "Automatikus problémamegoldási reflexek felfüggesztése...",
+                    "Tomi kijelölése validálási szolgálatra...",
+                    "Hallgatási pult készen áll."
+                ],
+                requiredFields: [
+                    "complaintCategory",
+                    "responseType",
+                    "complaintText",
+                    "solutionsAllowed"
+                ],
+                eitherOrFields: [],
+                urlFields: [],
+                optionLabels: {
+                    complaintCategory: {
+                        annoying: "Bosszantó ügy",
+                        frustrating: "Frusztráló ügy",
+                        inconvenient: "Kellemetlen ügy",
+                        disappointing: "Csalódást okozó ügy",
+                        confusing: "Zavaró ügy",
+                        irritating: "Idegesítő ügy",
+                        emergencyDeployment: "Vészhelyzeti barátbevetés"
+                    },
+                    responseType: {
+                        listening: "Csak hallgatás",
+                        validation: "Validálás és egyetértés",
+                        hugs: "Hallgatás öleléssel",
+                        snacks: "Hallgatás nasival"
+                    },
+                    solutionsAllowed: {
+                        no: "Nem, csak hallgatás",
+                        askFirst: "Csak ha előbb kérem",
+                        later: "Talán később"
+                    }
+                },
+                optionDescriptions: {
+                    complaintCategory: {
+                        emergencyDeployment: "További bevetési erőforrások a CAE-009 Azonnali Barát Bevetési Parancs alapján kérhetők."
+                    }
+                },
+                errors: {
+                    complaintCategory: "Kérjük, válassz panasz kategóriát.",
+                    responseType: "Kérjük, válassz reagálási típust.",
+                    complaintText: "Kérjük, írd le, mit kell meghallgatni.",
+                    solutionsAllowed: "Kérjük, válaszd ki, engedélyezettek-e a megoldások."
+                },
+                success: {
+                    title: "HALLGATÁSI KÉRELEM JÓVÁHAGYVA ✓",
+                    lines: [
+                        "Kedves Eszter,",
+                        "A panaszod hivatalosan bekerült a Hallgatási Szolgáltatások aktájába.",
+                        "Tomi kijelölésre került hallgatásra, validálásra és korai problémamegoldás elkerülésére.",
+                        "Dorombárd Úr megerősíti: Hallak."
+                    ]
+                },
+                summaryFields: [
+                    { name: "couponId", label: "Kuponazonosító" },
+                    { name: "recipientName", label: "Jogosult" },
+                    { name: "assignedTo", label: "Kijelölt hallgató" },
+                    { name: "complaintCategory", label: "Panasz kategória", type: "option" },
+                    { name: "responseType", label: "Reagálás típusa", type: "option" },
+                    { name: "complaintText", label: "Panaszanyag" },
+                    { name: "solutionsAllowed", label: "Megoldások engedélyezve", type: "option" },
+                    { name: "submittedAt", label: "Benyújtva", type: "datetime" }
+                ]
+            }
+        }
     }
 };

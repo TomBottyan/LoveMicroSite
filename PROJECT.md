@@ -854,6 +854,40 @@ This restriction is intentional and part of project canon.
 
 ---
 
+## Emotional Support Framework
+
+The Emotional Support Framework standardizes validation-oriented experiences where emotional acknowledgement is more important than task completion.
+
+Applicable coupons include:
+
+* Unlimited Complaining License
+* Cuddle Authorization
+* Immediate Boyfriend Deployment Order
+* Future emotional-support experiences
+
+The framework should support:
+
+* Bilingual support
+* Language switcher
+* Lord Purrcival approval section
+* Cat Approved certification
+* Approval Officer component
+* Responsive mobile-first layout
+* Redemption request capability where applicable
+* Interactions that validate feelings before proposing action
+
+All interactions should reinforce:
+
+> "I hear you."
+
+rather than:
+
+> "I can fix that."
+
+The framework exists to keep emotional-support coupons warm, validating, and consistent while still allowing each coupon to define its own request fields and legal parody.
+
+---
+
 Lazy Day:
 
 * date
@@ -933,6 +967,7 @@ shared/images/lord-purrcival/passenger-permit.png
 shared/images/lord-purrcival/dinning-out.png
 shared/images/lord-purrcival/cuddle-authorization.png
 shared/images/lord-purrcival/breakfast-in-bed.png
+shared/images/lord-purrcival/unlimited-complaining.png
 shared/images/lord-purrcival/boyfriend-deployment.png
 ```
 
@@ -949,6 +984,8 @@ The Dining Out portrait at `shared/images/lord-purrcival/dinning-out.png` is can
 The Cuddle Authorization portrait at `shared/images/lord-purrcival/cuddle-authorization.png` is canon for the Cuddle Authorization experience.
 
 The Breakfast in Bed portrait at `shared/images/lord-purrcival/breakfast-in-bed.png` is canon for the Breakfast in Bed Authorization experience.
+
+The Unlimited Complaining portrait at `shared/images/lord-purrcival/unlimited-complaining.png` is canon for the Unlimited Complaining License experience.
 
 The Immediate Boyfriend Deployment portrait at `shared/images/lord-purrcival/boyfriend-deployment.png` is canon for the Immediate Boyfriend Deployment Order experience.
 
@@ -1042,6 +1079,7 @@ LoveMicroSite/
 │   │       ├── dinning-out.png
 │   │       ├── cuddle-authorization.png
 │   │       ├── breakfast-in-bed.png
+│   │       ├── unlimited-complaining.png
 │   │       └── boyfriend-deployment.png
 │   └── icons/
 │       └── .gitkeep
@@ -1065,6 +1103,9 @@ LoveMicroSite/
 │   └── index.html
 │
 ├── breakfast-in-bed/
+│   └── index.html
+│
+├── unlimited-complaining/
 │   └── index.html
 │
 ├── immediate-boyfriend-deployment/
@@ -1583,6 +1624,70 @@ Complete
 
 ---
 
+## CAE-008
+
+Name:
+
+Unlimited Complaining License
+
+Folder:
+
+`unlimited-complaining/`
+
+Department:
+
+Department of Listening Services
+
+Hungarian department:
+
+Hallgatási Szolgáltatások Főosztálya
+
+Category:
+
+* Comfort Coupon
+* Emergency Relationship Coupon
+
+Status:
+
+Approved
+
+Description:
+
+A humorous permit authorizing temporary unrestricted complaining privileges without immediate problem-solving intervention.
+
+Canonical Lord Purrcival portrait:
+
+`shared/images/lord-purrcival/unlimited-complaining.png`
+
+Interactive actions:
+
+* `complaintIntakeReview`
+
+Redemption request:
+
+Enabled
+
+Request fields:
+
+* Complaint category
+* Response type
+* Complaint material
+* Solution permission
+
+Recipient:
+
+Eszter
+
+Assigned fulfiller:
+
+Tomi
+
+Implementation:
+
+Complete
+
+---
+
 ## CAE-009
 
 Name:
@@ -1651,27 +1756,6 @@ Complete
 # Future Coupon Registry
 
 Future coupons should receive a CAE identifier before implementation begins.
-
-Planned coupons with assigned identifiers:
-
-## CAE-008
-
-Name:
-
-Unlimited Complaining License
-
-Status:
-
-Planned
-
-Category:
-
-* Comfort Coupon
-* Emergency Relationship Coupon
-
-Description:
-
-A humorous permit authorizing temporary unrestricted complaining privileges without immediate problem-solving intervention.
 
 Additional planned concepts awaiting CAE identifiers:
 
