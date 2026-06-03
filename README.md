@@ -26,6 +26,7 @@ Coupons live in their own folders:
 * `missing-hoodie-act/`
 * `personal-recharging-permit/`
 * `girlfriend-priority-access-pass/`
+* `anti-dick-light-warrant/`
 
 Shared assets live in `shared/`:
 
@@ -61,6 +62,8 @@ Planned coupon folders may contain only `.gitkeep` until their microsites are ge
 `CAE-011` Personal Recharging Permit is implemented in `personal-recharging-permit/index.html`.
 
 `CAE-012` Girlfriend Priority Access Pass is implemented in `girlfriend-priority-access-pass/index.html`.
+
+`CAE-013` Anti Dick Light Warrant is implemented in `anti-dick-light-warrant/index.html`.
 
 ## Lore
 

@@ -949,6 +949,7 @@ Existing users:
 
 * CAE-008 Unlimited Complaining License
 * CAE-010 The Missing Hoodie Act
+* CAE-013 Anti Dick Light Warrant
 
 The framework exists to keep legal parody consistent while allowing different coupon structures, including licenses, court rulings, acts, orders, and future relationship precedents.
 
@@ -1234,7 +1235,8 @@ LoveMicroSite/
 │   │       ├── boyfriend-deployment.png
 │   │       ├── missing-hoodie-act.png
 │   │       ├── personal-recharge-permit.png
-│   │       └── girlfriend-priority-access-pass.png
+│   │       ├── girlfriend-priority-access-pass.png
+│   │       └── anti-dick-light-warrant.png
 │   └── icons/
 │       └── .gitkeep
 │
@@ -1272,6 +1274,9 @@ LoveMicroSite/
 │   └── index.html
 │
 ├── girlfriend-priority-access-pass/
+│   └── index.html
+│
+├── anti-dick-light-warrant/
 │   └── index.html
 │
 └── docs/
@@ -2130,6 +2135,80 @@ Narrative stages:
 Hidden interaction:
 
 Tap Lord Purrcival five times to reveal Chief Access Officer Confirmation.
+
+Implementation:
+
+Complete
+
+---
+
+## CAE-013
+
+Name:
+
+Anti Dick Light Warrant
+
+Folder:
+
+`anti-dick-light-warrant/`
+
+Department:
+
+Behavioral Regulation Authority
+
+Internal references:
+
+* Department of Boyfriend Quality Assurance
+* Office of Temporary Personality Malfunctions
+
+Hungarian department:
+
+Viselkedésszabályozási Hatóság
+
+Classification:
+
+* Relationship Legislation
+* Behavioral Correction Authorization
+* Comfort Coupon
+
+Status:
+
+Approved
+
+Description:
+
+Self-aware authorization for Eszter to identify elevated Dick Light activity and apply affectionate corrective measures when Tomi becomes grumpy, stubborn, or unnecessarily difficult.
+
+Canonical Lord Purrcival portrait:
+
+`shared/images/lord-purrcival/anti-dick-light-warrant.png`
+
+Interactive actions:
+
+None
+
+Redemption request:
+
+Not applicable
+
+Relationship legislation proceeding:
+
+Enabled
+
+Narrative stages:
+
+* Behavioral Incident Report
+* Behavioral Assessment
+* Root Cause Analysis
+* Intervention Authorization
+* Authorized Interventions
+* Diagnostic Monitors
+* Final Emotional Message
+
+Hidden interactions:
+
+* Tap Dick Light Status five times to reveal Advanced Diagnostics.
+* Tap Recommended Treatment five times to reveal Independent Review Board Findings.
 
 Implementation:
 
