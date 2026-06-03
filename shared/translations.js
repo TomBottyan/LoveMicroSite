@@ -1,4 +1,12 @@
 window.CAE_SHARED_TRANSLATIONS = {
+    catalogueNavigation: {
+        en: {
+            returnLabel: "Return to Official Catalogue"
+        },
+        hu: {
+            returnLabel: "Vissza a Hivatalos Katalógushoz"
+        }
+    },
     manualRedemptionNotice: {
         en: {
             title: "Send Redemption Notice",

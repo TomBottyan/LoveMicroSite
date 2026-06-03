@@ -880,6 +880,61 @@ A fordítást Dorombárd Úr biztosítja némi nasi ellenében.
 
 ---
 
+## Official Catalogue Navigation
+
+All coupon microsites must provide a reusable path back to the official catalogue.
+
+Purpose:
+
+* Allow mobile users to return to the main Cat Approved Experiences™ catalogue without relying on browser back navigation.
+* Preserve the active language selection.
+* Keep navigation behavior consistent across coupon pages.
+
+Implementation:
+
+* The component is implemented centrally in `shared/app.js`.
+* The component is styled centrally in `shared/style.css`.
+* Shared labels live in `shared/translations.js`.
+* Coupon pages must not duplicate catalogue-return markup.
+* The root homepage does not render the return component because it is already the official catalogue.
+
+Destination rules:
+
+English:
+
+```text
+https://approvedbyacat.com/
+```
+
+Hungarian:
+
+```text
+https://approvedbyacat.com/?lang=hu
+```
+
+Display text:
+
+English:
+
+```text
+Return to Official Catalogue
+```
+
+Hungarian:
+
+```text
+Vissza a Hivatalos Katalógushoz
+```
+
+Layout:
+
+* The component should be a small floating mobile-friendly navigation button.
+* The component must not interfere with the language switcher.
+* The component must not interfere with redemption actions, request confirmations, or narrative proceedings.
+* Mobile positioning should account for safe-area insets.
+
+---
+
 # Design Principles
 
 ## Style
@@ -1767,6 +1822,7 @@ Use shared files for:
 * Global buttons and cards
 * Language switcher styling and behavior
 * Scroll-based language switcher visibility
+* Official catalogue return navigation styling and behavior
 * Translation switching
 * Shared translation data
 * Cat Approved interaction feedback
@@ -2809,6 +2865,7 @@ When generating future coupons:
 * Use `data-i18n-placeholder` for translated form placeholders
 * Load shared styling from `shared/style.css`
 * Load shared behavior from `shared/app.js`
+* Inherit official catalogue return navigation from the shared app and stylesheet
 * Inherit global interactive feedback from the shared design system
 * Use English fallback text in HTML only as a fallback for translatable content
 * Generate complete replacement files when requested

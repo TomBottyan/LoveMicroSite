@@ -9,6 +9,7 @@ const CATALOGUE_NAVIGATION_REDUCED_DELAY = 240;
 const REQUEST_STORAGE_PREFIX = "cae-request";
 const DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
 const MANUAL_REDEMPTION_NOTICE_RECIPIENT = window.CAE_MANUAL_NOTICE_EMAIL_RECIPIENT || "";
+const OFFICIAL_CATALOGUE_URL = "https://approvedbyacat.com/";
 
 const translator = document.querySelector(".translator");
 const languageButtons = document.querySelectorAll(".lang");
@@ -51,6 +52,7 @@ let isCourtTransitionRunning = false;
 let isNarrativeTransitionRunning = false;
 let isCatalogueNavigationRunning = false;
 const easterTapCounts = new WeakMap();
+let catalogueReturnLink = null;
 
 function getInitialLanguage(){
     const urlLanguage = new URLSearchParams(window.location.search).get("lang");
@@ -124,6 +126,7 @@ function switchLanguage(lang){
         });
 
     updateLanguageAwareLinks();
+    updateCatalogueReturnNavigation();
     updateRequestEntryState();
     updateOptionDescriptions();
 
@@ -149,6 +152,49 @@ function updateTranslatorVisibility(){
 
 function getLanguageSet(){
     return translations && translations[currentLanguage];
+}
+
+function getCatalogueNavigationSet(){
+    const sharedSet = sharedTranslations.catalogueNavigation;
+
+    return sharedSet && sharedSet[currentLanguage];
+}
+
+function getOfficialCatalogueUrl(){
+    if(currentLanguage === "hu"){
+        return `${OFFICIAL_CATALOGUE_URL}?lang=hu`;
+    }
+
+    return OFFICIAL_CATALOGUE_URL;
+}
+
+function updateCatalogueReturnNavigation(){
+    if(!catalogueReturnLink){
+        return;
+    }
+
+    const navigationSet = getCatalogueNavigationSet();
+    const label = navigationSet && navigationSet.returnLabel ?
+        navigationSet.returnLabel :
+        "Return to Official Catalogue";
+
+    catalogueReturnLink.href = getOfficialCatalogueUrl();
+    catalogueReturnLink.textContent = label;
+    catalogueReturnLink.setAttribute("aria-label", label);
+}
+
+function createCatalogueReturnNavigation(){
+    if(couponKey === "mainIndex" || catalogueReturnLink){
+        return;
+    }
+
+    catalogueReturnLink = document.createElement("a");
+    catalogueReturnLink.className = "catalogue-return-nav";
+
+    document.body.appendChild(catalogueReturnLink);
+    document.body.classList.add("has-catalogue-return-nav");
+
+    updateCatalogueReturnNavigation();
 }
 
 function getRandomItem(items){
@@ -1227,6 +1273,7 @@ window.addEventListener("scroll", updateTranslatorVisibility, { passive:true });
 window.addEventListener("resize", updateTranslatorVisibility);
 
 configureDateInputs();
+createCatalogueReturnNavigation();
 switchLanguage(currentLanguage);
 updateTranslatorVisibility();
 updateRequestEntryState();

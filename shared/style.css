@@ -143,6 +143,40 @@ button{
     text-align:center;
 }
 
+.catalogue-return-nav{
+    position:fixed;
+    right:auto;
+    bottom:max(18px, calc(env(safe-area-inset-bottom) + 16px));
+    left:18px;
+    z-index:19;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:38px;
+    max-width:calc(100vw - 36px);
+    padding:9px 13px;
+    border:1px solid rgba(255,255,255,.82);
+    border-radius:999px;
+    background:rgba(255,255,255,.84);
+    color:var(--ink);
+    box-shadow:0 10px 28px rgba(52,45,34,.12);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    font-size:.78rem;
+    font-weight:750;
+    line-height:1.15;
+    text-align:center;
+    text-decoration:none;
+    transition:background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.catalogue-return-nav:hover{
+    border-color:rgba(233,185,73,.46);
+    background:rgba(255,255,255,.94);
+    box-shadow:0 12px 30px rgba(52,45,34,.16);
+    transform:translateY(-1px);
+}
+
 [data-coupon-content]{
     transition:opacity .3s ease, filter .3s ease, transform .3s ease;
 }
@@ -1880,6 +1914,10 @@ button.approval-officer-media{
         padding:30px 0 104px;
     }
 
+    .has-catalogue-return-nav .container{
+        padding-bottom:156px;
+    }
+
     .catalogue-container{
         width:min(520px,90%);
     }
@@ -1904,12 +1942,27 @@ button.approval-officer-media{
     .translator{
         top:auto;
         right:50%;
-        bottom:18px;
+        bottom:max(14px, calc(env(safe-area-inset-bottom) + 12px));
         width:auto;
-        max-width:calc(100vw - 28px);
+        max-width:calc(100vw - 32px);
         padding:7px 9px;
         border-radius:999px;
         transform:translateX(50%) translateY(0);
+    }
+
+    .catalogue-return-nav{
+        right:auto;
+        bottom:max(64px, calc(env(safe-area-inset-bottom) + 62px));
+        left:50%;
+        min-height:34px;
+        max-width:calc(100vw - 40px);
+        padding:8px 12px;
+        font-size:.76rem;
+        transform:translateX(-50%);
+    }
+
+    .catalogue-return-nav:hover{
+        transform:translateX(-50%) translateY(-1px);
     }
 
     .translator.is-hidden{
@@ -1952,9 +2005,17 @@ button.approval-officer-media{
     }
 
     .approval-statement{
+        margin-right:auto;
+        margin-left:auto;
         max-width:280px;
         font-size:.82rem;
         letter-spacing:1.25px;
+        text-wrap:balance;
+    }
+
+    body[data-coupon="mainIndex"] .index-hero .approval-statement{
+        max-width:min(100%, 34ch);
+        line-height:1.48;
     }
 
     .approval-officer,
