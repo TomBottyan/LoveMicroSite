@@ -4,12 +4,16 @@ const ACTION_MESSAGE_DELAY = 560;
 const ACTION_FINAL_DELAY = 420;
 const REQUEST_TRANSITION_DELAY = 560;
 const REQUEST_TRANSITION_REDUCED_DELAY = 140;
+const CATALOGUE_NAVIGATION_DELAY = 1200;
+const CATALOGUE_NAVIGATION_REDUCED_DELAY = 240;
 const REQUEST_STORAGE_PREFIX = "cae-request";
 const DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
 
 const translator = document.querySelector(".translator");
 const languageButtons = document.querySelectorAll(".lang");
 const languageAwareLinks = document.querySelectorAll("[data-language-link]");
+const catalogueCards = document.querySelectorAll(".catalogue-card");
+const catalogueLinks = document.querySelectorAll("[data-catalogue-link]");
 const actionButtons = document.querySelectorAll("[data-action]");
 const requestButtons = document.querySelectorAll("[data-request]");
 const requestForms = document.querySelectorAll("[data-request-form]");
@@ -43,6 +47,7 @@ let currentLanguage = getInitialLanguage();
 let isRequestTransitionRunning = false;
 let isCourtTransitionRunning = false;
 let isNarrativeTransitionRunning = false;
+let isCatalogueNavigationRunning = false;
 const easterTapCounts = new WeakMap();
 
 function getInitialLanguage(){
@@ -144,6 +149,14 @@ function getLanguageSet(){
     return translations && translations[currentLanguage];
 }
 
+function getRandomItem(items){
+    if(!items || !items.length){
+        return "";
+    }
+
+    return items[Math.floor(Math.random() * items.length)];
+}
+
 function updateLanguageAwareLinks(){
     languageAwareLinks
         .forEach(link => {
@@ -157,6 +170,50 @@ function updateLanguageAwareLinks(){
 
             link.setAttribute("href", `${baseUrl}${separator}lang=${currentLanguage}`);
         });
+}
+
+function shouldUseNativeNavigation(event, link){
+    return event.defaultPrevented ||
+        link.target === "_blank" ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey ||
+        (event.type === "click" && event.button !== 0);
+}
+
+function startCatalogueNavigation(event, link){
+    if(shouldUseNativeNavigation(event, link)){
+        return;
+    }
+
+    const card = link.closest(".catalogue-card");
+
+    if(!card || isCatalogueNavigationRunning){
+        return;
+    }
+
+    event.preventDefault();
+
+    const languageSet = getLanguageSet();
+    const messageOutput = card.querySelector("[data-catalogue-processing-message]");
+    const processingMessage = getRandomItem(languageSet && languageSet.catalogueProcessingMessages);
+
+    if(messageOutput && processingMessage){
+        messageOutput.textContent = processingMessage;
+    }
+
+    isCatalogueNavigationRunning = true;
+
+    catalogueLinks.forEach(catalogueLink => {
+        catalogueLink.setAttribute("aria-disabled", "true");
+    });
+
+    card.classList.add("is-processing");
+
+    window.setTimeout(() => {
+        window.location.href = link.href;
+    }, prefersReducedMotion.matches ? CATALOGUE_NAVIGATION_REDUCED_DELAY : CATALOGUE_NAVIGATION_DELAY);
 }
 
 function getActionConfig(actionKey){
@@ -849,6 +906,30 @@ languageButtons
 
         button.addEventListener("click", () => {
             switchLanguage(button.dataset.lang);
+        });
+
+    });
+
+catalogueLinks
+    .forEach(link => {
+
+        link.addEventListener("keydown", event => {
+            if(event.key === " "){
+                startCatalogueNavigation(event, link);
+            }
+        });
+
+    });
+
+catalogueCards
+    .forEach(card => {
+
+        card.addEventListener("click", event => {
+            const link = card.querySelector("[data-catalogue-link]");
+
+            if(link){
+                startCatalogueNavigation(event, link);
+            }
         });
 
     });

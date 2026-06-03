@@ -1512,6 +1512,19 @@ Canonical welcome portrait:
 
 Catalogue links should preserve the active language using `?lang=en` or `?lang=hu`.
 
+Catalogue cards share the standard Cat Approved paw hover language before click.
+
+Catalogue cards use a shared processing transition before navigation.
+
+Catalogue Card Processing Transition:
+
+* Applies only to the root homepage catalogue.
+* Keeps catalogue cards as normal links for progressive enhancement.
+* On activation, the selected card flips to an official processing face.
+* The processing face displays one randomized localized message.
+* After a short delay, the user is forwarded to the selected coupon URL.
+* The transition must preserve the active language and respect reduced-motion preferences.
+
 ---
 
 # Coupon Registry

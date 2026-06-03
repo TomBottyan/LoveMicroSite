@@ -204,8 +204,11 @@ h1{
 
 .approval-officer-media{
     position:relative;
-    display:block;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     width:100%;
+    aspect-ratio:3 / 2;
     padding:0;
     overflow:hidden;
     border:1px solid rgba(34,34,34,.1);
@@ -231,8 +234,21 @@ button.approval-officer-media{
 .approval-officer-portrait{
     display:block;
     width:100%;
-    height:auto;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
     border-radius:16px;
+}
+
+.coupon-artwork-frame{
+    width:100%;
+    aspect-ratio:3 / 2;
+}
+
+.coupon-artwork{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
 }
 
 .approval-officer-details{
@@ -1131,28 +1147,130 @@ button.approval-officer-media{
 }
 
 .catalogue-card{
-    display:flex;
+    position:relative;
+    display:block;
     overflow:hidden;
     border:1px solid var(--line);
     border-radius:18px;
     background:rgba(255,255,255,.82);
     box-shadow:var(--shadow);
+    cursor:pointer;
+    perspective:1200px;
+}
+
+.catalogue-card-inner{
+    display:grid;
+    width:100%;
+    min-height:100%;
+    transform-style:preserve-3d;
+    transition:transform .62s cubic-bezier(.2,.72,.2,1);
+}
+
+.catalogue-card.is-processing .catalogue-card-inner{
+    transform:rotateY(180deg);
+}
+
+.catalogue-card-face{
+    grid-area:1 / 1;
+    min-width:0;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+}
+
+.catalogue-card-front{
+    display:flex;
+    min-height:100%;
     flex-direction:column;
 }
 
-.catalogue-card img{
-    display:block;
+.catalogue-card-back{
+    position:relative;
+    display:flex;
+    min-height:100%;
+    padding:28px 22px;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:12px;
+    overflow:hidden;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,.94), rgba(248,245,239,.88)),
+        radial-gradient(circle at 50% 18%, rgba(233,185,73,.18), transparent 48%);
+    text-align:center;
+    transform:rotateY(180deg);
+}
+
+.catalogue-card-back::before{
+    position:absolute;
+    inset:14px;
+    content:"";
+    border:1px solid rgba(233,185,73,.5);
+    border-radius:13px;
+    pointer-events:none;
+}
+
+.catalogue-processing-seal{
+    display:flex;
+    width:54px;
+    height:54px;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(111,83,18,.24);
+    border-radius:50%;
+    background:rgba(255,255,255,.66);
+    color:var(--gold-dark);
+    font-size:1.55rem;
+    box-shadow:0 10px 22px rgba(52,45,34,.08);
+}
+
+.catalogue-processing-label{
+    color:var(--gold-dark);
+    font-size:.78rem;
+    font-weight:900;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+}
+
+.catalogue-processing-message{
+    max-width:22ch;
+    color:var(--ink);
+    font-family:Georgia,serif;
+    font-size:1.22rem;
+    line-height:1.2;
+}
+
+.catalogue-processing-support{
+    max-width:26ch;
+    color:var(--muted);
+    font-size:.88rem;
+    line-height:1.45;
+}
+
+.catalogue-card-image-frame{
+    display:flex;
+    align-items:center;
+    justify-content:center;
     width:100%;
-    height:auto;
+    aspect-ratio:3 / 2;
     padding:24px 18px;
-    object-fit:contain;
-    object-position:center;
     background:linear-gradient(180deg, rgba(248,245,239,.9), rgba(255,255,255,.58));
     border-bottom:1px solid var(--line);
 }
 
+.catalogue-card-image-frame img,
+.catalogue-card-image{
+    display:block;
+    width:100%;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+    object-position:center;
+}
+
 .catalogue-card-body{
     display:flex;
+    flex:1;
     padding:18px;
     flex-direction:column;
 }
@@ -1193,6 +1311,10 @@ button.approval-officer-media{
     font-weight:800;
     text-decoration:none;
     transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.catalogue-card.is-processing .catalogue-button{
+    pointer-events:none;
 }
 
 .catalogue-button:hover{
@@ -1604,7 +1726,8 @@ button.approval-officer-media{
     .action-button::after,
     .redeem-button::after,
     .secondary-button::after,
-    .lang::after{
+    .lang::after,
+    .catalogue-card::after{
         position:absolute;
         z-index:2;
         content:"🐾";
@@ -1645,6 +1768,12 @@ button.approval-officer-media{
         font-size:.56rem;
     }
 
+    .catalogue-card::after{
+        top:14px;
+        right:14px;
+        z-index:5;
+    }
+
     .action-button:hover::after,
     .action-button:focus-visible::after,
     .redeem-button:hover::after,
@@ -1652,9 +1781,18 @@ button.approval-officer-media{
     .secondary-button:hover::after,
     .secondary-button:focus-visible::after,
     .lang:hover::after,
-    .lang:focus-visible::after{
+    .lang:focus-visible::after,
+    .catalogue-card:not(.is-processing):hover::after,
+    .catalogue-card:focus-within:not(.is-processing)::after{
         opacity:1;
         transform:translate3d(0,0,0) scale(1) rotate(-8deg);
+    }
+
+    .catalogue-card.is-processing::after,
+    .catalogue-card.is-processing:hover::after,
+    .catalogue-card.is-processing:focus-within::after{
+        opacity:0;
+        transform:translate3d(4px,4px,0) scale(.86) rotate(-8deg);
     }
 
     .action-button:hover,
@@ -1891,6 +2029,18 @@ button.approval-officer-media{
 
     [data-coupon-content]{
         transition:none;
+    }
+
+    .catalogue-card-inner{
+        transform:none !important;
+    }
+
+    .catalogue-card.is-processing .catalogue-card-front{
+        opacity:0;
+    }
+
+    .catalogue-card.is-processing .catalogue-card-back{
+        transform:none;
     }
 
     *,
