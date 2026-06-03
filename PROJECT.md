@@ -575,7 +575,7 @@ Experiences intended to be enjoyed together.
 
 Examples:
 
-* Movie Night Authorization
+* Movie Night Permit
 * Dining Out Authorization
 
 ## Comfort Coupons
@@ -1087,7 +1087,7 @@ Movie Night request rules:
 * Movie or series title is required.
 * Snack request is required.
 * Blanket requirement is required.
-* Movie Night is a shared experience authorization, not a service request or recovery permit.
+* Movie Night is a shared experience permit, not a service request or recovery permit.
 
 Passenger Princess:
 
@@ -1461,7 +1461,7 @@ The Chef Pass portrait at `shared/images/lord-purrcival/chef-pass.png` is canon 
 
 The Lazy Day portrait at `shared/images/lord-purrcival/lazy-day.png` is canon for the Lazy Day Permit experience.
 
-The Movie Night portrait at `shared/images/lord-purrcival/movie-night.png` is canon for the Movie Night Authorization experience.
+The Movie Night portrait at `shared/images/lord-purrcival/movie-night.png` is canon for the Movie Night Permit experience.
 
 The Passenger Princess portrait at `shared/images/lord-purrcival/passenger-permit.png` is canon for the Passenger Princess Permit experience.
 
@@ -1872,7 +1872,7 @@ Complete
 
 Name:
 
-Movie Night Authorization
+Movie Night Permit
 
 Folder:
 

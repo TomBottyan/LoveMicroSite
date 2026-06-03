@@ -58,7 +58,7 @@ Each implemented coupon folder contains its own `index.html` file.
 
 * `CAE-001` Chef Pass: `chef-pass/index.html`
 * `CAE-002` Lazy Day Permit: `lazy-day/index.html`
-* `CAE-003` Movie Night Authorization: `movie-night/index.html`
+* `CAE-003` Movie Night Permit: `movie-night/index.html`
 * `CAE-004` Passenger Princess Permit: `passenger-princess/index.html`
 * `CAE-005` Dining Out Authorization: `dining-out/index.html`
 * `CAE-006` Cuddle Authorization: `cuddle-authorization/index.html`

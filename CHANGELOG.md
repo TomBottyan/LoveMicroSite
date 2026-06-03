@@ -23,7 +23,7 @@ Implemented coupons:
 
 * `CAE-001` Chef Pass
 * `CAE-002` Lazy Day Permit
-* `CAE-003` Movie Night Authorization
+* `CAE-003` Movie Night Permit
 * `CAE-004` Passenger Princess Permit
 * `CAE-005` Dining Out Authorization
 * `CAE-006` Cuddle Authorization
